@@ -2,6 +2,9 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { ClientModule } from './client/client.module';
+import { ArtistModule } from './artist/artist.module';
+import { TattooModule } from './tattoo/tattoo.module';
 
 @Module({
   imports: [
@@ -10,11 +13,14 @@ import { AppService } from './app.service';
       host: 'localhost',
       port: 3306,
       username: 'root',
-      password: '', // ← pon tu contraseña si tienes una
+      password: '',
       database: 'fine_line_tattoo',
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
-      synchronize: false, // ¡Deja en false! Ya tienes las tablas creadas
+      synchronize: false,
     }),
+    ClientModule,
+    ArtistModule,
+    TattooModule,
   ],
   controllers: [AppController],
   providers: [AppService],
