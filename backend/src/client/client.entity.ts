@@ -3,9 +3,9 @@ import {
   Column,
   PrimaryGeneratedColumn,
   CreateDateColumn,
-  // OneToMany,
+  OneToMany,
 } from 'typeorm';
-// import { Tattoo } from '../tattoo/tattoo.entity';
+import { Tattoo } from '../tattoo/tattoo.entity';
 
 @Entity('clients')
 export class Client {
@@ -21,6 +21,6 @@ export class Client {
   @CreateDateColumn({ name: 'created_at' })
   createdAt: Date;
 
-  // @OneToMany(() => Tattoo, (tattoo) => tattoo.client)
-  // tattoos: Tattoo[];
+  @OneToMany(() => Tattoo, (tattoo) => tattoo.client)
+  tattoos: Tattoo[];
 }

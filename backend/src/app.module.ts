@@ -4,6 +4,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ClientModule } from './client/client.module';
 import { ArtistModule } from './artist/artist.module';
+import { TattooModule } from './tattoo/tattoo.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { ArtistModule } from './artist/artist.module';
     }),
     ClientModule,
     ArtistModule,
+    TattooModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -1,10 +1,5 @@
-import {
-  Entity,
-  PrimaryGeneratedColumn,
-  Column,
-  // OneToMany
-} from 'typeorm';
-// import { Tattoo } from '../tattoo/tattoo.entity';
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
+import { Tattoo } from '../tattoo/tattoo.entity';
 
 @Entity('artists')
 export class Artist {
@@ -16,4 +11,7 @@ export class Artist {
 
   @Column({ type: 'text' })
   bio: string;
+
+  @OneToMany(() => Tattoo, (tattoo) => tattoo.artist)
+  tattoos: Tattoo[];
 }
