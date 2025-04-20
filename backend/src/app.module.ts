@@ -5,9 +5,13 @@ import { AppService } from './app.service';
 import { ClientModule } from './client/client.module';
 import { ArtistModule } from './artist/artist.module';
 import { TattooModule } from './tattoo/tattoo.module';
+import { AuthModule } from './auth/auth.module';
+import { ConfigModule } from '@nestjs/config';
+import { AdminController } from './admin/admin.controller';
 
 @Module({
   imports: [
+    ConfigModule.forRoot({ isGlobal: true }),
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: 'localhost',
@@ -21,8 +25,9 @@ import { TattooModule } from './tattoo/tattoo.module';
     ClientModule,
     ArtistModule,
     TattooModule,
+    AuthModule,
   ],
-  controllers: [AppController],
+  controllers: [AppController, AdminController],
   providers: [AppService],
 })
 export class AppModule {}

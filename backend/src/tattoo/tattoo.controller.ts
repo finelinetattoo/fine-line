@@ -11,7 +11,10 @@ import { TattooService } from './tattoo.service';
 import { CreateTattooDto } from './dto/create-tattoo.dto';
 import { UpdateTattooDto } from './dto/update-tattoo.dto';
 import { Tattoo } from './tattoo.entity';
+import { UseGuards } from '@nestjs/common';
+import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 
+@UseGuards(JwtAuthGuard)
 @Controller('tattoos')
 export class TattooController {
   constructor(private readonly tattooService: TattooService) {}
