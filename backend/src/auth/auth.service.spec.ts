@@ -56,6 +56,7 @@ describe('AuthService', () => {
       service.validateUser('nonexistentUser', 'anyPassword'),
     ).rejects.toThrow('User not found');
   });
+
   it('should throw UnauthorizedException if password is incorrect', async () => {
     mockUserRepository.findOneBy.mockResolvedValue(mockUser);
     jest
@@ -65,5 +66,33 @@ describe('AuthService', () => {
     await expect(
       service.validateUser('testUser', 'wrongPassword'),
     ).rejects.toThrow('Invalid credentials');
+  });
+
+  it('should return access token for valid user', () => {
+    const mockPayload = {
+      id: mockUser.id,
+      username: mockUser.username,
+    };
+
+    const mockToken = 'mocked-jwt-token';
+
+    jest.spyOn(service['jwtService'], 'sign').mockReturnValue(mockToken);
+
+    const result = service.login(mockPayload);
+
+    expect(result).toEqual({ access_token: mockToken });
+  });
+
+  it('should throw if user data is incomplete', () => {
+    const invalidUser = {};
+    // @ts-expect-error Ignore type error to call login with invalid user
+    expect(() => service.login(invalidUser)).toThrow();
+  });
+
+  it('should throw if jwtService is not available', () => {
+    // @ts-expect-error force the manipulation for the test
+    service['jwtService'] = null;
+
+    expect(() => service.login({ id: 1, username: 'admin' })).toThrow();
   });
 });
