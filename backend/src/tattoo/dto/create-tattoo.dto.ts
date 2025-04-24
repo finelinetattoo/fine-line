@@ -1,6 +1,5 @@
 import {
   IsEnum,
-  IsNotEmpty,
   IsNumber,
   IsOptional,
   IsString,
@@ -8,7 +7,9 @@ import {
   Min,
   IsInt,
 } from 'class-validator';
-import { TattooSize } from '../tattoo.entity';
+import { TattooSize } from '../enums/tattoo-size.enum';
+import { BodyPart } from '../enums/body-part.enum';
+import { TattooStyle } from '../enums/tattoo-style.enum';
 
 export class CreateTattooDto {
   @IsInt()
@@ -29,13 +30,13 @@ export class CreateTattooDto {
   @IsDateString({}, { message: 'Date must be a valid ISO string' })
   date: string;
 
-  @IsNotEmpty()
-  @IsString()
-  bodyPart: string;
+  @IsEnum(BodyPart, { message: 'BodyPart must be a valid body area' })
+  bodyPart: BodyPart;
 
-  @IsNotEmpty()
-  @IsString()
-  style: string;
+  @IsEnum(TattooStyle, {
+    message: 'Style must be a valid tattoo style',
+  })
+  style: TattooStyle;
 
   @IsOptional()
   @IsString()
