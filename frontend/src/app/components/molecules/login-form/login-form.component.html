@@ -1,0 +1,17 @@
+<form [formGroup]="loginForm" (ngSubmit)="submitForm()" class="flex flex-col gap-4">
+  <nz-form-item>
+    <nz-form-label [nzSpan]="24" nzFor="username">Usuario</nz-form-label>
+    <nz-form-control [nzSpan]="24" [nzValidateStatus]="loginForm.get('username')!">
+      <input nz-input formControlName="username" id="username" placeholder="Introduce tu usuario" />
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzSpan]="24" nzFor="password">Contraseña</nz-form-label>
+    <nz-form-control [nzSpan]="24" [nzValidateStatus]="loginForm.get('password')!">
+      <input nz-input type="password" formControlName="password" id="password" placeholder="Tu contraseña" />
+    </nz-form-control>
+  </nz-form-item>
+
+  <button nz-button nzType="primary" class="w-full" [disabled]="loginForm.invalid">Iniciar sesión</button>
+</form>

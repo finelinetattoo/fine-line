@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { ClientListComponent } from '../../components/organisms/client-list/client-list.component';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [],
+  imports: [ClientListComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss',
 })
