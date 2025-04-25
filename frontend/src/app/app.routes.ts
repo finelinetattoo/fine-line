@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
-import { authGuard } from './guards/auth.guard';
+import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
-import { DashboardLayoutComponent } from './layouts/dashboard-layout/dashboard-layout.component';
+import { authGuard } from './core/guards/auth.guard';
 
 export const routes: Routes = [
   {
@@ -16,23 +16,32 @@ export const routes: Routes = [
     ],
   },
   {
+    path: 'admin/login',
+    loadComponent: () =>
+      import('./pages/auth/login/login.component').then(
+        (m) => m.LoginComponent
+      ),
+  },
+  {
     path: 'admin',
     children: [
       {
+        path: '',
+        redirectTo: 'login',
+        pathMatch: 'full',
+      },
+      {
         path: 'login',
         loadComponent: () =>
-          import('./pages/auth/login.component').then((m) => m.LoginComponent),
+          import('./pages/auth/login/login.component').then(
+            (m) => m.LoginComponent
+          ),
       },
       {
         path: '',
-        component: DashboardLayoutComponent,
+        component: AdminLayoutComponent,
         canActivate: [authGuard],
         children: [
-          {
-            path: '',
-            redirectTo: 'dashboard',
-            pathMatch: 'full',
-          },
           {
             path: 'dashboard',
             loadComponent: () =>
@@ -40,19 +49,9 @@ export const routes: Routes = [
                 (m) => m.DashboardComponent
               ),
           },
-          {
-            path: 'clients',
-            loadComponent: () =>
-              import('./pages/clients/clients.component').then(
-                (m) => m.ClientsComponent
-              ),
-          },
         ],
       },
     ],
   },
-  {
-    path: '**',
-    redirectTo: '',
-  },
+  { path: '**', redirectTo: '' },
 ];

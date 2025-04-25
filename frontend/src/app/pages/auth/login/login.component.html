@@ -1,0 +1,8 @@
+<section class="login-page">
+  <app-login-form (login)="handleLogin($event)"></app-login-form>
+  @if (errorMessage) {
+  <div class="mt-4 p-3 rounded-xl border border-red-400 bg-red-100 text-red-700 text-center max-w-md mx-auto">
+    {{ errorMessage }}
+  </div>
+  }
+</section>

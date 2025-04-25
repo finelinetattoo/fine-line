@@ -35,64 +35,69 @@ describe('AuthService', () => {
     service = module.get<AuthService>(AuthService);
   });
 
-  it('should validate and return user without password if credentials are correct', async () => {
-    mockUserRepository.findOneBy.mockResolvedValue(mockUser);
-    jest
-      .spyOn(bcrypt, 'compare')
-      .mockImplementation(async () => await Promise.resolve(true));
+  describe('validateUser', () => {
+    it('should validate and return user without password if credentials are correct', async () => {
+      mockUserRepository.findOneBy.mockResolvedValue(mockUser);
+      jest
+        .spyOn(bcrypt, 'compare')
+        .mockImplementation(async () => await Promise.resolve(true));
 
-    await expect(
-      service.validateUser('testUser', 'somePassword'),
-    ).resolves.toEqual({
-      id: mockUser.id,
-      username: mockUser.username,
-      createdAt: mockUser.createdAt,
+      await expect(
+        service.validateUser('testUser', 'somePassword'),
+      ).resolves.toEqual({
+        id: mockUser.id,
+        username: mockUser.username,
+        createdAt: mockUser.createdAt,
+      });
+    });
+
+    it('should throw UnauthorizedException if user is not found', async () => {
+      mockUserRepository.findOneBy.mockResolvedValue(null);
+
+      await expect(
+        service.validateUser('nonexistentUser', 'anyPassword'),
+      ).rejects.toThrow('User not found');
+    });
+
+    it('should throw UnauthorizedException if password is incorrect', async () => {
+      mockUserRepository.findOneBy.mockResolvedValue(mockUser);
+      jest
+        .spyOn(bcrypt, 'compare')
+        .mockImplementation(async () => await Promise.resolve(false));
+
+      await expect(
+        service.validateUser('testUser', 'wrongPassword'),
+      ).rejects.toThrow('Invalid credentials');
     });
   });
-  it('should throw UnauthorizedException if user is not found', async () => {
-    mockUserRepository.findOneBy.mockResolvedValue(null);
 
-    await expect(
-      service.validateUser('nonexistentUser', 'anyPassword'),
-    ).rejects.toThrow('User not found');
-  });
+  describe('login', () => {
+    it('should return access token for valid user', () => {
+      const mockPayload = {
+        id: mockUser.id,
+        username: mockUser.username,
+      };
 
-  it('should throw UnauthorizedException if password is incorrect', async () => {
-    mockUserRepository.findOneBy.mockResolvedValue(mockUser);
-    jest
-      .spyOn(bcrypt, 'compare')
-      .mockImplementation(async () => await Promise.resolve(false));
+      const mockToken = 'mocked-jwt-token';
 
-    await expect(
-      service.validateUser('testUser', 'wrongPassword'),
-    ).rejects.toThrow('Invalid credentials');
-  });
+      jest.spyOn(service['jwtService'], 'sign').mockReturnValue(mockToken);
 
-  it('should return access token for valid user', () => {
-    const mockPayload = {
-      id: mockUser.id,
-      username: mockUser.username,
-    };
+      const result = service.login(mockPayload);
 
-    const mockToken = 'mocked-jwt-token';
+      expect(result).toEqual({ access_token: mockToken });
+    });
 
-    jest.spyOn(service['jwtService'], 'sign').mockReturnValue(mockToken);
+    it('should throw if user data is incomplete', () => {
+      const invalidUser = {};
+      // @ts-expect-error Ignore type error to call login with invalid user
+      expect(() => service.login(invalidUser)).toThrow();
+    });
 
-    const result = service.login(mockPayload);
+    it('should throw if jwtService is not available', () => {
+      // @ts-expect-error force the manipulation for the test
+      service['jwtService'] = null;
 
-    expect(result).toEqual({ access_token: mockToken });
-  });
-
-  it('should throw if user data is incomplete', () => {
-    const invalidUser = {};
-    // @ts-expect-error Ignore type error to call login with invalid user
-    expect(() => service.login(invalidUser)).toThrow();
-  });
-
-  it('should throw if jwtService is not available', () => {
-    // @ts-expect-error force the manipulation for the test
-    service['jwtService'] = null;
-
-    expect(() => service.login({ id: 1, username: 'admin' })).toThrow();
+      expect(() => service.login({ id: 1, username: 'admin' })).toThrow();
+    });
   });
 });
