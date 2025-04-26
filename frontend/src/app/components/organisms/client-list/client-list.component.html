@@ -1,18 +1,22 @@
-<nz-table [nzData]="clients" [nzLoading]="loading" [nzBordered]="true" [nzSize]="'middle'" [nzScroll]="{ x: '800px' }">
+@if(loading){
+<app-loader></app-loader>
+} @else {
+<nz-table [nzData]="clients" [nzBordered]="true" [nzSize]="'middle'" [nzScroll]="{ x: 'auto' }">
   <thead>
     <tr>
-      <th>ID</th>
       <th>Nombre</th>
       <th>Edad</th>
       <th>Creado el</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let client of clients">
-      <td>{{ client.id }}</td>
+    @for(client of clients; track client.id){
+    <tr>
       <td>{{ client.name }}</td>
       <td>{{ client.age }}</td>
       <td>{{ client.createdAt | date: 'short' }}</td>
     </tr>
+    }
   </tbody>
 </nz-table>
+}
