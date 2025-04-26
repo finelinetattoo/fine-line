@@ -4,9 +4,10 @@
 <nz-table [nzData]="clients" [nzBordered]="true" [nzSize]="'middle'" [nzScroll]="{ x: 'auto' }">
   <thead>
     <tr>
-      <th>Nombre</th>
-      <th>Edad</th>
-      <th>Creado el</th>
+      <th nzWidth="60px">Nombre</th>
+      <th nzWidth="60px">Edad</th>
+      <th nzWidth="60px">Fecha creación</th>
+      <th nzWidth="60px">Acciones</th>
     </tr>
   </thead>
   <tbody>
@@ -15,8 +16,19 @@
       <td>{{ client.name }}</td>
       <td>{{ client.age }}</td>
       <td>{{ client.createdAt | date: 'short' }}</td>
+      <td>
+        <button nz-button nzType="text" nzDanger (click)="deleteClient(client.id)">
+          <nz-icon nzType="delete"></nz-icon>
+        </button>
+      </td>
     </tr>
     }
   </tbody>
 </nz-table>
+<div class="button-container">
+  <button nz-button nzType="primary" (click)="createClient()">
+    <nz-icon nzType="plus"></nz-icon>
+    Añadir cliente
+  </button>
+</div>
 }
