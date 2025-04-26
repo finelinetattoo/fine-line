@@ -44,10 +44,15 @@ export const routes: Routes = [
         children: [
           {
             path: 'dashboard',
+            redirectTo: 'clients',
+            pathMatch: 'full',
+          },
+          {
+            path: 'clients',
             loadComponent: () =>
-              import('./pages/dashboard/dashboard.component').then(
-                (m) => m.DashboardComponent
-              ),
+              import(
+                './components/organisms/client-list/client-list.component'
+              ).then((m) => m.ClientListComponent),
           },
         ],
       },
