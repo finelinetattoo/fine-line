@@ -15,7 +15,7 @@
     <tr>
       <td>{{ client.name }}</td>
       <td>{{ client.age }}</td>
-      <td>{{ client.createdAt | date: 'short' }}</td>
+      <td>{{ client.createdAt | date: 'dd/MM/yyyy, HH:mm'}}</td>
       <td class="actions-cell">
         <button nz-button nzType="text" (click)="editClient(client)">
           <nz-icon nzType="edit"></nz-icon>
