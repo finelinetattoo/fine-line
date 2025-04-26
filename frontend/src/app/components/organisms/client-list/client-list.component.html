@@ -16,7 +16,10 @@
       <td>{{ client.name }}</td>
       <td>{{ client.age }}</td>
       <td>{{ client.createdAt | date: 'short' }}</td>
-      <td>
+      <td class="actions-cell">
+        <button nz-button nzType="text" (click)="editClient(client)">
+          <nz-icon nzType="edit"></nz-icon>
+        </button>
         <button nz-button nzType="text" nzDanger (click)="deleteClient(client.id)">
           <nz-icon nzType="delete"></nz-icon>
         </button>

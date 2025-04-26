@@ -1,5 +1,5 @@
 @use "tailwindcss";
-
+@use "styles/abstracts/colors" as *;
 // Dashboard page styles
 .sidebar-logo img {
   display: inline-block;
@@ -8,11 +8,8 @@
 .ant-layout-sider {
   position: relative;
   min-width: 0;
-  background: #373737;
+  background: $text-color;
 }
-// .ant-menu.ant-menu-dark,
-// .ant-menu-dark .ant-menu-sub,
-// .ant-menu.ant-menu-dark .ant-menu-sub {
-//   color: rgba(255, 255, 255, 0.65);
-//   background: orange;
-// }
+.ant-menu-dark .ant-menu-inline.ant-menu-sub {
+  background: $text-secondary-color;
+}

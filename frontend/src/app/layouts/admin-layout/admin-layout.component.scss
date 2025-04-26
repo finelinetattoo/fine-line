@@ -1,3 +1,5 @@
+@use "../../../styles/abstracts/colors" as *;
+
 :host {
   display: flex;
   text-rendering: optimizeLegibility;
@@ -7,6 +9,8 @@
 
 .app-layout {
   height: 100vh;
+  min-height: 100vh;
+  background-color: $primary-color;
 }
 
 .menu-sidebar {
@@ -14,18 +18,27 @@
   z-index: 10;
   min-height: 100vh;
   box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35);
-}
+  background-color: $text-color;
+  color: $primary-color;
 
-.header-trigger {
-  height: 64px;
-  padding: 20px 24px;
-  font-size: 20px;
-  cursor: pointer;
-  transition: all 0.3s, padding 0s;
-}
+  .ant-menu {
+    background-color: transparent;
 
-.trigger:hover {
-  color: #1890ff;
+    .ant-menu-item,
+    .ant-menu-submenu-title {
+      color: $primary-color;
+
+      &:hover {
+        background-color: $secondary-color;
+        color: $text-color;
+      }
+
+      &.ant-menu-item-selected {
+        background-color: $accent-color;
+        color: $text-color;
+      }
+    }
+  }
 }
 
 .sidebar-logo {
@@ -34,18 +47,18 @@
   padding-left: 24px;
   overflow: hidden;
   line-height: 64px;
-  background: #001529;
+  background: $text-secondary-color;
   transition: all 0.3s;
-}
 
-.sidebar-logo-title {
-  display: inline-block;
-  margin: 0 0 0 20px;
-  color: #fff;
-  font-weight: 600;
-  font-size: 14px;
-  font-family: Avenir, Helvetica Neue, Arial, Helvetica, sans-serif;
-  vertical-align: middle;
+  &-title {
+    display: inline-block;
+    margin: 0 0 0 20px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 14px;
+    font-family: Avenir, Helvetica Neue, Arial, Helvetica, sans-serif;
+    vertical-align: middle;
+  }
 }
 
 nz-header {
@@ -58,7 +71,8 @@ nz-header {
   position: relative;
   height: 64px;
   padding: 0;
-  background: #fff;
+  background-color: $primary-color;
+  color: $text-color;
   box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
 }
 
@@ -84,8 +98,24 @@ nz-content {
   gap: 8px;
   width: 100%;
   padding: 25px 0;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
 }
 
-.logout-button:hover {
-  background: rgba(255, 255, 255, 0.1);
+.header-trigger {
+  height: 64px;
+  padding: 20px 24px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s, padding 0s;
+
+  .trigger:hover {
+    color: #1890ff;
+  }
+}
+
+.custom-menu-item {
+  margin: 0 !important;
 }

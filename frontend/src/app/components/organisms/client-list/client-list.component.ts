@@ -81,18 +81,38 @@ export class ClientListComponent {
     });
   }
 
-  createClient(): void {
+  private openClientModal(
+    title: string,
+    client?: Client,
+    callback?: (client: Client) => void
+  ): void {
     const modal = this.modal.create({
-      nzTitle: 'Añadir nuevo cliente',
+      nzTitle: title,
       nzContent: ClientFormModalComponent,
       nzFooter: null,
       nzWidth: 400,
+      nzCentered: true,
+      ...(client ? { nzData: { client } } : {}),
     });
 
-    modal.afterClose.subscribe((newClient) => {
-      if (newClient) {
-        this.clients = [...this.clients, newClient];
+    modal.afterClose.subscribe((result) => {
+      if (result && callback) {
+        callback(result);
       }
+    });
+  }
+
+  createClient(): void {
+    this.openClientModal('Añadir cliente', undefined, (newClient) => {
+      this.clients = [...this.clients, newClient];
+    });
+  }
+
+  editClient(client: Client): void {
+    this.openClientModal('Editar cliente', client, (updatedClient) => {
+      this.clients = this.clients.map((c) =>
+        c.id === updatedClient.id ? updatedClient : c
+      );
     });
   }
 }
