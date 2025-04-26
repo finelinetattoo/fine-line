@@ -27,6 +27,14 @@
         </ul>
       </li>
     </ul>
+    <div class="logout-container">
+      <button nz-button nzType="text" (click)="logout()" class="logout-button cursor-pointer">
+        <nz-icon nzType="logout"></nz-icon>
+        @if(!isCollapsed) {
+        <span>Cerrar sesión</span>
+        }
+      </button>
+    </div>
   </nz-sider>
   <nz-layout>
     <nz-header>

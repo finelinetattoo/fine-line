@@ -3,10 +3,11 @@ import { Component, inject } from '@angular/core';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { ClientService } from '../../../services/client.service';
 import { Client } from '../../../interfaces/client';
+import { LoaderComponent } from '../../atoms/loader/loader.component';
 
 @Component({
   selector: 'app-client-list',
-  imports: [CommonModule, NzTableModule],
+  imports: [CommonModule, NzTableModule, LoaderComponent],
   templateUrl: './client-list.component.html',
   styleUrl: './client-list.component.scss',
 })
