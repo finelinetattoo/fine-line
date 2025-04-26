@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { NzTableModule } from 'ng-zorro-antd/table';
-import { ClientService } from '../../../services/client.service';
+import { ClientService } from '../../../services/api/client.service';
 import { Client } from '../../../interfaces/client';
 import { LoaderComponent } from '../../atoms/loader/loader.component';
 
@@ -18,7 +18,7 @@ export class ClientListComponent {
   loading = true;
 
   ngOnInit(): void {
-    this.clientService.getClients().subscribe({
+    this.clientService.getAll().subscribe({
       next: (res) => {
         this.clients = res;
         this.loading = false;
