@@ -5,46 +5,45 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { NzModalRef } from 'ng-zorro-antd/modal';
+import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzInputModule } from 'ng-zorro-antd/input';
-import { NzButtonModule } from 'ng-zorro-antd/button';
-import { ClientService } from '../../../services/api/client.service';
+import { NzModalRef } from 'ng-zorro-antd/modal';
+import { ArtistService } from '../../../services/api/artist.service';
 import { NotificationService } from '../../../services/notification/notification.service';
 
 @Component({
-  selector: 'app-client-form-modal',
+  selector: 'app-artist-form-modal',
   imports: [ReactiveFormsModule, NzFormModule, NzInputModule, NzButtonModule],
-  templateUrl: './client-form-modal.component.html',
-  styleUrl: './client-form-modal.component.scss',
+  templateUrl: './artist-form-modal.component.html',
+  styleUrl: './artist-form-modal.component.scss',
 })
-export class ClientFormModalComponent implements OnInit {
-  private modalRef = inject(NzModalRef<ClientFormModalComponent>);
+export class ArtistFormModalComponent implements OnInit {
+  private modalRef = inject(NzModalRef<ArtistFormModalComponent>);
   private fb = inject(FormBuilder);
-  private clientService = inject(ClientService);
+  private artistService = inject(ArtistService);
   private notificationService = inject(NotificationService);
-  @Input() client?: {
+  @Input() artist?: {
     id: number;
     name: string;
-    age: number;
-    createdAt: string;
+    bio: string;
   };
 
   form: FormGroup = this.fb.group({
     name: ['', [Validators.required]],
-    age: ['', [Validators.required, Validators.min(1)]],
+    bio: [''],
   });
 
   loading = false;
 
   ngOnInit(): void {
-    const modalData = this.modalRef.getConfig().nzData as { client?: any };
+    const modalData = this.modalRef.getConfig().nzData as { artist?: any };
 
-    if (modalData?.client) {
-      this.client = modalData.client;
+    if (modalData?.artist) {
+      this.artist = modalData.artist;
       this.form.patchValue({
-        name: this.client!.name,
-        age: this.client!.age,
+        name: this.artist!.name,
+        bio: this.artist!.bio,
       });
     }
   }
@@ -52,40 +51,40 @@ export class ClientFormModalComponent implements OnInit {
   onSubmit(): void {
     if (this.form.valid) {
       this.loading = true;
-      const clientData = this.form.value;
+      const artistData = this.form.value;
 
-      if (this.client) {
-        this.clientService.update(this.client.id, clientData).subscribe({
-          next: (updatedClient) => {
+      if (this.artist) {
+        this.artistService.update(this.artist.id, artistData).subscribe({
+          next: (updatedArtist) => {
             this.notificationService.success(
-              'Cliente actualizado',
-              'El cliente se actualizó correctamente.'
+              'Tatuador actualizado',
+              'El tatuador se actualizó correctamente.'
             );
-            this.modalRef.close(updatedClient);
+            this.modalRef.close(updatedArtist);
             this.loading = false;
           },
           error: () => {
             this.notificationService.error(
               'Error',
-              'Hubo un problema al actualizar el cliente.'
+              'Hubo un problema al actualizar el tatuador.'
             );
             this.loading = false;
           },
         });
       } else {
-        this.clientService.create(clientData).subscribe({
-          next: (createdClient) => {
+        this.artistService.create(artistData).subscribe({
+          next: (createdArtist) => {
             this.notificationService.success(
-              'Cliente creado',
-              'El cliente ha sido creado correctamente.'
+              'Tatuador creado',
+              'El tatuador ha sido creado correctamente.'
             );
-            this.modalRef.close(createdClient);
+            this.modalRef.close(createdArtist);
             this.loading = false;
           },
           error: () => {
             this.notificationService.error(
               'Error',
-              'Hubo un problema al crear el cliente.'
+              'Hubo un problema al crear el tatuador.'
             );
             this.loading = false;
           },

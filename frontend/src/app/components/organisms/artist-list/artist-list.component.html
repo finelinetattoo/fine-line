@@ -1,1 +1,6 @@
-<p>artist-list works!</p>
+<app-admin-list [loading]="loading" [data]="artists" [columns]="[
+    { label: 'Nombre', key: 'name' },
+    { label: 'Biografía', key: 'bio' }
+  ]" [createButtonText]="'Añadir artista'" [onCreate]="createArtist.bind(this)" [onEdit]="editArtist.bind(this)"
+  [onDelete]="deleteArtist.bind(this)">
+</app-admin-list>

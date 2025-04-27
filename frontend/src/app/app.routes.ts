@@ -53,6 +53,13 @@ export const routes: Routes = [
                 (m) => m.ClientsComponent
               ),
           },
+          {
+            path: 'artists',
+            loadComponent: () =>
+              import('./pages/artists/artists.component').then(
+                (m) => m.ArtistsComponent
+              ),
+          },
         ],
       },
     ],

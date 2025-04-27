@@ -5,11 +5,29 @@
   display: inline-block;
   vertical-align: middle;
 }
+
 .ant-layout-sider {
   position: relative;
   min-width: 0;
   background: $text-color;
 }
+
 .ant-menu-dark .ant-menu-inline.ant-menu-sub {
   background: $text-secondary-color;
+}
+
+.ant-pagination-item-active {
+  border-color: $text-color;
+
+  a {
+    color: $text-color;
+  }
+
+  &:hover {
+    border-color: $accent-color;
+
+    a {
+      color: $accent-color;
+    }
+  }
 }
