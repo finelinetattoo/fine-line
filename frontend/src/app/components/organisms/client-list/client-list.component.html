@@ -1,37 +1,6 @@
-@if(loading){
-<app-loader></app-loader>
-} @else {
-<nz-table [nzData]="clients" [nzBordered]="true" [nzSize]="'middle'" [nzScroll]="{ x: 'auto' }">
-  <thead>
-    <tr>
-      <th nzWidth="60px">Nombre</th>
-      <th nzWidth="60px">Edad</th>
-      <th nzWidth="60px">Fecha creación</th>
-      <th nzWidth="60px">Acciones</th>
-    </tr>
-  </thead>
-  <tbody>
-    @for(client of clients; track client.id){
-    <tr>
-      <td>{{ client.name }}</td>
-      <td>{{ client.age }}</td>
-      <td>{{ client.createdAt | date: 'dd/MM/yyyy, HH:mm'}}</td>
-      <td class="actions-cell">
-        <button nz-button nzType="text" (click)="editClient(client)">
-          <nz-icon nzType="edit"></nz-icon>
-        </button>
-        <button nz-button nzType="text" nzDanger (click)="deleteClient(client.id)">
-          <nz-icon nzType="delete"></nz-icon>
-        </button>
-      </td>
-    </tr>
-    }
-  </tbody>
-</nz-table>
-<div class="button-container">
-  <button nz-button nzType="primary" (click)="createClient()">
-    <nz-icon nzType="plus"></nz-icon>
-    Añadir cliente
-  </button>
-</div>
-}
+<app-admin-list [loading]="loading" [data]="clients" [columns]="[
+    { label: 'Nombre', key: 'name' },
+    { label: 'Edad', key: 'age' },
+    { label: 'Fecha creación', key: 'createdAt', pipe: 'date' }
+  ]" [createButtonText]="'Añadir cliente'" [onCreate]="createClient.bind(this)" [onEdit]="editClient.bind(this)"
+  [onDelete]="deleteClient.bind(this)"></app-admin-list>

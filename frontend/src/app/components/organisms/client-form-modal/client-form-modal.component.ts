@@ -24,7 +24,7 @@ import { NotificationService } from '../../../services/notification/notification
     NzButtonModule,
   ],
   templateUrl: './client-form-modal.component.html',
-  styleUrls: ['./client-form-modal.component.scss'],
+  styleUrl: './client-form-modal.component.scss',
 })
 export class ClientFormModalComponent implements OnInit {
   private modalRef = inject(NzModalRef<ClientFormModalComponent>);

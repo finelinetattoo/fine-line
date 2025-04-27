@@ -1,0 +1,28 @@
+import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { NzTableModule } from 'ng-zorro-antd/table';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzIconModule } from 'ng-zorro-antd/icon';
+import { LoaderComponent } from '../../atoms/loader/loader.component';
+
+@Component({
+  selector: 'app-admin-list',
+  imports: [
+    CommonModule,
+    NzTableModule,
+    NzButtonModule,
+    NzIconModule,
+    LoaderComponent,
+  ],
+  templateUrl: './admin-list.component.html',
+  styleUrl: './admin-list.component.scss',
+})
+export class AdminListComponent {
+  @Input() loading: boolean = false;
+  @Input() data: any[] = [];
+  @Input() columns: { label: string; key: string; pipe?: string }[] = [];
+  @Input() createButtonText: string = 'Crear';
+  @Input() onCreate!: () => void;
+  @Input() onEdit!: (item: any) => void;
+  @Input() onDelete!: (id: number) => void;
+}
