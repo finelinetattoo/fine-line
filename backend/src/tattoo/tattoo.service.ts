@@ -35,20 +35,24 @@ export class TattooService {
   }
 
   async create(dto: CreateTattooDto): Promise<Tattoo> {
-    const client = await this.clientRepository.findOneBy({ id: dto.clientId });
+    const client = await this.clientRepository.findOneBy({ id: dto.client_id });
     if (!client) {
-      throw new NotFoundException(`Client with ID ${dto.clientId} not found`);
+      throw new NotFoundException(`Client with ID ${dto.client_id} not found`);
     }
 
-    const artist = await this.artistRepository.findOneBy({ id: dto.artistId });
+    const artist = await this.artistRepository.findOneBy({ id: dto.artist_id });
     if (!artist) {
-      throw new NotFoundException(`Artist with ID ${dto.artistId} not found`);
+      throw new NotFoundException(`Artist with ID ${dto.artist_id} not found`);
     }
 
     try {
       const tattoo = this.tattooRepository.create({
-        ...dto,
+        size: dto.size,
+        price: dto.price,
         date: new Date(dto.date),
+        body_part: dto.body_part,
+        style: dto.style,
+        notes: dto.notes,
         client,
         artist,
       });
@@ -67,21 +71,21 @@ export class TattooService {
   async update(id: number, dto: UpdateTattooDto): Promise<Tattoo> {
     const tattoo = await this.findOne(id);
 
-    if (dto.clientId) {
+    if (dto.client_id) {
       const client = await this.clientRepository.findOneBy({
-        id: dto.clientId,
+        id: dto.client_id,
       });
       if (!client)
-        throw new NotFoundException(`Client ID ${dto.clientId} not found`);
+        throw new NotFoundException(`Client ID ${dto.client_id} not found`);
       tattoo.client = client;
     }
 
-    if (dto.artistId) {
+    if (dto.artist_id) {
       const artist = await this.artistRepository.findOneBy({
-        id: dto.artistId,
+        id: dto.artist_id,
       });
       if (!artist)
-        throw new NotFoundException(`Artist ID ${dto.artistId} not found`);
+        throw new NotFoundException(`Artist ID ${dto.artist_id} not found`);
       tattoo.artist = artist;
     }
 

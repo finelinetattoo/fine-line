@@ -2,7 +2,6 @@ import { Routes } from '@angular/router';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
 import { authGuard } from './core/guards/auth.guard';
-
 export const routes: Routes = [
   {
     path: '',
@@ -50,9 +49,23 @@ export const routes: Routes = [
           {
             path: 'clients',
             loadComponent: () =>
-              import(
-                './components/organisms/client-list/client-list.component'
-              ).then((m) => m.ClientListComponent),
+              import('./pages/clients/clients.component').then(
+                (m) => m.ClientsComponent
+              ),
+          },
+          {
+            path: 'artists',
+            loadComponent: () =>
+              import('./pages/artists/artists.component').then(
+                (m) => m.ArtistsComponent
+              ),
+          },
+          {
+            path: 'tattoos',
+            loadComponent: () =>
+              import('./pages/tattoos/tattoos.component').then(
+                (m) => m.TattoosComponent
+              ),
           },
         ],
       },

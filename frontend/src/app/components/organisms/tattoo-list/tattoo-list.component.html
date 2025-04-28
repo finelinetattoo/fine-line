@@ -1,0 +1,12 @@
+<app-admin-list [loading]="loading" [data]="tattoos" [columns]="[
+    { label: 'Cliente', key: 'clientName' },
+    { label: 'Artista', key: 'artistName' },
+    { label: 'Precio', key: 'price' },
+    { label: 'Fecha', key: 'date', pipe: 'date' },
+    { label: 'Tamaño', key: 'size' },
+    { label: 'Notas', key: 'notes' },
+    { label: 'Parte del cuerpo', key: 'body_part' },
+    { label: 'Estilo', key: 'style' }
+  ]" [createButtonText]="'Añadir tatuaje'" [onCreate]="createTattoo.bind(this)" [onEdit]="editTattoo.bind(this)"
+  [onDelete]="deleteTattoo.bind(this)">
+</app-admin-list>

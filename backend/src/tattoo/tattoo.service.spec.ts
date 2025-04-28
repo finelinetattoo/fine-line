@@ -76,7 +76,7 @@ describe('TattooService', () => {
 
   describe('update', () => {
     it('should update and return the tattoo', async () => {
-      const updateDto = { style: 'Blackwork', artistId: 1 };
+      const updateDto = { style: 'Blackwork', artist_id: 1 };
       jest
         .spyOn(service, 'findOne')
         .mockResolvedValue(mockTattoo as unknown as Tattoo);

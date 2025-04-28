@@ -1,0 +1,84 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" nz-form nzLayout="vertical">
+  <nz-form-item>
+    <nz-form-label [nzRequired]="true">Cliente</nz-form-label>
+    <nz-form-control>
+      <nz-select formControlName="client_id" nzPlaceHolder="Selecciona un cliente">
+        @for (client of clients; track client.id) {
+        <nz-option [nzValue]="client.id" [nzLabel]="client.name"></nz-option>
+        }
+      </nz-select>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzRequired]="true">Artista</nz-form-label>
+    <nz-form-control>
+      <nz-select formControlName="artist_id" nzPlaceHolder="Selecciona un artista">
+        @for(artist of artists; track artist.id){
+        <nz-option [nzValue]="artist.id" [nzLabel]="artist.name"></nz-option>
+        }
+      </nz-select>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzRequired]="true">Precio</nz-form-label>
+    <nz-form-control>
+      <input nz-input formControlName="price" type="number" placeholder="Precio (€)" />
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzRequired]="true">Fecha</nz-form-label>
+    <nz-form-control>
+      <input nz-input type="date" formControlName="date" placeholder="Selecciona una fecha" />
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzRequired]="true">Tamaño</nz-form-label>
+    <nz-form-control>
+      <nz-select formControlName="size" nzPlaceHolder="Selecciona el tamaño">
+        @for (size of tattooSizes; track size) {
+        <nz-option [nzValue]="size" [nzLabel]="size"></nz-option>
+        }
+      </nz-select>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzRequired]="true">Parte del cuerpo</nz-form-label>
+    <nz-form-control>
+      <nz-select formControlName="body_part" nzPlaceHolder="Selecciona la parte del cuerpo">
+        @for (part of bodyParts; track part) {
+        <nz-option [nzValue]="part" [nzLabel]="part"></nz-option>
+        }
+      </nz-select>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzRequired]="true">Estilo</nz-form-label>
+    <nz-form-control>
+      <nz-select formControlName="style" nzPlaceHolder="Selecciona un estilo">
+        @for (style of tattooStyles; track style) {
+        <nz-option [nzValue]="style" [nzLabel]="tattooStyleLabels[style]"></nz-option>
+        }
+      </nz-select>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label>Notas</nz-form-label>
+    <nz-form-control>
+      <textarea nz-input formControlName="notes" placeholder="Notas (opcional)"></textarea>
+    </nz-form-control>
+  </nz-form-item>
+
+  <div class="modal-footer">
+    <button nz-button nzType="default" type="button" (click)="cancel()">Cancelar</button>
+    <button nz-button nzType="primary" type="submit" [disabled]="form.invalid" [nzLoading]="loading">
+      {{ tattoo ? 'Editar' : 'Crear' }}
+    </button>
+  </div>
+</form>

@@ -1,25 +1,14 @@
-import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { NzTableModule } from 'ng-zorro-antd/table';
 import { ClientService } from '../../../services/api/client.service';
 import { Client } from '../../../interfaces/client';
-import { LoaderComponent } from '../../atoms/loader/loader.component';
-import { NzButtonModule } from 'ng-zorro-antd/button';
-import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzModalModule, NzModalService } from 'ng-zorro-antd/modal';
 import { NotificationService } from '../../../services/notification/notification.service';
+import { AdminListComponent } from '../admin-list/admin-list.component';
 import { ClientFormModalComponent } from '../client-form-modal/client-form-modal.component';
 
 @Component({
   selector: 'app-client-list',
-  imports: [
-    CommonModule,
-    NzTableModule,
-    LoaderComponent,
-    NzButtonModule,
-    NzIconModule,
-    NzModalModule,
-  ],
+  imports: [AdminListComponent, NzModalModule],
   templateUrl: './client-list.component.html',
   styleUrl: './client-list.component.scss',
 })
@@ -56,6 +45,7 @@ export class ClientListComponent {
       nzOkText: 'Sí, eliminar',
       nzOkDanger: true,
       nzCancelText: 'Cancelar',
+      nzCentered: true,
       nzOnOk: () => this.confirmDelete(id),
     });
   }

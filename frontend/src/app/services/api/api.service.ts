@@ -49,7 +49,10 @@ export class ApiService<T> {
     };
 
     this.notificationService.error('Error', customError.message);
-
+    if (error.status === 401) {
+      localStorage.removeItem('token');
+      window.location.href = '/admin/login';
+    }
     return throwError(() => customError);
   };
 
