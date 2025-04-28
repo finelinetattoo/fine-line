@@ -60,8 +60,11 @@
   <nz-form-item>
     <nz-form-label [nzRequired]="true">Estilo</nz-form-label>
     <nz-form-control>
-      <input nz-input formControlName="style" type="text"
-        placeholder="Introduce el estilo (Ej: Geométrico, Realismo, etc.)" />
+      <nz-select formControlName="style" nzPlaceHolder="Selecciona un estilo">
+        @for (style of tattooStyles; track style) {
+        <nz-option [nzValue]="style" [nzLabel]="tattooStyleLabels[style]"></nz-option>
+        }
+      </nz-select>
     </nz-form-control>
   </nz-form-item>
 

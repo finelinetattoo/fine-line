@@ -16,6 +16,10 @@ import { TattooSize } from '../../../enums/tattoo-size.enum';
 import { BodyPart } from '../../../enums/body-part.enum';
 import { Client } from '../../../interfaces/client';
 import { Artist } from '../../../interfaces/artist';
+import {
+  TattooStyle,
+  TattooStyleLabels,
+} from '../../../enums/tattoo-style.enum';
 
 @Component({
   selector: 'app-tattoo-form-modal',
@@ -64,6 +68,8 @@ export class TattooFormModalComponent implements OnInit {
 
   bodyParts = Object.values(BodyPart);
   tattooSizes = Object.values(TattooSize);
+  tattooStyles = Object.values(TattooStyle);
+  tattooStyleLabels = TattooStyleLabels;
 
   ngOnInit(): void {
     const modalData = this.modalRef.getConfig().nzData;
@@ -101,12 +107,12 @@ export class TattooFormModalComponent implements OnInit {
     }
 
     const formattedTattooData = {
-      clientId: Number(tattooData.client_id),
-      artistId: Number(tattooData.artist_id),
+      client_id: Number(tattooData.client_id),
+      artist_id: Number(tattooData.artist_id),
       size: tattooData.size,
       price: Number(tattooData.price),
       date: tattooData.date,
-      bodyPart: tattooData.body_part,
+      body_part: tattooData.body_part,
       style: tattooData.style,
       notes: tattooData.notes,
     };
@@ -137,7 +143,11 @@ export class TattooFormModalComponent implements OnInit {
             'Tatuaje creado',
             'El tatuaje ha sido creado correctamente.'
           );
-          this.modalRef.close(createdTattoo);
+          this.modalRef.close({
+            ...createdTattoo,
+            client_id: createdTattoo.client!.id,
+            artist_id: createdTattoo.artist!.id,
+          });
           this.loading = false;
         },
         error: () => {

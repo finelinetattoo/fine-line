@@ -33,7 +33,7 @@ export class Tattoo {
   date: Date;
 
   @Column({ type: 'enum', enum: BodyPart, name: 'body_part' })
-  bodyPart: BodyPart;
+  body_part: BodyPart;
 
   @Column({ type: 'enum', enum: TattooStyle })
   style: TattooStyle;

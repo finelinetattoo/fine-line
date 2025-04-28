@@ -133,17 +133,26 @@ export class TattooListComponent {
 
   createTattoo(): void {
     this.openTattooModal('Añadir tatuaje', undefined, (newTattoo) => {
-      this.tattoos = [...this.tattoos, newTattoo];
+      const client = this.clients.find((c) => c.id === newTattoo.client_id);
+      const artist = this.artists.find((a) => a.id === newTattoo.artist_id);
+
+      const formattedTattoo = {
+        ...newTattoo,
+        clientName: client ? client.name : 'Desconocido',
+        artistName: artist ? artist.name : 'Desconocido',
+      };
+
+      this.tattoos = [...this.tattoos, formattedTattoo];
     });
   }
 
   editTattoo(tattoo: Tattoo): void {
     this.openTattooModal('Editar tatuaje', tattoo, (updatedTattoo: any) => {
       const client = this.clients.find(
-        (c) => c.id === (updatedTattoo.client_id ?? updatedTattoo.clientId)
+        (c) => c.id === (updatedTattoo.client_id ?? updatedTattoo.client_id)
       );
       const artist = this.artists.find(
-        (a) => a.id === (updatedTattoo.artist_id ?? updatedTattoo.artistId)
+        (a) => a.id === (updatedTattoo.artist_id ?? updatedTattoo.artist_id)
       );
 
       this.tattoos = this.tattoos.map((t) =>

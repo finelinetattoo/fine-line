@@ -13,10 +13,10 @@ import { TattooStyle } from '../enums/tattoo-style.enum';
 
 export class CreateTattooDto {
   @IsInt()
-  clientId: number;
+  client_id: number;
 
   @IsInt()
-  artistId: number;
+  artist_id: number;
 
   @IsEnum(TattooSize, {
     message: 'Size must be one of SMALL, MEDIUM, LARGE, XLARGE',
@@ -31,7 +31,7 @@ export class CreateTattooDto {
   date: string;
 
   @IsEnum(BodyPart, { message: 'BodyPart must be a valid body area' })
-  bodyPart: BodyPart;
+  body_part: BodyPart;
 
   @IsEnum(TattooStyle, {
     message: 'Style must be a valid tattoo style',
