@@ -60,6 +60,13 @@ export const routes: Routes = [
                 (m) => m.ArtistsComponent
               ),
           },
+          {
+            path: 'tattoos',
+            loadComponent: () =>
+              import('./pages/tattoos/tattoos.component').then(
+                (m) => m.TattoosComponent
+              ),
+          },
         ],
       },
     ],

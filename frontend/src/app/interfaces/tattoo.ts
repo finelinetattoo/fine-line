@@ -3,12 +3,12 @@ import { TattooSize } from '../enums/tattoo-size.enum';
 
 export interface Tattoo {
   id: number;
-  clientId: number;
-  artistId: number;
+  client_id: number;
+  artist_id: number;
   size: TattooSize;
   price: number;
   date: string;
-  bodyPart: BodyPart;
+  body_part: BodyPart;
   style: string;
   notes?: string;
 }
