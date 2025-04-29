@@ -1,0 +1,4 @@
+<div class="flex gap-2 items-center mb-4">
+  <input nz-input [value]="searchTerm()" (input)="updateSearchTerm($event)" [placeholder]="placeholder" />
+  <button nz-button nzType="default" (click)="onReset()">Reset</button>
+</div>

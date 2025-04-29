@@ -1,6 +1,7 @@
-<app-admin-list [loading]="loading" [data]="artists" [columns]="[
+<app-admin-list [loading]="loading" [data]="filteredArtists" [columns]="[
     { label: 'Nombre', key: 'name' },
     { label: 'Biografía', key: 'bio' }
   ]" [createButtonText]="'Añadir artista'" [onCreate]="createArtist.bind(this)" [onEdit]="editArtist.bind(this)"
-  [onDelete]="deleteArtist.bind(this)">
+  [onDelete]="deleteArtist.bind(this)" [enableSearch]="true" [searchPlaceholder]="'Búsqueda por nombre'"
+  [onSearch]="searchArtist.bind(this)" [onReset]="resetFilters.bind(this)">
 </app-admin-list>

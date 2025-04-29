@@ -18,6 +18,7 @@ export class ArtistListComponent {
   private modal = inject(NzModalService);
 
   artists: Artist[] = [];
+  filteredArtists: Artist[] = [];
   loading = true;
 
   ngOnInit(): void {
@@ -29,6 +30,7 @@ export class ArtistListComponent {
     this.artistService.getAll().subscribe({
       next: (res) => {
         this.artists = res;
+        this.filteredArtists = [...res];
         this.loading = false;
       },
       error: (err) => {
@@ -104,5 +106,16 @@ export class ArtistListComponent {
         a.id === updatedArtist.id ? updatedArtist : a
       );
     });
+  }
+
+  searchArtist(term: string): void {
+    const lower = term.toLowerCase();
+    this.filteredArtists = this.artists.filter((artist) =>
+      artist.name.toLowerCase().includes(lower)
+    );
+  }
+
+  resetFilters(): void {
+    this.filteredArtists = [...this.artists];
   }
 }

@@ -1,6 +1,11 @@
 @if (loading) {
 <app-loader></app-loader>
 } @else {
+<div class="flex flex-col gap-4 mb-4">
+  @if (enableSearch && onSearch && onReset) {
+  <app-search-bar [placeholder]="searchPlaceholder" (search)="onSearch($event)" (reset)="onReset()"></app-search-bar>
+  }
+</div>
 <nz-table [nzData]="data" [nzBordered]="true" [nzSize]="'middle'" [nzScroll]="{ x: 'auto' }">
   <thead>
     <tr>

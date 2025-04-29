@@ -18,6 +18,7 @@ export class ClientListComponent {
   private modal = inject(NzModalService);
 
   clients: Client[] = [];
+  filteredClients: Client[] = [];
   loading = true;
 
   ngOnInit(): void {
@@ -29,6 +30,7 @@ export class ClientListComponent {
     this.clientService.getAll().subscribe({
       next: (res) => {
         this.clients = res;
+        this.filteredClients = [...res];
         this.loading = false;
       },
       error: (err) => {
@@ -104,5 +106,16 @@ export class ClientListComponent {
         c.id === updatedClient.id ? updatedClient : c
       );
     });
+  }
+
+  searchClient(term: string): void {
+    const lower = term.toLowerCase();
+    this.filteredClients = this.clients.filter((client) =>
+      client.name.toLowerCase().includes(lower)
+    );
+  }
+
+  resetFilters(): void {
+    this.filteredClients = [...this.clients];
   }
 }
