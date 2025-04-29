@@ -1,0 +1,6 @@
+<app-admin-list [loading]="loading" [data]="clients" [columns]="[
+    { label: 'Nombre', key: 'name' },
+    { label: 'Edad', key: 'age' },
+    { label: 'Fecha creación', key: 'createdAt', pipe: 'date' }
+  ]" [createButtonText]="'Añadir cliente'" [onCreate]="createClient.bind(this)" [onEdit]="editClient.bind(this)"
+  [onDelete]="deleteClient.bind(this)"></app-admin-list>

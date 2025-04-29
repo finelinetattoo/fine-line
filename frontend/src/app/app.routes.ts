@@ -1,8 +1,7 @@
 import { Routes } from '@angular/router';
-import { authGuard } from './guards/auth.guard';
+import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
-import { DashboardLayoutComponent } from './layouts/dashboard-layout/dashboard-layout.component';
-
+import { authGuard } from './core/guards/auth.guard';
 export const routes: Routes = [
   {
     path: '',
@@ -16,29 +15,36 @@ export const routes: Routes = [
     ],
   },
   {
+    path: 'admin/login',
+    loadComponent: () =>
+      import('./pages/auth/login/login.component').then(
+        (m) => m.LoginComponent
+      ),
+  },
+  {
     path: 'admin',
     children: [
       {
+        path: '',
+        redirectTo: 'login',
+        pathMatch: 'full',
+      },
+      {
         path: 'login',
         loadComponent: () =>
-          import('./pages/auth/login.component').then((m) => m.LoginComponent),
+          import('./pages/auth/login/login.component').then(
+            (m) => m.LoginComponent
+          ),
       },
       {
         path: '',
-        component: DashboardLayoutComponent,
+        component: AdminLayoutComponent,
         canActivate: [authGuard],
         children: [
           {
-            path: '',
-            redirectTo: 'dashboard',
-            pathMatch: 'full',
-          },
-          {
             path: 'dashboard',
-            loadComponent: () =>
-              import('./pages/dashboard/dashboard.component').then(
-                (m) => m.DashboardComponent
-              ),
+            redirectTo: 'clients',
+            pathMatch: 'full',
           },
           {
             path: 'clients',
@@ -47,12 +53,23 @@ export const routes: Routes = [
                 (m) => m.ClientsComponent
               ),
           },
+          {
+            path: 'artists',
+            loadComponent: () =>
+              import('./pages/artists/artists.component').then(
+                (m) => m.ArtistsComponent
+              ),
+          },
+          {
+            path: 'tattoos',
+            loadComponent: () =>
+              import('./pages/tattoos/tattoos.component').then(
+                (m) => m.TattoosComponent
+              ),
+          },
         ],
       },
     ],
   },
-  {
-    path: '**',
-    redirectTo: '',
-  },
+  { path: '**', redirectTo: '' },
 ];

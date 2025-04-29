@@ -7,14 +7,9 @@ import {
 } from 'typeorm';
 import { Client } from '../client/client.entity';
 import { Artist } from '../artist/artist.entity';
-
-export enum TattooSize {
-  SMALL = 'SMALL',
-  MEDIUM = 'MEDIUM',
-  LARGE = 'LARGE',
-  XLARGE = 'XLARGE',
-}
-
+import { TattooSize } from './enums/tattoo-size.enum';
+import { BodyPart } from './enums/body-part.enum';
+import { TattooStyle } from './enums/tattoo-style.enum';
 @Entity('tattoos')
 export class Tattoo {
   @PrimaryGeneratedColumn()
@@ -37,11 +32,11 @@ export class Tattoo {
   @Column({ type: 'datetime' })
   date: Date;
 
-  @Column({ name: 'body_part', type: 'varchar', length: 100 })
-  bodyPart: string;
+  @Column({ type: 'enum', enum: BodyPart, name: 'body_part' })
+  body_part: BodyPart;
 
-  @Column({ type: 'varchar', length: 100 })
-  style: string;
+  @Column({ type: 'enum', enum: TattooStyle })
+  style: TattooStyle;
 
   @Column({ type: 'text', nullable: true })
   notes?: string;

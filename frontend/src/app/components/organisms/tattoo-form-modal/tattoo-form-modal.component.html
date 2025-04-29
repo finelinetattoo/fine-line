@@ -1,0 +1,111 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" nz-form nzLayout="vertical">
+  <nz-form-item>
+    <nz-form-label [nzRequired]="true">Cliente</nz-form-label>
+    <nz-form-control [nzValidateStatus]="form.get('client_id')!">
+      <nz-select formControlName="client_id" nzPlaceHolder="Selecciona un cliente">
+        @for (client of clients; track client.id) {
+        <nz-option [nzValue]="client.id" [nzLabel]="client.name"></nz-option>
+        }
+      </nz-select>
+      @if(form.get('client_id')?.touched && form.get('client_id')?.errors?.['required']){
+      <div class="error-message">El cliente es obligatorio</div>
+      }
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzRequired]="true">Artista</nz-form-label>
+    <nz-form-control [nzValidateStatus]="form.get('artist_id')!">
+      <nz-select formControlName="artist_id" nzPlaceHolder="Selecciona un artista">
+        @for(artist of artists; track artist.id){
+        <nz-option [nzValue]="artist.id" [nzLabel]="artist.name"></nz-option>
+        }
+      </nz-select>
+      @if(form.get('artist_id')?.touched && form.get('artist_id')?.errors?.['required']){
+      <div class="error-message">El artista es obligatorio</div>
+      }
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzRequired]="true">Precio</nz-form-label>
+    <nz-form-control [nzValidateStatus]="form.get('price')!">
+      <input nz-input formControlName="price" type="number" placeholder="Precio (€)">
+      @if(form.get('price')?.touched && form.get('price')?.errors){
+      <div class="error-message">
+        @if(form.get('price')?.errors?.['required']){
+        <span>El precio es obligatorio</span>
+        } @else if(form.get('price')?.errors?.['min']){
+        <span>El precio debe ser mayor que 0</span>
+        }
+      </div>
+      }
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzRequired]="true">Fecha</nz-form-label>
+    <nz-form-control [nzValidateStatus]="form.get('date')!">
+      <input nz-input type="date" formControlName="date" placeholder="Selecciona una fecha">
+      @if(form.get('date')?.touched && form.get('date')?.errors?.['required']){
+      <div class="error-message">La fecha es obligatoria</div>
+      }
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzRequired]="true">Tamaño</nz-form-label>
+    <nz-form-control [nzValidateStatus]="form.get('size')!">
+      <nz-select formControlName="size" nzPlaceHolder="Selecciona el tamaño">
+        @for (size of tattooSizes; track size) {
+        <nz-option [nzValue]="size" [nzLabel]="size"></nz-option>
+        }
+      </nz-select>
+      @if(form.get('size')?.touched && form.get('size')?.errors?.['required']){
+      <div class="error-message">El tamaño es obligatorio</div>
+      }
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzRequired]="true">Parte del cuerpo</nz-form-label>
+    <nz-form-control [nzValidateStatus]="form.get('body_part')!">
+      <nz-select formControlName="body_part" nzPlaceHolder="Selecciona la parte del cuerpo">
+        @for (part of bodyParts; track part) {
+        <nz-option [nzValue]="part" [nzLabel]="part"></nz-option>
+        }
+      </nz-select>
+      @if(form.get('body_part')?.touched && form.get('body_part')?.errors?.['required']){
+      <div class="error-message">La parte del cuerpo es obligatoria</div>
+      }
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzRequired]="true">Estilo</nz-form-label>
+    <nz-form-control [nzValidateStatus]="form.get('style')!">
+      <nz-select formControlName="style" nzPlaceHolder="Selecciona un estilo">
+        @for (style of tattooStyles; track style) {
+        <nz-option [nzValue]="style" [nzLabel]="tattooStyleLabels[style]"></nz-option>
+        }
+      </nz-select>
+      @if(form.get('style')?.touched && form.get('style')?.errors?.['required']){
+      <div class="error-message">El estilo es obligatorio</div>
+      }
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label>Notas</nz-form-label>
+    <nz-form-control>
+      <textarea nz-input formControlName="notes" placeholder="Notas (opcional)"></textarea>
+    </nz-form-control>
+  </nz-form-item>
+
+  <div class="modal-form-footer">
+    <button nz-button nzType="default" type="button" (click)="cancel()">Cancelar</button>
+    <button nz-button nzType="primary" type="submit" [disabled]="form.invalid" [nzLoading]="loading">
+      {{ tattoo ? 'Editar' : 'Crear' }}
+    </button>
+  </div>
+</form>
