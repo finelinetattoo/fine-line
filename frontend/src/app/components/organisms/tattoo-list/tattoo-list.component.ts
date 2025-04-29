@@ -100,8 +100,8 @@ export class TattooListComponent {
     const cleanTattoo = tattoo
       ? {
           id: tattoo.id,
-          client_id: tattoo.client_id,
-          artist_id: tattoo.artist_id,
+          client_id: tattoo.client?.id ?? tattoo.client_id,
+          artist_id: tattoo.artist?.id ?? tattoo.artist_id,
           size: tattoo.size,
           price: tattoo.price,
           date: tattoo.date,
