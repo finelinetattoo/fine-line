@@ -1,0 +1,8 @@
+<div class="sortable-header" (click)="toggleSort()">
+  <span>{{ label }}</span>
+  @if(activeSortKey === columnKey){
+  <span class="icon">
+    {{ sortDirection === 'asc' ? '▲' : '▼' }}
+  </span>
+  }
+</div>

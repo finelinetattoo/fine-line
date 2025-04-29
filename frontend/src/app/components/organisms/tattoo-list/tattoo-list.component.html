@@ -10,5 +10,6 @@
   ]" [createButtonText]="'Añadir tatuaje'" [onCreate]="createTattoo.bind(this)" [onEdit]="editTattoo.bind(this)"
   [onDelete]="deleteTattoo.bind(this)" [enableSearch]="true"
   [searchPlaceholder]="'Búsqueda por cliente, artista o estilo'" [onSearch]="searchTattoo.bind(this)"
-  [onReset]="resetFilters.bind(this)">
+  [onReset]="resetFilters.bind(this)" [sortKey]="sortKey" [sortDirection]="sortDirection"
+  [onSort]="sortTattoos.bind(this)">
 </app-admin-list>

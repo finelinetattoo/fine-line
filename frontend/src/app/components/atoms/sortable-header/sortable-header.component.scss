@@ -1,0 +1,12 @@
+.sortable-header {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  font-weight: 500;
+  gap: 4px;
+
+  .icon {
+    font-size: 10px;
+  }
+}

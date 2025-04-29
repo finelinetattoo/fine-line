@@ -4,4 +4,5 @@
     { label: 'Fecha creación', key: 'createdAt', pipe: 'date' }
   ]" [createButtonText]="'Añadir cliente'" [onCreate]="createClient.bind(this)" [onEdit]="editClient.bind(this)"
   [onDelete]="deleteClient.bind(this)" [enableSearch]="true" [searchPlaceholder]="'Búsqueda por nombre'"
-  [onSearch]="searchClient.bind(this)" [onReset]="resetFilters.bind(this)"></app-admin-list>
+  [onSearch]="searchClient.bind(this)" [onReset]="resetFilters.bind(this)" [sortKey]="sortKey"
+  [sortDirection]="sortDirection" [onSort]="sortClients.bind(this)"></app-admin-list>

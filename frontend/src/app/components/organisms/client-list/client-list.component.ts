@@ -20,6 +20,8 @@ export class ClientListComponent {
   clients: Client[] = [];
   filteredClients: Client[] = [];
   loading = true;
+  sortKey: string | null = null;
+  sortDirection: 'asc' | 'desc' | null = null;
 
   ngOnInit(): void {
     this.getClients();
@@ -31,6 +33,9 @@ export class ClientListComponent {
       next: (res) => {
         this.clients = res;
         this.filteredClients = [...res];
+        this.sortKey = 'name';
+        this.sortDirection = 'asc';
+        this.applySorting();
         this.loading = false;
       },
       error: (err) => {
@@ -57,6 +62,8 @@ export class ClientListComponent {
     this.clientService.delete(id).subscribe({
       next: () => {
         this.clients = this.clients.filter((client) => client.id !== id);
+        this.filteredClients = [...this.clients];
+        this.applySorting();
         this.notificationService.success(
           'Cliente eliminado',
           'El cliente se eliminó correctamente.'
@@ -97,6 +104,8 @@ export class ClientListComponent {
   createClient(): void {
     this.openClientModal('Añadir cliente', undefined, (newClient) => {
       this.clients = [...this.clients, newClient];
+      this.filteredClients = [...this.clients];
+      this.applySorting();
     });
   }
 
@@ -105,6 +114,8 @@ export class ClientListComponent {
       this.clients = this.clients.map((c) =>
         c.id === updatedClient.id ? updatedClient : c
       );
+      this.filteredClients = [...this.clients];
+      this.applySorting();
     });
   }
 
@@ -117,5 +128,43 @@ export class ClientListComponent {
 
   resetFilters(): void {
     this.filteredClients = [...this.clients];
+  }
+
+  sortClients(key: string): void {
+    if (this.sortKey === key) {
+      this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
+    } else {
+      this.sortKey = key;
+      this.sortDirection = 'asc';
+    }
+
+    this.applySorting();
+  }
+
+  applySorting(): void {
+    if (!this.sortKey || !this.sortDirection) {
+      return;
+    }
+
+    this.filteredClients = [...this.filteredClients].sort((a: any, b: any) => {
+      const aValue = a[this.sortKey!];
+      const bValue = b[this.sortKey!];
+
+      if (aValue == null || bValue == null) {
+        return 0;
+      }
+
+      if (typeof aValue === 'string' && typeof bValue === 'string') {
+        const compare = aValue.localeCompare(bValue);
+        return this.sortDirection === 'asc' ? compare : -compare;
+      }
+
+      if (typeof aValue === 'number' && typeof bValue === 'number') {
+        const compare = aValue - bValue;
+        return this.sortDirection === 'asc' ? compare : -compare;
+      }
+
+      return 0;
+    });
   }
 }
