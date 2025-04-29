@@ -62,6 +62,8 @@ export class ClientListComponent {
     this.clientService.delete(id).subscribe({
       next: () => {
         this.clients = this.clients.filter((client) => client.id !== id);
+        this.filteredClients = [...this.clients];
+        this.applySorting();
         this.notificationService.success(
           'Cliente eliminado',
           'El cliente se eliminó correctamente.'
@@ -102,6 +104,8 @@ export class ClientListComponent {
   createClient(): void {
     this.openClientModal('Añadir cliente', undefined, (newClient) => {
       this.clients = [...this.clients, newClient];
+      this.filteredClients = [...this.clients];
+      this.applySorting();
     });
   }
 
@@ -110,6 +114,8 @@ export class ClientListComponent {
       this.clients = this.clients.map((c) =>
         c.id === updatedClient.id ? updatedClient : c
       );
+      this.filteredClients = [...this.clients];
+      this.applySorting();
     });
   }
 
