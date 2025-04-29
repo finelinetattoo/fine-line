@@ -20,14 +20,27 @@
         </ul>
       </li>
     </ul>
+    @if(userName){
     <div class="logout-container">
-      <button nz-button nzType="text" (click)="logout()" class="logout-button cursor-pointer">
-        <nz-icon nzType="logout"></nz-icon>
-        @if(!isCollapsed) {
-        <span>Cerrar sesión</span>
-        }
-      </button>
+      <a nz-dropdown [nzDropdownMenu]="menu" nzTrigger="click">
+        <button nz-button nzType="text" class="cursor-pointer">
+          <nz-icon nzType="user"></nz-icon>
+          @if (!isCollapsed) {
+          <span>Hola {{ userName }}!</span>
+          <nz-icon nzType="down"></nz-icon>
+          }
+        </button>
+      </a>
+      <nz-dropdown-menu #menu="nzDropdownMenu">
+        <ul nz-menu>
+          <li nz-menu-item (click)="logout()">
+            <nz-icon nzType="logout" class="me-1"></nz-icon>
+            <span>Cerrar sesión</span>
+          </li>
+        </ul>
+      </nz-dropdown-menu>
     </div>
+    }
   </nz-sider>
   <nz-layout>
     <nz-header>

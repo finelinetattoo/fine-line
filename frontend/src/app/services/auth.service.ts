@@ -30,10 +30,19 @@ export class AuthService {
 
   logout(): void {
     this.storageService.removeItem('token');
+    this.storageService.removeItem('username');
     this.router.navigate(['/admin/login']);
   }
 
   getToken(): string | null {
     return this.storageService.getItem('token');
+  }
+
+  getUsername(): string | null {
+    return this.storageService.getItem('username');
+  }
+
+  setUsername(username: string): void {
+    this.storageService.setItem('username', username);
   }
 }
