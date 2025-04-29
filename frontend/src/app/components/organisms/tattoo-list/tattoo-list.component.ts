@@ -25,6 +25,7 @@ export class TattooListComponent {
   private modal = inject(NzModalService);
 
   tattoos: Tattoo[] = [];
+  filteredTattoos: Tattoo[] = [];
   loading = true;
 
   clients: Client[] = [];
@@ -48,6 +49,7 @@ export class TattooListComponent {
         clientName: tattoo.client?.name || 'Desconocido',
         artistName: tattoo.artist?.name || 'Desconocido',
       }));
+      this.filteredTattoos = [...this.tattoos];
     } catch (error) {
       this.notificationService.error(
         'Error',
@@ -165,5 +167,19 @@ export class TattooListComponent {
           : t
       );
     });
+  }
+
+  searchTattoo(term: string): void {
+    const lower = term.toLowerCase();
+    this.filteredTattoos = this.tattoos.filter(
+      (tattoo: any) =>
+        tattoo.clientName.toLowerCase().includes(lower) ||
+        tattoo.artistName.toLowerCase().includes(lower) ||
+        tattoo.style.toLowerCase().includes(lower)
+    );
+  }
+
+  resetFilters(): void {
+    this.filteredTattoos = [...this.tattoos];
   }
 }

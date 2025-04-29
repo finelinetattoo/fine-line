@@ -1,4 +1,4 @@
-<app-admin-list [loading]="loading" [data]="tattoos" [columns]="[
+<app-admin-list [loading]="loading" [data]="filteredTattoos" [columns]="[
     { label: 'Cliente', key: 'clientName' },
     { label: 'Artista', key: 'artistName' },
     { label: 'Precio', key: 'price' },
@@ -8,5 +8,7 @@
     { label: 'Parte del cuerpo', key: 'body_part' },
     { label: 'Estilo', key: 'style' }
   ]" [createButtonText]="'Añadir tatuaje'" [onCreate]="createTattoo.bind(this)" [onEdit]="editTattoo.bind(this)"
-  [onDelete]="deleteTattoo.bind(this)">
+  [onDelete]="deleteTattoo.bind(this)" [enableSearch]="true"
+  [searchPlaceholder]="'Búsqueda por cliente, artista o estilo'" [onSearch]="searchTattoo.bind(this)"
+  [onReset]="resetFilters.bind(this)">
 </app-admin-list>
