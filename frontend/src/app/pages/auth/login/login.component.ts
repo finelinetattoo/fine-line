@@ -24,6 +24,7 @@ export class LoginComponent implements OnInit {
   handleLogin(credentials: { username: string; password: string }) {
     this.authService.login(credentials).subscribe({
       next: () => {
+        this.authService.setUsername(credentials.username);
         this.router.navigate(['/admin/dashboard']);
       },
       error: () => {
