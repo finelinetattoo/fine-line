@@ -4,6 +4,7 @@ import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { LoaderComponent } from '../../atoms/loader/loader.component';
+import { SearchBarComponent } from '../../atoms/search-bar/search-bar.component';
 
 @Component({
   selector: 'app-admin-list',
@@ -13,6 +14,7 @@ import { LoaderComponent } from '../../atoms/loader/loader.component';
     NzButtonModule,
     NzIconModule,
     LoaderComponent,
+    SearchBarComponent,
   ],
   templateUrl: './admin-list.component.html',
   styleUrl: './admin-list.component.scss',
@@ -25,4 +27,8 @@ export class AdminListComponent {
   @Input() onCreate!: () => void;
   @Input() onEdit!: (item: any) => void;
   @Input() onDelete!: (id: number) => void;
+  @Input() enableSearch: boolean = false;
+  @Input() searchPlaceholder: string = 'Buscar...';
+  @Input() onSearch?: (term: string) => void;
+  @Input() onReset?: () => void;
 }
