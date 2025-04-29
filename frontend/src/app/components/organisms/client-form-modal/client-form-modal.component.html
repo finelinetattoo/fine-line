@@ -1,19 +1,33 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()" nz-form nzLayout="vertical">
   <nz-form-item>
     <nz-form-label [nzRequired]="true">Nombre</nz-form-label>
-    <nz-form-control>
-      <input nz-input formControlName="name" placeholder="Nombre del cliente" />
+    <nz-form-control [nzValidateStatus]="form.get('name')!">
+      <input nz-input formControlName="name" placeholder="Nombre del cliente">
+      @if(form.get('name')?.touched && form.get('name')?.errors?.['required']){
+      <div class="error-message">
+        El nombre es obligatorio
+      </div>
+      }
     </nz-form-control>
   </nz-form-item>
 
   <nz-form-item>
     <nz-form-label [nzRequired]="true">Edad</nz-form-label>
-    <nz-form-control>
-      <input nz-input type="number" formControlName="age" placeholder="Edad" />
+    <nz-form-control [nzValidateStatus]="form.get('age')!">
+      <input nz-input type="number" formControlName="age" placeholder="Edad">
+      @if(form.get('age')!.touched && form.get('age')!.errors){
+      <div class="error-message">
+        @if(form.get('age')?.errors?.['required']){
+        <span>La edad es obligatoria</span>
+        } @else if(form.get('age')?.errors?.['min']){
+        <span>La edad mínima es 1 año</span>
+        }
+      </div>
+      }
     </nz-form-control>
   </nz-form-item>
 
-  <div class="modal-footer">
+  <div class="modal-form-footer">
     <button nz-button nzType="default" type="button" (click)="cancel()">Cancelar</button>
     <button nz-button nzType="primary" type="button" [disabled]="form.invalid" [nzLoading]="loading"
       (click)="onSubmit()">

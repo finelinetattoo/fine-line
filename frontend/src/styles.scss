@@ -1,6 +1,14 @@
 @use "tailwindcss";
 @use "styles/abstracts/colors" as *;
-// Dashboard page styles
+
+// ========================================
+// DASHBOARD PAGE STYLES
+// ========================================
+
+// ===========================
+// Layout & Sidebar
+// ===========================
+
 .sidebar-logo img {
   display: inline-block;
   vertical-align: middle;
@@ -12,9 +20,37 @@
   background: $text-color;
 }
 
+// ===========================
+// Menu
+// ===========================
+
 .ant-menu-dark .ant-menu-inline.ant-menu-sub {
   background: $text-secondary-color;
 }
+
+// ===========================
+// Botones
+// ===========================
+
+.ant-btn-primary {
+  background: $text-secondary-color;
+  border-color: $text-secondary-color;
+
+  &:hover {
+    background: $accent-color;
+    border-color: $accent-color;
+  }
+
+  &:focus,
+  &:active {
+    background: $text-color;
+    border-color: $text-color;
+  }
+}
+
+// ===========================
+// Paginación
+// ===========================
 
 .ant-pagination-item-active {
   border-color: $text-color;
@@ -29,5 +65,34 @@
     a {
       color: $accent-color;
     }
+  }
+}
+
+// ===========================
+// Formulario Modal
+// ===========================
+
+.modal-form-footer {
+  margin-top: 24px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+// ===========================
+// Mensajes de error
+// ===========================
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  transition: opacity 0.3s ease-in-out;
+
+  &.ng-star-inserted {
+    opacity: 1;
+  }
+
+  &:not(.ng-star-inserted) {
+    opacity: 0;
   }
 }
