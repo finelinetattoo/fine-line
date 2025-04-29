@@ -83,17 +83,19 @@ export class TattooFormModalComponent implements OnInit {
     }
 
     if (modalData?.tattoo) {
-      this.tattoo = modalData.tattoo;
-
-      const adaptedTattoo = {
-        ...this.tattoo,
-        date: this.tattoo!.date ? this.tattoo!.date.split('T')[0] : '',
-        client_id: Number(this.tattoo!.client_id),
-        artist_id: Number(this.tattoo!.artist_id),
-        body_part: this.tattoo!.body_part,
+      const { tattoo } = modalData;
+      this.tattoo = {
+        id: tattoo.id,
+        client_id: tattoo.client_id ?? tattoo.client?.id,
+        artist_id: tattoo.artist_id ?? tattoo.artist?.id,
+        size: tattoo.size,
+        price: tattoo.price,
+        date: tattoo.date ? tattoo.date.split('T')[0] : '',
+        body_part: tattoo.body_part,
+        style: tattoo.style,
+        notes: tattoo.notes,
       };
-
-      this.form.patchValue(adaptedTattoo);
+      this.form.patchValue(this.tattoo);
     }
   }
 
@@ -116,7 +118,6 @@ export class TattooFormModalComponent implements OnInit {
       style: tattooData.style,
       notes: tattooData.notes,
     };
-    console.log('tattooData to send:', formattedTattooData);
 
     if (this.tattoo) {
       this.tattooService.update(this.tattoo.id, formattedTattooData).subscribe({
