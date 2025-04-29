@@ -10,7 +10,10 @@
   <thead>
     <tr>
       @for (col of columns; track col.key) {
-      <th nzWidth="60px">{{ col.label }}</th>
+      <th nzWidth="60px">
+        <app-sortable-header [label]="col.label" [columnKey]="col.key" [activeSortKey]="sortKey"
+          [sortDirection]="sortDirection" (sort)="onSort?.(col.key)"></app-sortable-header>
+      </th>
       }
       <th nzWidth="60px">Acciones</th>
     </tr>

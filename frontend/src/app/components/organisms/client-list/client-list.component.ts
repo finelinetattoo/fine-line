@@ -20,6 +20,8 @@ export class ClientListComponent {
   clients: Client[] = [];
   filteredClients: Client[] = [];
   loading = true;
+  sortKey: string | null = null;
+  sortDirection: 'asc' | 'desc' | null = null;
 
   ngOnInit(): void {
     this.getClients();
@@ -31,6 +33,9 @@ export class ClientListComponent {
       next: (res) => {
         this.clients = res;
         this.filteredClients = [...res];
+        this.sortKey = 'name';
+        this.sortDirection = 'asc';
+        this.applySorting();
         this.loading = false;
       },
       error: (err) => {
@@ -117,5 +122,43 @@ export class ClientListComponent {
 
   resetFilters(): void {
     this.filteredClients = [...this.clients];
+  }
+
+  sortClients(key: string): void {
+    if (this.sortKey === key) {
+      this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
+    } else {
+      this.sortKey = key;
+      this.sortDirection = 'asc';
+    }
+
+    this.applySorting();
+  }
+
+  applySorting(): void {
+    if (!this.sortKey || !this.sortDirection) {
+      return;
+    }
+
+    this.filteredClients = [...this.filteredClients].sort((a: any, b: any) => {
+      const aValue = a[this.sortKey!];
+      const bValue = b[this.sortKey!];
+
+      if (aValue == null || bValue == null) {
+        return 0;
+      }
+
+      if (typeof aValue === 'string' && typeof bValue === 'string') {
+        const compare = aValue.localeCompare(bValue);
+        return this.sortDirection === 'asc' ? compare : -compare;
+      }
+
+      if (typeof aValue === 'number' && typeof bValue === 'number') {
+        const compare = aValue - bValue;
+        return this.sortDirection === 'asc' ? compare : -compare;
+      }
+
+      return 0;
+    });
   }
 }
