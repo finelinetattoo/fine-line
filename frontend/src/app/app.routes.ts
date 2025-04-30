@@ -43,7 +43,7 @@ export const routes: Routes = [
         children: [
           {
             path: 'dashboard',
-            redirectTo: 'clients',
+            redirectTo: 'graficos',
             pathMatch: 'full',
           },
           {
@@ -65,6 +65,13 @@ export const routes: Routes = [
             loadComponent: () =>
               import('./pages/tattoos/tattoos.component').then(
                 (m) => m.TattoosComponent
+              ),
+          },
+          {
+            path: 'graficos',
+            loadComponent: () =>
+              import('./pages/charts/charts.component').then(
+                (m) => m.ChartsComponent
               ),
           },
         ],
