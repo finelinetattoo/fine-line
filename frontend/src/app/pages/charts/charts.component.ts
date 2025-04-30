@@ -1,15 +1,10 @@
-import {
-  ChangeDetectorRef,
-  Component,
-  inject,
-  OnInit,
-  ViewChild,
-} from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { ChartsDisplayComponent } from '../../components/molecules/charts-display/charts-display.component';
 import { ChartOptions } from 'chart.js';
 import { TattooService } from '../../services/api/tattoo.service';
 import { Tattoo } from '../../interfaces/tattoo';
 import { firstValueFrom } from 'rxjs';
+import { Dataset } from '../../interfaces/dataset';
 
 @Component({
   selector: 'app-charts',
@@ -19,8 +14,6 @@ import { firstValueFrom } from 'rxjs';
 })
 export class ChartsComponent implements OnInit {
   private tattooService = inject(TattooService);
-  private cdr = inject(ChangeDetectorRef);
-  @ViewChild(ChartsDisplayComponent) chartDisplay?: ChartsDisplayComponent;
 
   readonly labels = [
     'January',
@@ -37,18 +30,32 @@ export class ChartsComponent implements OnInit {
     'December',
   ];
 
+  readonly corporateColors = [
+    '#373737',
+    '#737373',
+    '#FF6B6B',
+    '#4ECDC4',
+    '#FFD93D',
+    '#1A535C',
+    '#FF9F1C',
+    '#2EC4B6',
+    '#5C4D7D',
+    '#A1C181',
+    '#E63946',
+    '#6A4C93',
+  ];
+
   barChartData = {
     labels: [] as string[],
-    datasets: [] as {
-      label: string;
-      data: number[];
-      backgroundColor: string[];
-      borderColor: string[];
-      borderWidth: number;
-    }[],
+    datasets: [] as Dataset[],
   };
 
-  barChartOptions: ChartOptions = {
+  doughnutChartData = {
+    labels: [] as string[],
+    datasets: [] as Dataset[],
+  };
+
+  readonly commonOptions: ChartOptions = {
     responsive: true,
     plugins: {
       legend: {
@@ -65,6 +72,10 @@ export class ChartsComponent implements OnInit {
         titleFont: { weight: 'bold' },
       },
     },
+  };
+
+  readonly barChartOptions: ChartOptions = {
+    ...this.commonOptions,
     scales: {
       x: {
         ticks: { color: '#555', font: { size: 12 } },
@@ -78,62 +89,63 @@ export class ChartsComponent implements OnInit {
     },
   };
 
+  readonly doughnutChartOptions: ChartOptions = this.commonOptions;
+
   async ngOnInit() {
     const tattoos = await firstValueFrom(this.tattooService.getAll());
     if (tattoos) {
-      this.prepareChart(tattoos);
+      this.prepareBarChart(tattoos);
+      this.prepareDoughnutChart(tattoos);
     }
   }
 
-  prepareChart(tattoos: Tattoo[]): void {
+  prepareBarChart(tattoos: Tattoo[]): void {
     const counts: { [month: number]: number } = {};
 
     tattoos.forEach((t) => {
       const date = new Date(t.date);
-      const month = date.getUTCMonth(); // 0-based
+      const month = date.getUTCMonth();
       counts[month] = (counts[month] || 0) + 1;
     });
 
-    const data = {
+    this.barChartData = {
       labels: [...this.labels],
       datasets: [
         {
           label: 'Tatuajes por mes',
           data: Array.from({ length: 12 }, (_, i) => counts[i] || 0),
-          backgroundColor: [
-            '#e7e2d6',
-            '#cbc9c5',
-            '#c6bab1',
-            '#f0ece2',
-            '#dcd9d2',
-            '#b3aca5',
-            '#d1c7be',
-            '#ede9e2',
-            '#aaa5a0',
-            '#f5f1ea',
-            '#8c8680',
-            '#e0dad1',
-          ],
-          borderColor: [
-            '#bfbab0',
-            '#a3a19e',
-            '#9f9189',
-            '#c8c5bc',
-            '#b4b2ac',
-            '#8b857f',
-            '#a9a29a',
-            '#c5c1b8',
-            '#827d78',
-            '#cdcbc5',
-            '#65605a',
-            '#b8b3aa',
-          ],
+          backgroundColor: this.corporateColors,
+          borderColor: this.corporateColors,
           borderWidth: 1,
         },
       ],
     };
+  }
 
-    this.barChartData = data;
-    this.cdr.detectChanges();
+  prepareDoughnutChart(tattoos: Tattoo[]): void {
+    const counts: { [part: string]: number } = {};
+
+    tattoos.forEach((tattoo) => {
+      const part = tattoo.body_part || 'Desconocido';
+      counts[part] = (counts[part] || 0) + 1;
+    });
+
+    const labels = Object.keys(counts);
+    const data = Object.values(counts);
+
+    this.doughnutChartData = {
+      labels,
+      datasets: [
+        {
+          label: 'Tatuajes por parte del cuerpo',
+          data,
+          backgroundColor: labels.map(
+            (_, i) => this.corporateColors[i % this.corporateColors.length]
+          ),
+          borderColor: ['#ffffff'],
+          borderWidth: 1,
+        },
+      ],
+    };
   }
 }

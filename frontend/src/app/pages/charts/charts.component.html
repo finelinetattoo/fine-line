@@ -1,2 +1,9 @@
-<app-charts-display [type]="'bar'" [data]="barChartData" [options]="barChartOptions">
-</app-charts-display>
+<div class="flex flex-col lg:flex-row gap-6">
+  <div class="flex-1">
+    <app-charts-display [type]="'bar'" [data]="barChartData" [options]="barChartOptions"></app-charts-display>
+  </div>
+  <div class="flex-1">
+    <app-charts-display [type]="'doughnut'" [data]="doughnutChartData"
+      [options]="doughnutChartOptions"></app-charts-display>
+  </div>
+</div>
