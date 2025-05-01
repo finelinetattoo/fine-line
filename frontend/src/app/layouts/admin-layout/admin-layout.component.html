@@ -6,8 +6,11 @@
       <h1 class="sidebar-logo-title">Fine Line Tattoo</h1>
     </div>
     <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
-      <li nz-submenu nzOpen nzTitle="Menú" nzIcon="dashboard">
+      <li nz-submenu nzOpen nzTitle="Menú" nzIcon="menu">
         <ul>
+          <li nz-menu-item nzMatchRouter class="custom-menu-item">
+            <a routerLink="/admin/calendario">Calendario</a>
+          </li>
           <li nz-menu-item nzMatchRouter class="custom-menu-item">
             <a routerLink="/admin/graficos">Gráficos</a>
           </li>

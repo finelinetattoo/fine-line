@@ -43,8 +43,15 @@ export const routes: Routes = [
         children: [
           {
             path: 'dashboard',
-            redirectTo: 'graficos',
+            redirectTo: 'calendario',
             pathMatch: 'full',
+          },
+          {
+            path: 'calendario',
+            loadComponent: () =>
+              import('./pages/calendar/calendar.component').then(
+                (m) => m.CalendarComponent
+              ),
           },
           {
             path: 'clients',

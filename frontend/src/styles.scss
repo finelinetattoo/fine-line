@@ -96,3 +96,25 @@
     opacity: 0;
   }
 }
+
+// ===========================
+// Calendar
+// ===========================
+.fc- {
+  &event-main {
+    margin-left: 4px;
+  }
+  &button {
+    cursor: pointer;
+  }
+}
+.ant-modal {
+  font-family: Avenir, Helvetica Neue, Arial, Helvetica, sans-serif;
+  &-title {
+    font-size: 1.25rem;
+    text-align: center;
+  }
+}
+.container-modal p {
+  margin-bottom: 0;
+}

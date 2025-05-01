@@ -1,0 +1,51 @@
+<div class="space-y-3 text-sm container-modal">
+  <div class="flex gap-2 items-center">
+    <span class="mt-1">🧍</span>
+    <strong>Cliente:</strong>
+    <p>{{ modalData.clientName }}</p>
+  </div>
+
+  <div class="flex gap-2 items-center">
+    <span class="mt-1">🎨</span>
+    <strong>Artista:</strong>
+    <p>{{ modalData.artist }}</p>
+  </div>
+
+  <div class="flex gap-2 items-center">
+    <span class="mt-1">🖌️</span>
+    <strong>Estilo:</strong>
+    <p>{{ modalData.style }}</p>
+  </div>
+
+  <div class="flex gap-2 items-center">
+    <span class="mt-1">📅</span>
+    <strong>Fecha:</strong>
+    <p>{{ formattedDate }}</p>
+  </div>
+
+  <div class="flex gap-2 items-center">
+    <span class="mt-1">💶</span>
+    <strong>Precio:</strong>
+    <p>{{ modalData.price | number: '1.2-2':'es-ES' }}€</p>
+  </div>
+
+  <div class="flex gap-2 items-center">
+    <span class="mt-1">🦵</span>
+    <strong>Zona del cuerpo:</strong>
+    <p>{{ modalData.body_part }}</p>
+  </div>
+
+  <div class="flex gap-2 items-center">
+    <span class="mt-1">📏</span>
+    <strong>Tamaño:</strong>
+    <p>{{ modalData.size }}</p>
+  </div>
+
+  @if (modalData.notes) {
+  <div class="flex gap-2 items-center">
+    <span class="mt-1">📝</span>
+    <strong>Notas:</strong>
+    <p>{{ modalData.notes }}</p>
+  </div>
+  }
+</div>
