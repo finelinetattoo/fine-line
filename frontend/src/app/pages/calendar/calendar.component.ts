@@ -1,11 +1,58 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { CalendarDisplayComponent } from '../../components/molecules/calendar-display/calendar-display.component';
+import { TattooService } from '../../services/api/tattoo.service';
+import { firstValueFrom } from 'rxjs';
+import { Tattoo } from '../../interfaces/tattoo';
+import { LoaderComponent } from '../../components/atoms/loader/loader.component';
 
 @Component({
   selector: 'app-calendar',
-  imports: [],
+  imports: [CalendarDisplayComponent, LoaderComponent],
   templateUrl: './calendar.component.html',
-  styleUrl: './calendar.component.scss'
+  styleUrl: './calendar.component.scss',
 })
 export class CalendarComponent {
+  private tattooService = inject(TattooService);
+  tattooEvents: any[] = [];
+  readonly styleColorMap: Record<string, string> = {
+    MINIMALIST: '#4ECDC4',
+    GEOMETRIC: '#FF9F1C',
+    ABSTRACT: '#6A4C93',
+    WATERCOLOUR: '#E63946',
+    MICROREALISM: '#1A535C',
+    DOTWORK: '#A1C181',
+    TRIBAL: '#FF6B6B',
+  };
+  loading = true;
 
+  async ngOnInit() {
+    this.loading = true;
+    try {
+      const tattoos = await firstValueFrom(this.tattooService.getAll());
+
+      this.tattooEvents = tattoos.map((t: Tattoo) => {
+        const style = t.style ?? 'UNKNOWN';
+        const color = this.styleColorMap[style.toUpperCase()] || '#999';
+
+        return {
+          title: t.client!.name,
+          date: t.date,
+          backgroundColor: color,
+          borderColor: color,
+          extendedProps: {
+            style: t.style ?? 'Sin estilo',
+            price: t.price ?? null,
+            artist: t.artist?.name ?? 'Sin artista',
+            size: t.size ?? 'Sin tamaño',
+            notes: t.notes ?? null,
+            bodyPart: t.body_part ?? 'Sin parte del cuerpo',
+          },
+        };
+      });
+    } catch (error) {
+      console.error('Error loading tattoos:', error);
+    } finally {
+      this.loading = false;
+    }
+  }
 }
