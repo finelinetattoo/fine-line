@@ -1,33 +1,38 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ChartsDisplayComponent } from '../../components/molecules/charts-display/charts-display.component';
-import { ChartOptions } from 'chart.js';
+import { Chart, ChartData, ChartOptions } from 'chart.js';
 import { TattooService } from '../../services/api/tattoo.service';
 import { Tattoo } from '../../interfaces/tattoo';
 import { firstValueFrom } from 'rxjs';
 import { Dataset } from '../../interfaces/dataset';
+import { BodyPart, BodyPartLabels } from '../../enums/body-part.enum';
+import { capitalize } from '../../utils/capitalize.util';
+import { TattooStyle, TattooStyleLabels } from '../../enums/tattoo-style.enum';
+import { LoaderComponent } from '../../components/atoms/loader/loader.component';
 
 @Component({
   selector: 'app-charts',
-  imports: [ChartsDisplayComponent],
+  imports: [ChartsDisplayComponent, LoaderComponent],
   templateUrl: './charts.component.html',
   styleUrl: './charts.component.scss',
 })
 export class ChartsComponent implements OnInit {
   private tattooService = inject(TattooService);
+  loading = true;
 
   readonly labels = [
-    'January',
-    'February',
-    'March',
-    'April',
+    'Enero',
+    'Febrero',
+    'Marzo',
+    'Abril',
     'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
+    'Junio',
+    'Julio',
+    'Agosto',
+    'Septiembre',
+    'Octubre',
+    'Noviembre',
+    'Diciembre',
   ];
 
   readonly corporateColors = [
@@ -55,15 +60,18 @@ export class ChartsComponent implements OnInit {
     datasets: [] as Dataset[],
   };
 
+  polarAreaChartData: ChartData<'polarArea'> = {
+    labels: [],
+    datasets: [],
+  };
+
+  lineChartData: ChartData<'line'> = { labels: this.labels, datasets: [] };
+
   readonly commonOptions: ChartOptions = {
     responsive: true,
     plugins: {
       legend: {
-        position: 'top',
-        labels: {
-          color: '#555',
-          font: { size: 14, weight: 'bold' },
-        },
+        display: false,
       },
       tooltip: {
         backgroundColor: '#f5f5f5',
@@ -76,6 +84,9 @@ export class ChartsComponent implements OnInit {
 
   readonly barChartOptions: ChartOptions = {
     ...this.commonOptions,
+    plugins: {
+      ...this.commonOptions.plugins,
+    },
     scales: {
       x: {
         ticks: { color: '#555', font: { size: 12 } },
@@ -89,14 +100,54 @@ export class ChartsComponent implements OnInit {
     },
   };
 
-  readonly doughnutChartOptions: ChartOptions = this.commonOptions;
+  readonly doughnutChartOptions: ChartOptions = {
+    ...this.commonOptions,
+    plugins: {
+      ...this.commonOptions.plugins,
+      legend: {
+        ...this.commonOptions.plugins?.legend,
+        labels: {
+          ...this.commonOptions.plugins?.legend?.labels,
+          generateLabels: (chart) => {
+            const defaultLabels =
+              Chart.defaults.plugins.legend.labels.generateLabels(chart);
+            return defaultLabels.map((label) => ({
+              ...label,
+              fillStyle: 'transparent',
+              strokeStyle: 'transparent',
+              pointStyle: undefined,
+            }));
+          },
+        },
+      },
+    },
+  };
+
+  readonly polarAreaChartOptions: ChartOptions = { ...this.commonOptions };
+  readonly lineChartOptions: ChartOptions = {
+    ...this.commonOptions,
+    plugins: {
+      ...this.commonOptions.plugins,
+      legend: {
+        display: true,
+        labels: {
+          color: '#555',
+          font: { size: 14, weight: 'bold' },
+        },
+      },
+    },
+  };
 
   async ngOnInit() {
+    this.loading = true;
     const tattoos = await firstValueFrom(this.tattooService.getAll());
     if (tattoos) {
       this.prepareBarChart(tattoos);
       this.prepareDoughnutChart(tattoos);
+      this.preparePolarAreaChart(tattoos);
+      this.prepareLineChart(tattoos);
     }
+    this.loading = false;
   }
 
   prepareBarChart(tattoos: Tattoo[]): void {
@@ -126,8 +177,14 @@ export class ChartsComponent implements OnInit {
     const counts: { [part: string]: number } = {};
 
     tattoos.forEach((tattoo) => {
-      const part = tattoo.body_part || 'Desconocido';
-      counts[part] = (counts[part] || 0) + 1;
+      const partKey = tattoo.body_part?.toUpperCase() ?? 'UNKNOWN';
+      const isValidKey = Object.values(BodyPart).includes(partKey as BodyPart);
+
+      const translatedLabel = isValidKey
+        ? BodyPartLabels[partKey as BodyPart]
+        : capitalize(partKey.toLowerCase());
+
+      counts[translatedLabel] = (counts[translatedLabel] || 0) + 1;
     });
 
     const labels = Object.keys(counts);
@@ -137,7 +194,7 @@ export class ChartsComponent implements OnInit {
       labels,
       datasets: [
         {
-          label: 'Tatuajes por parte del cuerpo',
+          label: 'Tatuajes por zona del cuerpo',
           data,
           backgroundColor: labels.map(
             (_, i) => this.corporateColors[i % this.corporateColors.length]
@@ -146,6 +203,76 @@ export class ChartsComponent implements OnInit {
           borderWidth: 1,
         },
       ],
+    };
+  }
+
+  preparePolarAreaChart(tattoos: Tattoo[]): void {
+    const counts: Record<string, number> = {};
+
+    tattoos.forEach((tattoo) => {
+      const styleKey = tattoo.style?.toUpperCase() ?? 'UNKNOWN';
+      const isValidKey = Object.values(TattooStyle).includes(
+        styleKey as TattooStyle
+      );
+      const translatedLabel = isValidKey
+        ? TattooStyleLabels[styleKey as TattooStyle]
+        : capitalize(styleKey.toLowerCase());
+      counts[translatedLabel] = (counts[translatedLabel] || 0) + 1;
+    });
+
+    const labels = Object.keys(counts);
+    const data = Object.values(counts);
+
+    this.polarAreaChartData = {
+      labels,
+      datasets: [
+        {
+          label: 'Estilos de tatuaje',
+          data,
+          backgroundColor: labels.map(
+            (_, i) => this.corporateColors[i % this.corporateColors.length]
+          ),
+          borderColor: '#ffffff',
+          borderWidth: 1,
+        },
+      ],
+    };
+  }
+
+  prepareLineChart(tattoos: Tattoo[]): void {
+    const yearMap: Record<number, number[]> = {};
+    tattoos.forEach((t) => {
+      const date = new Date(t.date);
+      const year = date.getUTCFullYear();
+      const month = date.getUTCMonth();
+      if (!yearMap[year]) yearMap[year] = Array(12).fill(0);
+      yearMap[year][month]++;
+    });
+
+    const colorMap: Record<string, string> = {
+      '2024': '#FF9F1C',
+      '2025': '#E63946',
+      '2026': '#4ECDC4',
+      '2027': '#6A4C93',
+      '2028': '#1A535C',
+    };
+
+    const years = Object.keys(yearMap).sort();
+    const datasets = years.map((year) => {
+      const color = colorMap[year] || '#999999';
+      return {
+        label: `Tatuajes en ${year}`,
+        data: yearMap[+year],
+        fill: false,
+        borderColor: color,
+        backgroundColor: color,
+        pointBackgroundColor: color,
+        tension: 0.3,
+      };
+    });
+    this.lineChartData = {
+      labels: [...this.labels],
+      datasets,
     };
   }
 }
