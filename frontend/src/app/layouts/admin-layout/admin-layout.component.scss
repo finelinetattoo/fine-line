@@ -6,10 +6,14 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+h1 {
+  margin-bottom: 0;
+  line-height: 1;
+  font-family: Avenir, Helvetica Neue, Arial, Helvetica, sans-serif;
+}
 
 .app-layout {
-  height: 100vh;
-  min-height: 100vh;
+  height: 100%;
   background-color: $primary-color;
 }
 
