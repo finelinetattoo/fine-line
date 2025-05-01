@@ -18,7 +18,10 @@ export class ArtistListComponent {
   private modal = inject(NzModalService);
 
   artists: Artist[] = [];
+  filteredArtists: Artist[] = [];
   loading = true;
+  sortKey: string | null = null;
+  sortDirection: 'asc' | 'desc' | null = null;
 
   ngOnInit(): void {
     this.getArtists();
@@ -29,6 +32,10 @@ export class ArtistListComponent {
     this.artistService.getAll().subscribe({
       next: (res) => {
         this.artists = res;
+        this.filteredArtists = [...res];
+        this.sortKey = 'name';
+        this.sortDirection = 'asc';
+        this.applySorting();
         this.loading = false;
       },
       error: (err) => {
@@ -55,6 +62,8 @@ export class ArtistListComponent {
     this.artistService.delete(id).subscribe({
       next: () => {
         this.artists = this.artists.filter((artist) => artist.id !== id);
+        this.filteredArtists = [...this.artists];
+        this.applySorting();
         this.notificationService.success(
           'Artista eliminado',
           'El artista se eliminó correctamente.'
@@ -95,6 +104,8 @@ export class ArtistListComponent {
   createArtist(): void {
     this.openArtistModal('Añadir tatuador', undefined, (newArtist) => {
       this.artists = [...this.artists, newArtist];
+      this.filteredArtists = [...this.artists];
+      this.applySorting();
     });
   }
 
@@ -103,6 +114,57 @@ export class ArtistListComponent {
       this.artists = this.artists.map((a) =>
         a.id === updatedArtist.id ? updatedArtist : a
       );
+      this.filteredArtists = [...this.artists];
+      this.applySorting();
+    });
+  }
+
+  searchArtist(term: string): void {
+    const lower = term.toLowerCase();
+    this.filteredArtists = this.artists.filter((artist) =>
+      artist.name.toLowerCase().includes(lower)
+    );
+  }
+
+  resetFilters(): void {
+    this.filteredArtists = [...this.artists];
+  }
+
+  sortArtists(key: string): void {
+    if (this.sortKey === key) {
+      this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
+    } else {
+      this.sortKey = key;
+      this.sortDirection = 'asc';
+    }
+
+    this.applySorting();
+  }
+
+  applySorting(): void {
+    if (!this.sortKey || !this.sortDirection) {
+      return;
+    }
+
+    this.filteredArtists = [...this.filteredArtists].sort((a: any, b: any) => {
+      const aValue = a[this.sortKey!];
+      const bValue = b[this.sortKey!];
+
+      if (aValue == null || bValue == null) {
+        return 0;
+      }
+
+      if (typeof aValue === 'string' && typeof bValue === 'string') {
+        const compare = aValue.localeCompare(bValue);
+        return this.sortDirection === 'asc' ? compare : -compare;
+      }
+
+      if (typeof aValue === 'number' && typeof bValue === 'number') {
+        const compare = aValue - bValue;
+        return this.sortDirection === 'asc' ? compare : -compare;
+      }
+
+      return 0;
     });
   }
 }

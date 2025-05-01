@@ -6,10 +6,14 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+h1 {
+  margin-bottom: 0;
+  line-height: 1;
+  font-family: Avenir, Helvetica Neue, Arial, Helvetica, sans-serif;
+}
 
 .app-layout {
-  height: 100vh;
-  min-height: 100vh;
+  height: 100%;
   background-color: $primary-color;
 }
 
@@ -118,4 +122,45 @@ nz-content {
 
 .custom-menu-item {
   margin: 0 !important;
+}
+
+.logout-container {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+
+  button[nz-button] {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: white;
+    font-weight: 500;
+
+    nz-icon {
+      font-size: 16px;
+    }
+  }
+
+  nz-dropdown-menu {
+    ul[nz-menu] {
+      padding: 0.5rem 0;
+    }
+
+    li[nz-menu-item] {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      font-size: 14px;
+      transition: background 0.2s;
+
+      &:hover {
+        background-color: #f5f5f5;
+      }
+
+      nz-icon {
+        font-size: 16px;
+      }
+    }
+  }
 }

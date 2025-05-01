@@ -43,8 +43,15 @@ export const routes: Routes = [
         children: [
           {
             path: 'dashboard',
-            redirectTo: 'clients',
+            redirectTo: 'calendario',
             pathMatch: 'full',
+          },
+          {
+            path: 'calendario',
+            loadComponent: () =>
+              import('./pages/calendar/calendar.component').then(
+                (m) => m.CalendarComponent
+              ),
           },
           {
             path: 'clients',
@@ -65,6 +72,13 @@ export const routes: Routes = [
             loadComponent: () =>
               import('./pages/tattoos/tattoos.component').then(
                 (m) => m.TattoosComponent
+              ),
+          },
+          {
+            path: 'graficos',
+            loadComponent: () =>
+              import('./pages/charts/charts.component').then(
+                (m) => m.ChartsComponent
               ),
           },
         ],

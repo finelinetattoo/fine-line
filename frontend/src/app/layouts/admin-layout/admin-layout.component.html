@@ -6,8 +6,14 @@
       <h1 class="sidebar-logo-title">Fine Line Tattoo</h1>
     </div>
     <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
-      <li nz-submenu nzOpen nzTitle="Menú" nzIcon="dashboard">
+      <li nz-submenu nzOpen nzTitle="Menú" nzIcon="menu">
         <ul>
+          <li nz-menu-item nzMatchRouter class="custom-menu-item">
+            <a routerLink="/admin/calendario">Calendario</a>
+          </li>
+          <li nz-menu-item nzMatchRouter class="custom-menu-item">
+            <a routerLink="/admin/graficos">Gráficos</a>
+          </li>
           <li nz-menu-item nzMatchRouter class="custom-menu-item">
             <a routerLink="/admin/clients">Clientes</a>
           </li>
@@ -19,29 +25,38 @@
           </li>
         </ul>
       </li>
-      <li nz-submenu nzOpen nzTitle="Form" nzIcon="form">
-        <ul>
-          <li nz-menu-item nzMatchRouter class="custom-menu-item">
-            <a>Basic Form</a>
+    </ul>
+    @if(userName){
+    <div class="logout-container">
+      <a nz-dropdown [nzDropdownMenu]="menu" nzTrigger="click">
+        <button nz-button nzType="text" class="cursor-pointer">
+          <nz-icon nzType="user"></nz-icon>
+          @if (!isCollapsed) {
+          <span>Hola {{ userName }}!</span>
+          <nz-icon nzType="down"></nz-icon>
+          }
+        </button>
+      </a>
+      <nz-dropdown-menu #menu="nzDropdownMenu">
+        <ul nz-menu>
+          <li nz-menu-item (click)="logout()">
+            <nz-icon nzType="logout" class="me-1"></nz-icon>
+            <span>Cerrar sesión</span>
           </li>
         </ul>
-      </li>
-    </ul>
-    <div class="logout-container">
-      <button nz-button nzType="text" (click)="logout()" class="logout-button cursor-pointer">
-        <nz-icon nzType="logout"></nz-icon>
-        @if(!isCollapsed) {
-        <span>Cerrar sesión</span>
-        }
-      </button>
+      </nz-dropdown-menu>
     </div>
+    }
   </nz-sider>
   <nz-layout>
     <nz-header>
-      <div class="app-header">
-        <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
+      <div class="app-header relative flex items-center px-4 h-16">
+        <span class="header-trigger flex" (click)="isCollapsed = !isCollapsed">
           <nz-icon class="trigger" [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'" />
         </span>
+        <h1 class="absolute left-1/2 -translate-x-1/2 text-xl font-bold">
+          Panel de administración
+        </h1>
       </div>
     </nz-header>
     <nz-content>

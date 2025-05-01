@@ -25,10 +25,12 @@ export class TattooListComponent {
   private modal = inject(NzModalService);
 
   tattoos: Tattoo[] = [];
-  loading = true;
-
   clients: Client[] = [];
   artists: Artist[] = [];
+  filteredTattoos: Tattoo[] = [];
+  loading = true;
+  sortKey: string | null = null;
+  sortDirection: 'asc' | 'desc' | null = null;
 
   ngOnInit(): void {
     this.loadData();
@@ -48,6 +50,11 @@ export class TattooListComponent {
         clientName: tattoo.client?.name || 'Desconocido',
         artistName: tattoo.artist?.name || 'Desconocido',
       }));
+      this.filteredTattoos = [...this.tattoos];
+      this.sortKey = 'date';
+      this.sortDirection = 'desc';
+      this.applySorting();
+      this.loading = false;
     } catch (error) {
       this.notificationService.error(
         'Error',
@@ -76,6 +83,8 @@ export class TattooListComponent {
     this.tattooService.delete(id).subscribe({
       next: () => {
         this.tattoos = this.tattoos.filter((tattoo) => tattoo.id !== id);
+        this.filteredTattoos = [...this.tattoos];
+        this.applySorting();
         this.notificationService.success(
           'Tatuaje eliminado',
           'El tatuaje se eliminó correctamente.'
@@ -143,6 +152,8 @@ export class TattooListComponent {
       };
 
       this.tattoos = [...this.tattoos, formattedTattoo];
+      this.filteredTattoos = [...this.tattoos];
+      this.applySorting();
     });
   }
 
@@ -164,6 +175,62 @@ export class TattooListComponent {
             }
           : t
       );
+      this.filteredTattoos = [...this.tattoos];
+      this.applySorting();
+    });
+  }
+
+  searchTattoo(term: string): void {
+    const lower = term.toLowerCase();
+    this.filteredTattoos = this.tattoos.filter(
+      (tattoo: any) =>
+        tattoo.clientName.toLowerCase().includes(lower) ||
+        tattoo.artistName.toLowerCase().includes(lower) ||
+        tattoo.style.toLowerCase().includes(lower)
+    );
+  }
+
+  resetFilters(): void {
+    this.filteredTattoos = [...this.tattoos];
+  }
+
+  sortTattoos(key: string): void {
+    if (this.sortKey === key) {
+      this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
+    } else {
+      this.sortKey = key;
+      this.sortDirection = 'asc';
+    }
+    this.applySorting();
+  }
+
+  applySorting(): void {
+    if (!this.sortKey || !this.sortDirection) return;
+
+    this.filteredTattoos = [...this.filteredTattoos].sort((a: any, b: any) => {
+      const aValue = a[this.sortKey!];
+      const bValue = b[this.sortKey!];
+
+      if (aValue == null || bValue == null) return 0;
+
+      if (typeof aValue === 'string' && typeof bValue === 'string') {
+        const compare = aValue.localeCompare(bValue);
+        return this.sortDirection === 'asc' ? compare : -compare;
+      }
+
+      if (typeof aValue === 'number' && typeof bValue === 'number') {
+        const compare = aValue - bValue;
+        return this.sortDirection === 'asc' ? compare : -compare;
+      }
+
+      if (this.sortKey === 'date') {
+        const dateA = new Date(aValue).getTime();
+        const dateB = new Date(bValue).getTime();
+        const compare = dateA - dateB;
+        return this.sortDirection === 'asc' ? compare : -compare;
+      }
+
+      return 0;
     });
   }
 }
