@@ -1,6 +1,11 @@
 @use "tailwindcss";
 @use "styles/abstracts/colors" as *;
 
+@theme {
+  --color-beige: #e7e2d6;
+  --color-granite: #c6bab1;
+}
+
 // ========================================
 // DASHBOARD PAGE STYLES
 // ========================================
@@ -100,6 +105,13 @@
 // ===========================
 // Calendar
 // ===========================
+app-calendar-display {
+  a,
+  a:hover {
+    color: black;
+  }
+}
+
 .fc- {
   &event-main {
     margin-left: 4px;
