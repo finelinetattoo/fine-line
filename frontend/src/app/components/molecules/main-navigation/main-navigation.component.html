@@ -3,18 +3,18 @@
   <ng-container>
     @if (!link.children) {
     @if (link.label === 'Home') {
-    <a [routerLink]="link.path" class="block md:hidden hover:opacity-75 transition">
+    <a [routerLink]="link.path" class="block text-lg md:hidden hover:opacity-75 transition">
       {{ link.label }}
     </a>
     } @else {
-    <a [routerLink]="link.path" class="hidden md:block hover:opacity-75 transition">
+    <a [routerLink]="link.path" class="text-lg hidden md:block hover:opacity-75 transition">
       {{ link.label }}
     </a>
     }
     } @else {
     <div class="relative hidden md:block" (clickOutside)="closeDropdown()" tabindex="0">
       <button (click)="toggleDropdown(link.label)"
-        class="hover:opacity-75 transition inline-flex items-center gap-1 cursor-pointer">
+        class="!text-lg hover:opacity-75 transition inline-flex items-center gap-1 cursor-pointer">
         {{ link.label }}
         <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
           <path fill-rule="evenodd"
@@ -29,7 +29,7 @@
         <ul class="min-w-[180px] !mb-0">
           @for(child of link.children; track child.path){
           <li class="border-b border-beige first:border-t first:border-beige hover:opacity-75 transition">
-            <a [routerLink]="child.path" (click)="closeDropdown()" class="block px-4 py-3 text-sm text-center">
+            <a [routerLink]="child.path" (click)="closeDropdown()" class="block px-4 py-3 text-md text-center">
               {{ child.label }}
             </a>
           </li>

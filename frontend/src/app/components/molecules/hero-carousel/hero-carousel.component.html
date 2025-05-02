@@ -1,0 +1,41 @@
+<div class="bg-beige py-25">
+  <div class="max-w-screen-xl mx-auto relative w-full h-[600px] bg-beige flex">
+    <div class="w-1/2 flex flex-col justify-center px-6 mr-20 z-10 text-black">
+      <div class="backdrop-blur-sm bg-white/30 px-10 py-10 rounded">
+        <h1 class="text-5xl">FINE LINE Tattoo</h1>
+        <h2 class="text-4xl mb-4">Un estudio diferente</h2>
+        <span class="mb-2 max-w-lg text-xl">
+          Estudio de estilo minimalista donde el arte toma forma con precisión y detalle.
+        </span>
+        <span class="mb-6 max-w-lg text-xl">
+          Microrealismo y geometría
+          para quienes buscan algo único.
+        </span>
+        <div class="mt-7">
+          <a routerLink="/reserva"
+            class="inline-flex w-fit items-center border border-black !text-black px-6 py-3 text-lg hover:bg-black hover:!text-white hover:!bg-black transition">
+            Reserva tu cita
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="w-1/2 relative h-full pr-10 ps-6">
+      @for (image of images; track image; let i = $index) {
+      <div class="absolute inset-0 transition-opacity duration-700 ease-in-out" [ngClass]="{
+          'opacity-100 z-10': i === currentIndex,
+          'opacity-0 z-0': i !== currentIndex
+        }">
+        <div class="relative w-full h-full">
+          <img [src]="image" alt="carousel image" class="w-full h-full object-cover" />
+          <div class="absolute inset-0 pointer-events-none z-20">
+            <div class="absolute top-0 left-0 h-full w-12 bg-gradient-to-r from-beige to-transparent"></div>
+            <div class="absolute top-0 right-0 h-full w-12 bg-gradient-to-l from-beige to-transparent"></div>
+            <div class="absolute top-0 left-0 w-full h-12 bg-gradient-to-b from-beige to-transparent"></div>
+            <div class="absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-beige to-transparent"></div>
+          </div>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+</div>
