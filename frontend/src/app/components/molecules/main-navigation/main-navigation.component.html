@@ -1,0 +1,44 @@
+<nav class="flex gap-6">
+  @for(link of links; track link.label){
+  <ng-container>
+    @if (!link.children) {
+    @if (link.label === 'Home') {
+    <a [routerLink]="link.path" class="block md:hidden hover:opacity-75 transition">
+      {{ link.label }}
+    </a>
+    } @else {
+    <a [routerLink]="link.path" class="hidden md:block hover:opacity-75 transition">
+      {{ link.label }}
+    </a>
+    }
+    } @else {
+    <div class="relative hidden md:block" (clickOutside)="closeDropdown()" tabindex="0">
+      <button (click)="toggleDropdown(link.label)"
+        class="hover:opacity-75 transition inline-flex items-center gap-1 cursor-pointer">
+        {{ link.label }}
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd"
+            d="M5.23 7.21a.75.75 0 011.06 0L10 10.91l3.72-3.7a.75.75 0 011.06 1.06l-4.25 4.25a.75.75 0 01-1.06 0L5.23 8.27a.75.75 0 010-1.06z"
+            clip-rule="evenodd" />
+        </svg>
+      </button>
+
+      @if (dropdownOpen === link.label) {
+      <div
+        class="absolute top-full mt-3 z-50 left-1/2 -translate-x-1/2 min-w-[200px] bg-white/5 transition duration-200">
+        <ul class="min-w-[180px] !mb-0">
+          @for(child of link.children; track child.path){
+          <li class="border-b border-beige first:border-t first:border-beige hover:opacity-75 transition">
+            <a [routerLink]="child.path" (click)="closeDropdown()" class="block px-4 py-3 text-sm text-center">
+              {{ child.label }}
+            </a>
+          </li>
+          }
+        </ul>
+      </div>
+      }
+    </div>
+    }
+  </ng-container>
+  }
+</nav>
