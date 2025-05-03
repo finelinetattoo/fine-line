@@ -11,5 +11,4 @@ export class HoverCardComponent {
   @Input() imageMain!: string;
   @Input() imageOverlay!: string;
   @Input() imageAlt!: string;
-  @Input() imageLink!: string;
 }

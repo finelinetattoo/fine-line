@@ -1,13 +1,4 @@
-@if (imageLink) {
-<a [routerLink]="imageLink" class="block w-fit">
-  <article class="hover-card">
-    <img [src]="imageMain" [alt]="imageAlt" class="main-img" />
-    <img [src]="imageOverlay" alt="Overlay image" class="overlay-img" />
-  </article>
-</a>
-} @else {
 <article class="hover-card">
   <img [src]="imageMain" [alt]="imageAlt" class="main-img" />
   <img [src]="imageOverlay" alt="Overlay image" class="overlay-img" />
 </article>
-}

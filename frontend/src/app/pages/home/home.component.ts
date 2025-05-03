@@ -3,6 +3,7 @@ import { HeroCarouselComponent } from '../../components/molecules/hero-carousel/
 import { CommonModule } from '@angular/common';
 import { ParallaxSectionComponent } from '../../components/molecules/parallax-section/parallax-section.component';
 import { HoverCardComponent } from '../../components/molecules/hover-card/hover-card.component';
+import { ButtonComponent } from '../../components/atoms/button/button.component';
 
 @Component({
   selector: 'app-home',
@@ -11,6 +12,7 @@ import { HoverCardComponent } from '../../components/molecules/hover-card/hover-
     HeroCarouselComponent,
     ParallaxSectionComponent,
     HoverCardComponent,
+    ButtonComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
@@ -45,13 +47,17 @@ export class HomeComponent {
       title: 'Tatuajes',
       imageMain: 'assets/images/tatuaje-brazo-calavera.jpg',
       imageOverlay: 'assets/images/tatuaje-boceto.webp',
-      imageLink: 'admin',
+      ctaLink: '/portafolio',
+      ctaLabel: 'Trabajos realizados',
+      decoration: 'assets/images/image-title-tattoo.png',
     },
     {
       title: 'Kit post-tatuaje',
       imageMain: 'assets/images/kit-post-tatuaje.jpg',
       imageOverlay: 'assets/images/cremas-instrucciones.webp',
-      imageLink: 'admin',
+      ctaLink: '/recomendaciones',
+      ctaLabel: 'Ver recomendaciones',
+      decoration: 'assets/images/title-post-tattoo.png',
     },
   ];
 }
