@@ -7,6 +7,24 @@
   [description]="parallaxSectionData.description" [buttonLabel]="parallaxSectionData.buttonLabel"
   [buttonLink]="parallaxSectionData.buttonLink">
 </app-parallax-section>
+<section class="py-20 bg-beige text-center overflow-x-hidden px-10 md:px-0">
+  <h2 class="text-5xl mb-12">Qué hacemos</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-15 md:gap-30 max-w-5xl mx-auto">
+    @for(card of hoverCardsData; track $index){
+    <div class="flex flex-col items-center">
+      <img [src]="card.decoration" alt="Decoración título" class="w-28 md:w-40 mb-[-1rem]" />
+      <h3 class="card-title !mb-10">
+        {{ card.title }}
+      </h3>
+      <app-hover-card [imageMain]="card.imageMain" [imageOverlay]="card.imageOverlay" [imageAlt]="card.title">
+      </app-hover-card>
+      <div class="mt-12 z-99">
+        <app-button [label]="card.ctaLabel" [link]="card.ctaLink" class="mt-50"></app-button>
+      </div>
+    </div>
+    }
+  </div>
+</section>
 <div class="w-full bg-cyan-500 py-60">hola</div>
 <div class="w-full bg-blue-500 py-60">hola</div>
 <div class="w-full bg-red-100 py-60">hola</div>
