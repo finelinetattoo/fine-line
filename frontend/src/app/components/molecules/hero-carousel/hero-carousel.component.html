@@ -1,7 +1,9 @@
 <div class="bg-beige py-25">
-  <div class="max-w-screen-xl mx-auto relative w-full h-[600px] bg-beige flex">
-    <div class="w-1/2 flex flex-col justify-center px-6 mr-20 z-10 text-black">
-      <div class="backdrop-blur-sm bg-white/30 px-10 py-10 rounded">
+  <div class="max-w-screen-xl mx-auto w-full h-auto flex flex-col md:flex-row bg-beige">
+    <div
+      class="w-full md:w-1/2 flex flex-col justify-center px-6 xl:mr-20 z-10 text-black order-2 md:order-1 mt-6 md:mt-0">
+
+      <div class="text-center md:text-start backdrop-blur-sm bg-white/30 px-5 xl:px-10 py-10 rounded">
         <h1 class="text-5xl">FINE LINE Tattoo</h1>
         <h2 class="text-4xl mb-4">Un estudio diferente</h2>
         <span class="mb-2 max-w-lg text-xl">
@@ -19,9 +21,9 @@
         </div>
       </div>
     </div>
-    <div class="w-1/2 relative h-full pr-10 ps-6">
+    <div class="w-full md:w-1/2 relative h-[300px] md:h-[600px] md:pr-10 md:px-6 md:ps-6 order-1 md:order-2">
       @for (image of images; track image; let i = $index) {
-      <div class="absolute inset-0 transition-opacity duration-700 ease-in-out" [ngClass]="{
+      <div class="absolute inset-0 transition-opacity duration-700 ease-in-out md:pr-6 xl:pl-10" [ngClass]="{
           'opacity-100 z-10': i === currentIndex,
           'opacity-0 z-0': i !== currentIndex
         }">
