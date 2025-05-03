@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { ButtonComponent } from '../../atoms/button/button.component';
 
 @Component({
   selector: 'app-hero-carousel',
   templateUrl: './hero-carousel.component.html',
   styleUrl: './hero-carousel.component.scss',
-  imports: [CommonModule],
+  imports: [CommonModule, ButtonComponent],
 })
 export class HeroCarouselComponent implements OnInit, OnDestroy {
   images = [
