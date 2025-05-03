@@ -1,0 +1,15 @@
+section {
+  p,
+  h2,
+  a {
+    color: black;
+  }
+}
+.bg-about {
+  &-mobile {
+    background-image: url("/assets/images/about-fineline-bg-mobile.webp");
+  }
+  &-desktop {
+    background-image: url("/assets/images/about-fineline-bg.webp");
+  }
+}

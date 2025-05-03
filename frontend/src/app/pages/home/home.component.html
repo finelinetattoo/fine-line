@@ -1,4 +1,12 @@
-<app-hero-carousel></app-hero-carousel>
+<app-hero-carousel [images]="heroCarouselData.images" [title]="heroCarouselData.title"
+  [subtitle]="heroCarouselData.subtitle" [paragraph1]="heroCarouselData.paragraph1"
+  [paragraph2]="heroCarouselData.paragraph2" [buttonLabel]="heroCarouselData.buttonLabel"
+  [buttonLink]="heroCarouselData.buttonLink">
+</app-hero-carousel>
+<app-parallax-section [backgroundClass]="parallaxSectionData.parallaxBgClass" [title]="parallaxSectionData.title"
+  [description]="parallaxSectionData.description" [buttonLabel]="parallaxSectionData.buttonLabel"
+  [buttonLink]="parallaxSectionData.buttonLink">
+</app-parallax-section>
 <div class="w-full bg-cyan-500 py-60">hola</div>
 <div class="w-full bg-blue-500 py-60">hola</div>
 <div class="w-full bg-red-100 py-60">hola</div>
