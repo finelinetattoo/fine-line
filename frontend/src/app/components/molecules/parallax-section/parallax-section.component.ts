@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ButtonComponent } from '../../atoms/button/button.component';
 import { CommonModule } from '@angular/common';
 
@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './parallax-section.component.scss',
 })
 export class ParallaxSectionComponent {
-  @Input() backgroundImage: string = '';
+  @Input() backgroundClass: string = '';
   @Input() title: string = '';
   @Input() description: string = '';
   @Input() buttonLabel: string = '';
