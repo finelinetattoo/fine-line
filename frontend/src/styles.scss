@@ -1,11 +1,18 @@
 @use "tailwindcss";
 @use "styles/abstracts/colors" as *;
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
 
 @theme {
   --color-beige: #e7e2d6;
   --color-granite: #c6bab1;
+  --color-black: #373737;
 }
-
+body {
+  font-family: "Inter", sans-serif;
+}
+p {
+  color: #373737;
+}
 // ========================================
 // DASHBOARD PAGE STYLES
 // ========================================
