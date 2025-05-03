@@ -1,5 +1,8 @@
 <app-hero-carousel></app-hero-carousel>
-<app-about-us></app-about-us>
+<app-parallax-section [backgroundImage]="parallaxSectionData.backgroundImage" [title]="parallaxSectionData.title"
+  [description]="parallaxSectionData.description" [buttonLabel]="parallaxSectionData.buttonLabel"
+  [buttonLink]="parallaxSectionData.buttonLink">
+</app-parallax-section>
 <div class="w-full bg-cyan-500 py-60">hola</div>
 <div class="w-full bg-blue-500 py-60">hola</div>
 <div class="w-full bg-red-100 py-60">hola</div>

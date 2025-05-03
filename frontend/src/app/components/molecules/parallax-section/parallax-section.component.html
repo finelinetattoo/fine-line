@@ -1,0 +1,10 @@
+<section class="relative bg-fixed bg-cover bg-center text-black py-32 px-4"
+  [ngStyle]="{ 'background-image': 'url(' + backgroundImage + ')' }">
+  <div class="max-w-3xl mx-auto text-center backdrop-blur-lg bg-white/60 p-10 rounded">
+    <h2 class="text-4xl md:text-5xl mb-6">{{title}}</h2>
+    <p class="text-lg md:text-xl mb-8">
+      {{description}}
+    </p>
+    <app-button [label]="buttonLabel" [link]="buttonLink"></app-button>
+  </div>
+</section>
