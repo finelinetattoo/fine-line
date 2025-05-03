@@ -49,8 +49,8 @@ export class HomeComponent {
     },
     {
       title: 'Kit post-tatuaje',
-      imageMain: 'https://i.imgur.com/YPQlth8.jpg',
-      imageOverlay: 'https://i.imgur.com/2u3EXCX.png',
+      imageMain: 'assets/images/kit-post-tatuaje.jpg',
+      imageOverlay: 'assets/images/cremas-instrucciones.webp',
       imageLink: 'admin',
     },
   ];
