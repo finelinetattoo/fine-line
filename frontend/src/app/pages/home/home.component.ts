@@ -18,4 +18,18 @@ export class HomeComponent {
     buttonLabel: 'Reserva tu cita',
     buttonLink: '/reserva',
   };
+  heroCarouselData = {
+    images: [
+      'assets/images/carousel1.jpeg',
+      'assets/images/carousel2.jpeg',
+      'assets/images/carousel3.jpeg',
+    ],
+    title: 'FINE LINE Tattoo',
+    subtitle: 'Un estudio diferente',
+    paragraph1:
+      'Estudio de estilo minimalista donde el arte toma forma con precisión y detalle.',
+    paragraph2: 'Microrealismo y geometría para quienes buscan algo único.',
+    buttonLabel: 'Contáctanos',
+    buttonLink: '/contacto',
+  };
 }

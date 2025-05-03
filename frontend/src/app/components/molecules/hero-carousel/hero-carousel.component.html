@@ -4,17 +4,16 @@
       class="w-full md:w-1/2 flex flex-col justify-center px-6 xl:mr-20 z-10 text-black order-2 md:order-1 mt-6 md:mt-0">
 
       <div class="text-center md:text-start backdrop-blur-sm bg-white/30 px-5 xl:px-10 py-10 rounded">
-        <h1 class="text-5xl">FINE LINE Tattoo</h1>
-        <h2 class="text-4xl mb-4">Un estudio diferente</h2>
-        <span class="mb-2 max-w-lg text-xl">
-          Estudio de estilo minimalista donde el arte toma forma con precisión y detalle.
-        </span>
-        <span class="mb-6 max-w-lg text-xl">
-          Microrealismo y geometría
-          para quienes buscan algo único.
-        </span>
+        <h1 class="text-5xl">{{title}}</h1>
+        <h2 class="text-4xl mb-4">{{ subtitle }}</h2>
+        <p class="!mb-1 max-w-lg text-xl">
+          {{ paragraph1 }}
+        </p>
+        <p class="mb-6 max-w-lg text-xl">
+          {{ paragraph2 }}
+        </p>
         <div class="mt-7">
-          <app-button label="Contáctanos" link="contacto"></app-button>
+          <app-button [label]="buttonLabel" [link]="buttonLink"></app-button>
         </div>
       </div>
     </div>

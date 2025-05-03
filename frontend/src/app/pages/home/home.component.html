@@ -1,4 +1,8 @@
-<app-hero-carousel></app-hero-carousel>
+<app-hero-carousel [images]="heroCarouselData.images" [title]="heroCarouselData.title"
+  [subtitle]="heroCarouselData.subtitle" [paragraph1]="heroCarouselData.paragraph1"
+  [paragraph2]="heroCarouselData.paragraph2" [buttonLabel]="heroCarouselData.buttonLabel"
+  [buttonLink]="heroCarouselData.buttonLink">
+</app-hero-carousel>
 <app-parallax-section [backgroundClass]="parallaxSectionData.parallaxBgClass" [title]="parallaxSectionData.title"
   [description]="parallaxSectionData.description" [buttonLabel]="parallaxSectionData.buttonLabel"
   [buttonLink]="parallaxSectionData.buttonLink">
