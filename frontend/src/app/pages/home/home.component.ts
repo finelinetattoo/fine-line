@@ -2,10 +2,16 @@ import { Component } from '@angular/core';
 import { HeroCarouselComponent } from '../../components/molecules/hero-carousel/hero-carousel.component';
 import { CommonModule } from '@angular/common';
 import { ParallaxSectionComponent } from '../../components/molecules/parallax-section/parallax-section.component';
+import { HoverCardComponent } from '../../components/molecules/hover-card/hover-card.component';
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule, HeroCarouselComponent, ParallaxSectionComponent],
+  imports: [
+    CommonModule,
+    HeroCarouselComponent,
+    ParallaxSectionComponent,
+    HoverCardComponent,
+  ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
@@ -18,6 +24,7 @@ export class HomeComponent {
     buttonLabel: 'Reserva tu cita',
     buttonLink: '/reserva',
   };
+
   heroCarouselData = {
     images: [
       'assets/images/carousel1.jpeg',
@@ -32,4 +39,19 @@ export class HomeComponent {
     buttonLabel: 'Contáctanos',
     buttonLink: '/contacto',
   };
+
+  hoverCardsData = [
+    {
+      title: 'Tatuajes',
+      imageMain: 'assets/images/tatuaje-brazo-calavera.jpg',
+      imageOverlay: 'assets/images/tatuaje-boceto.webp',
+      imageLink: 'admin',
+    },
+    {
+      title: 'Kit post-tatuaje',
+      imageMain: 'https://i.imgur.com/YPQlth8.jpg',
+      imageOverlay: 'https://i.imgur.com/2u3EXCX.png',
+      imageLink: 'admin',
+    },
+  ];
 }

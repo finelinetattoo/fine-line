@@ -1,8 +1,13 @@
 .hover-card {
   position: relative;
-  width: 250px;
+  width: 100%;
+  max-width: 500px;
   transition: all 0.3s ease;
 }
+// .main-img {
+//   box-shadow: 0 60px 60px -60px rgba(0, 30, 255, 0.5);
+//   z-index: 1;
+// }
 
 .hover-card img:first:child {
   box-shadow: 0 60px 60px -60px rgba(0, 30, 255, 0.5);
