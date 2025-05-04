@@ -7,9 +7,13 @@
   [description]="parallaxSectionData.description" [buttonLabel]="parallaxSectionData.buttonLabel"
   [buttonLink]="parallaxSectionData.buttonLink">
 </app-parallax-section>
+<app-info-block [title]="teamSection.title" [paragraphs]="teamSection.paragraphs"
+  [buttonLabel]="teamSection.buttonLabel" [buttonLink]="teamSection.buttonLink" [imageSrc]="teamSection.imageSrc"
+  [imageAlt]="teamSection.imageAlt" [backgroundClass]="teamSection.backgroundClass" class="">
+</app-info-block>
 <section class="py-20 bg-beige text-center overflow-x-hidden px-10 md:px-0">
   <h2 class="text-5xl mb-12">Qué hacemos</h2>
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-15 md:gap-30 max-w-5xl mx-auto">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-15 md:gap-30 max-w-6xl mx-auto">
     @for(card of hoverCardsData; track $index){
     <div class="flex flex-col items-center">
       <img [src]="card.decoration" alt="Decoración título">
@@ -27,7 +31,7 @@
 </section>
 <section class="py-20 bg-beige text-center overflow-x-hidden px-10 md:px-0">
   <h2 class="text-5xl mb-12">Próximamente</h2>
-  <div class=" max-w-5xl mx-auto">
+  <div class=" max-w-6xl mx-auto">
     @for(card of soonSectionCardData; track $index){
     <div class="flex flex-col items-center">
       <img [src]="card.decoration" alt="Decoración título">
@@ -41,6 +45,7 @@
     }
   </div>
 </section>
+
 <div class="w-full bg-cyan-500 py-60">hola</div>
 <div class="w-full bg-blue-500 py-60">hola</div>
 <div class="w-full bg-red-100 py-60">hola</div>
