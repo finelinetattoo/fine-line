@@ -1,16 +1,21 @@
 <section class="py-20 px-6" [ngClass]="backgroundClass">
-  <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12"
-    [ngClass]="imagePosition === 'right' ? 'md:flex-row-reverse' : ''">
+  <div class="mx-auto flex flex-col items-center gap-12" [ngClass]="{
+        'max-w-6xl' : imagePosition !== 'down',
+        'md:flex-row': imagePosition === 'left',
+        'md:flex-row-reverse': imagePosition === 'right',
+        'md:flex-col max-w-4xl': imagePosition === 'down'
+      }">
 
     <ng-container>
-      <img [src]="imageSrc" [alt]="imageAlt"
-        class="max-w-[300px] md:max-w-[350px] xl:max-w-[400px] shadow-md object-cover order-2 md:order-none" [ngClass]="{
-            'rounded-full': imageStyle === 'rounded',
-            'rounded-xl': imageStyle === 'square'
-          }">
+      <img [src]="imageSrc" [alt]="imageAlt" class="shadow-md object-cover" [ngClass]="{
+          'max-w-[300px] md:max-w-[350px] xl:max-w-[400px] order-2 md:order-none': imagePosition !== 'down',
+          'max-w-[400px] md:max-w-[450px] xl:max-w-[500px] order-2': imagePosition === 'down',
+          'rounded-full': imageStyle === 'rounded',
+          'rounded-xl': imageStyle === 'square'
+        }">
     </ng-container>
 
-    <div class="text-center md:text-left flex-1 order-1 md:order-none">
+    <div class="text-center flex-1 order-1 md:order-none" [ngClass]="imagePosition !== 'down' ? 'md:text-left' : ''">
       <h2 class="text-4xl md:text-5xl font-semibold mb-6">{{ title }}</h2>
       @for(paragraph of paragraphs; track paragraph){
       <ng-container>

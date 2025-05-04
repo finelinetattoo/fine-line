@@ -16,7 +16,7 @@ export class InfoBlockComponent {
   @Input() buttonLink?: string;
   @Input() imageSrc?: string;
   @Input() imageAlt = '';
-  @Input() imagePosition: 'left' | 'right' = 'left';
+  @Input() imagePosition: 'left' | 'right' | 'down' = 'left';
   @Input() backgroundClass = '';
   @Input() imageStyle: 'rounded' | 'square' = 'rounded';
 }
