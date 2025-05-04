@@ -3,8 +3,11 @@
     [ngClass]="imagePosition === 'right' ? 'md:flex-row-reverse' : ''">
 
     <ng-container>
-      <img [src]="imageSrc" alt="Liz, artista de Fine Line"
-        class="max-w-[300px] md:max-w-[350px] xl:max-w-[400px] rounded-full shadow-md object-cover order-2 md:order-none">
+      <img [src]="imageSrc" [alt]="imageAlt"
+        class="max-w-[300px] md:max-w-[350px] xl:max-w-[400px] shadow-md object-cover order-2 md:order-none" [ngClass]="{
+            'rounded-full': imageStyle === 'rounded',
+            'rounded-xl': imageStyle === 'square'
+          }">
     </ng-container>
 
     <div class="text-center md:text-left flex-1 order-1 md:order-none">
