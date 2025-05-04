@@ -80,11 +80,28 @@ export class HomeComponent {
     paragraphs: [
       'Fine Line cuenta con Liz, nuestra artista especializada en microrealismo, geometría y técnicas avanzadas de cuidado de la piel.',
       'Su atención al detalle y su enfoque meticuloso garantizan una experiencia estética única, profesional y personalizada para cada cliente.',
-    ],
+    ] as string[],
     buttonLabel: 'Contacta',
     buttonLink: '/contacto',
     imageSrc: 'assets/images/artists/liz.webp',
     imageAlt: 'Liz, artista de Fine Line',
+    imagePosition: 'left',
     backgroundClass: 'bg-beige',
-  };
+    imageStyle: 'rounded',
+  } as const;
+
+  spaceSection = {
+    title: 'Nuestro espacio',
+    paragraphs: [
+      'El estudio Fine Line está diseñado para ofrecer una atmósfera de calma, limpieza y estética minimalista.',
+      'Cada detalle ha sido pensado para asegurar comodidad, intimidad y una experiencia única tanto para el cliente como para el artista.',
+    ] as string[],
+    buttonLabel: 'Ver estudio',
+    buttonLink: '/estudio',
+    imageSrc: 'assets/images/studio/espacio-studio.webp',
+    imageAlt: 'Interior del estudio Fine Line',
+    imagePosition: 'right',
+    backgroundClass: 'bg-granite',
+    imageStyle: 'square',
+  } as const;
 }

@@ -11,11 +11,12 @@ import { CommonModule } from '@angular/common';
 })
 export class InfoBlockComponent {
   @Input() title!: string;
-  @Input() paragraphs: string[] = [];
+  @Input() paragraphs: readonly string[] = [];
   @Input() buttonLabel?: string;
   @Input() buttonLink?: string;
   @Input() imageSrc?: string;
   @Input() imageAlt = '';
   @Input() imagePosition: 'left' | 'right' = 'left';
-  @Input() backgroundClass = 'bg-[#f1efec]';
+  @Input() backgroundClass = '';
+  @Input() imageStyle: 'rounded' | 'square' = 'rounded';
 }
