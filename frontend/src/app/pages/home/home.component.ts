@@ -112,13 +112,25 @@ export class HomeComponent {
       quote:
         'Un trato impecable y el diseño quedó espectacular. 100% recomendable.',
       name: 'Claudia M.',
-      avatar: 'assets/images/clients/claudia.jpg',
+      rating: 5,
     },
     {
       quote:
         'Me sentí muy cómoda durante toda la sesión. Profesional y limpio.',
       name: 'Alejandro G.',
-      avatar: 'assets/images/clients/alejandro.jpg',
+      rating: 4.5,
+    },
+    {
+      quote:
+        'La precisión y detalle del trabajo superaron mis expectativas. Sin duda volveré.',
+      name: 'Sofía L.',
+      rating: 5,
+    },
+    {
+      quote:
+        'El ambiente transmite mucha calma y profesionalismo. Excelente experiencia desde el primer momento.',
+      name: 'Martín P.',
+      rating: 4,
     },
   ];
 }
