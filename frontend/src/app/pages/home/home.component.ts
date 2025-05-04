@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ParallaxSectionComponent } from '../../components/molecules/parallax-section/parallax-section.component';
 import { HoverCardComponent } from '../../components/molecules/hover-card/hover-card.component';
 import { ButtonComponent } from '../../components/atoms/button/button.component';
+import { InfoBlockComponent } from '../../components/molecules/info-block/info-block.component';
 
 @Component({
   selector: 'app-home',
@@ -13,6 +14,7 @@ import { ButtonComponent } from '../../components/atoms/button/button.component'
     ParallaxSectionComponent,
     HoverCardComponent,
     ButtonComponent,
+    InfoBlockComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
@@ -29,9 +31,9 @@ export class HomeComponent {
 
   heroCarouselData = {
     images: [
-      'assets/images/carousel1.jpeg',
-      'assets/images/carousel2.jpeg',
-      'assets/images/carousel3.jpeg',
+      'assets/images/carousel/carousel1.jpeg',
+      'assets/images/carousel/carousel2.jpeg',
+      'assets/images/carousel/carousel3.jpeg',
     ],
     title: 'FINE LINE Tattoo',
     subtitle: 'Un estudio diferente',
@@ -45,16 +47,16 @@ export class HomeComponent {
   hoverCardsData = [
     {
       title: 'Tatuajes',
-      imageMain: 'assets/images/tatuaje-brazo-calavera.jpg',
-      imageOverlay: 'assets/images/tatuaje-boceto.webp',
+      imageMain: 'assets/images/tattoos/tatuaje-brazo-calavera.jpg',
+      imageOverlay: 'assets/images/tattoos/tatuaje-boceto.webp',
       ctaLink: '/portafolio',
       ctaLabel: 'Trabajos realizados',
       decoration: 'assets/icons/tatuaje.png',
     },
     {
       title: 'Kit post-tatuaje',
-      imageMain: 'assets/images/kit-post-tatuaje.jpg',
-      imageOverlay: 'assets/images/cremas-instrucciones.webp',
+      imageMain: 'assets/images/kit-tattoo/kit-post-tatuaje.jpg',
+      imageOverlay: 'assets/images/kit-tattoo/cremas-instrucciones.webp',
       ctaLink: '/recomendaciones',
       ctaLabel: 'Ver recomendaciones',
       decoration: 'assets/icons/band-aid.png',
@@ -64,11 +66,25 @@ export class HomeComponent {
   soonSectionCardData = [
     {
       title: 'Micropigmentación',
-      imageMain: 'assets/images/micropigmentacion.png',
-      imageOverlay: 'assets/images/ilustracion-micropigmentacion.webp',
+      imageMain: 'assets/images/micropigmentation/micropigmentacion.png',
+      imageOverlay:
+        'assets/images/micropigmentation/ilustracion-micropigmentacion.webp',
       ctaLink: '',
       ctaLabel: '',
       decoration: 'assets/icons/lapiz-de-cejas.png',
     },
   ];
+
+  teamSection = {
+    title: 'Nuestro equipo',
+    paragraphs: [
+      'Fine Line cuenta con Liz, nuestra artista especializada en microrealismo, geometría y técnicas avanzadas de cuidado de la piel.',
+      'Su atención al detalle y su enfoque meticuloso garantizan una experiencia estética única, profesional y personalizada para cada cliente.',
+    ],
+    buttonLabel: 'Contacta',
+    buttonLink: '/contacto',
+    imageSrc: 'assets/images/artists/liz.webp',
+    imageAlt: 'Liz, artista de Fine Line',
+    backgroundClass: 'bg-beige',
+  };
 }
