@@ -3,12 +3,12 @@ import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { Testimonial } from '../../../interfaces/testimonial';
 
 @Component({
-  selector: 'app-carousel-display',
+  selector: 'app-carousel-rating',
   imports: [CommonModule],
-  templateUrl: './carousel-display.component.html',
-  styleUrl: './carousel-display.component.scss',
+  templateUrl: './carousel-rating.component.html',
+  styleUrl: './carousel-rating.component.scss',
 })
-export class CarouselDisplayComponent implements OnInit, OnDestroy {
+export class CarouselRatingComponent implements OnInit, OnDestroy {
   @Input() items: Testimonial[] = [];
 
   currentIndex = 0;

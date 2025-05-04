@@ -1,10 +1,15 @@
 import { Component } from '@angular/core';
 import { ParallaxSectionComponent } from '../../components/molecules/parallax-section/parallax-section.component';
 import { InfoBlockComponent } from '../../components/molecules/info-block/info-block.component';
+import { CarouselImagesComponent } from '../../components/molecules/carousel-images/carousel-images.component';
 
 @Component({
   selector: 'app-studio',
-  imports: [ParallaxSectionComponent, InfoBlockComponent],
+  imports: [
+    ParallaxSectionComponent,
+    InfoBlockComponent,
+    CarouselImagesComponent,
+  ],
   templateUrl: './studio.component.html',
   styleUrl: './studio.component.scss',
 })
@@ -27,4 +32,10 @@ export class StudioComponent {
     backgroundClass: 'bg-beige',
     imageStyle: 'square',
   } as const;
+
+  microrealismImages = [
+    'assets/images/tattoos/tattoo-bird.webp',
+    'assets/images/tattoos/tattoo-face.webp',
+    'assets/images/tattoos/tattoo-hands.webp',
+  ];
 }

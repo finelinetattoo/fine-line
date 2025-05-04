@@ -5,7 +5,7 @@ import { ParallaxSectionComponent } from '../../components/molecules/parallax-se
 import { HoverCardComponent } from '../../components/molecules/hover-card/hover-card.component';
 import { ButtonComponent } from '../../components/atoms/button/button.component';
 import { InfoBlockComponent } from '../../components/molecules/info-block/info-block.component';
-import { CarouselDisplayComponent } from '../../components/molecules/carousel-display/carousel-display.component';
+import { CarouselRatingComponent } from '../../components/molecules/carousel-rating/carousel-rating.component';
 import { SocialFollowComponent } from '../../components/molecules/social-follow/social-follow.component';
 
 @Component({
@@ -17,7 +17,7 @@ import { SocialFollowComponent } from '../../components/molecules/social-follow/
     HoverCardComponent,
     ButtonComponent,
     InfoBlockComponent,
-    CarouselDisplayComponent,
+    CarouselRatingComponent,
     SocialFollowComponent,
   ],
   templateUrl: './home.component.html',
