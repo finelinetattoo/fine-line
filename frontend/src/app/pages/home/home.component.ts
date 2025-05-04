@@ -6,6 +6,7 @@ import { HoverCardComponent } from '../../components/molecules/hover-card/hover-
 import { ButtonComponent } from '../../components/atoms/button/button.component';
 import { InfoBlockComponent } from '../../components/molecules/info-block/info-block.component';
 import { CarouselDisplayComponent } from '../../components/molecules/carousel-display/carousel-display.component';
+import { SocialFollowComponent } from '../../components/molecules/social-follow/social-follow.component';
 
 @Component({
   selector: 'app-home',
@@ -17,6 +18,7 @@ import { CarouselDisplayComponent } from '../../components/molecules/carousel-di
     ButtonComponent,
     InfoBlockComponent,
     CarouselDisplayComponent,
+    SocialFollowComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
@@ -133,4 +135,8 @@ export class HomeComponent {
       rating: 4,
     },
   ];
+
+  socialSectionData = {
+    backgroundClass: 'bg-granite',
+  };
 }
