@@ -5,6 +5,7 @@ import { ParallaxSectionComponent } from '../../components/molecules/parallax-se
 import { HoverCardComponent } from '../../components/molecules/hover-card/hover-card.component';
 import { ButtonComponent } from '../../components/atoms/button/button.component';
 import { InfoBlockComponent } from '../../components/molecules/info-block/info-block.component';
+import { CarouselDisplayComponent } from '../../components/molecules/carousel-display/carousel-display.component';
 
 @Component({
   selector: 'app-home',
@@ -15,6 +16,7 @@ import { InfoBlockComponent } from '../../components/molecules/info-block/info-b
     HoverCardComponent,
     ButtonComponent,
     InfoBlockComponent,
+    CarouselDisplayComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
@@ -104,4 +106,19 @@ export class HomeComponent {
     backgroundClass: 'bg-granite',
     imageStyle: 'square',
   } as const;
+
+  testimonials = [
+    {
+      quote:
+        'Un trato impecable y el diseño quedó espectacular. 100% recomendable.',
+      name: 'Claudia M.',
+      avatar: 'assets/images/clients/claudia.jpg',
+    },
+    {
+      quote:
+        'Me sentí muy cómoda durante toda la sesión. Profesional y limpio.',
+      name: 'Alejandro G.',
+      avatar: 'assets/images/clients/alejandro.jpg',
+    },
+  ];
 }

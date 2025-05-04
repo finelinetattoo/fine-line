@@ -16,7 +16,7 @@
   [buttonLabel]="spaceSection.buttonLabel" [buttonLink]="spaceSection.buttonLink" [imageSrc]="spaceSection.imageSrc"
   [imageAlt]="spaceSection.imageAlt" [imagePosition]="spaceSection.imagePosition"
   [backgroundClass]="spaceSection.backgroundClass" [imageStyle]="spaceSection.imageStyle"></app-info-block>
-<section class="py-20 bg-beige text-center overflow-x-hidden px-10 md:px-0">
+<section class="py-20 bg-smoke text-center overflow-x-hidden px-10 md:px-0">
   <h2 class="text-5xl mb-12">Qué hacemos</h2>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-15 md:gap-30 max-w-6xl mx-auto">
     @for(card of hoverCardsData; track $index){
@@ -34,7 +34,7 @@
     }
   </div>
 </section>
-<section class="py-20 bg-beige text-center overflow-x-hidden px-10 md:px-0">
+<section class="pb-20 bg-smoke text-center overflow-x-hidden px-10 md:px-0">
   <h2 class="text-5xl mb-12">Próximamente</h2>
   <div class=" max-w-6xl mx-auto">
     @for(card of soonSectionCardData; track $index){
@@ -50,7 +50,4 @@
     }
   </div>
 </section>
-
-<div class="w-full bg-cyan-500 py-60">hola</div>
-<div class="w-full bg-blue-500 py-60">hola</div>
-<div class="w-full bg-red-100 py-60">hola</div>
+<app-carousel-display [items]="testimonials"></app-carousel-display>
