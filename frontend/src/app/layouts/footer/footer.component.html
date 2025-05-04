@@ -1,0 +1,74 @@
+<footer class="bg-beige text-white py-16 px-6">
+  <div class="max-w-screen-xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
+
+    <!-- COLUMNA 1: Logo + Redes Sociales -->
+    <div class="md:space-y-10 text-center lg:text-left">
+      <div class="flex justify-center lg:justify-start">
+        <app-logo size="extralarge"></app-logo>
+      </div>
+
+      <div class="hidden md:flex justify-center lg:justify-start gap-5">
+        @for(social of footerData.social; track $index){
+        <a [href]="social.url" target="_blank" [attr.aria-label]="social.name" class="hover:opacity-80 transition">
+          <img [src]="social.icon" [alt]="social.name" class="w-10 h-10">
+        </a>
+        }
+      </div>
+    </div>
+
+    <!-- COLUMNA 2: Fine Line -->
+    <div class="space-y-2 text-center lg:text-left">
+      <h3 class="!font-bold text-2xl !mb-4">Fine Line</h3>
+      <a routerLink="/estudio" class="block !text-black text-lg !mb-2 hover:text-primary transition">Nuestro Estudio</a>
+      <a routerLink="/reserva" class="block !text-black text-lg !mb-2 hover:text-primary transition">Reserva tu cita</a>
+      <a routerLink="/recomendaciones"
+        class="block !text-black text-lg !mb-2 hover:text-primary transition">Recomendaciones</a>
+    </div>
+
+    <!-- COLUMNA 3: Portafolio -->
+    <div class="space-y-2 text-center lg:text-left">
+      <h3 class="!font-bold text-2xl !mb-4">Portafolio</h3>
+      <a routerLink="/portafolio" class="block !text-black text-lg !mb-2 hover:text-primary transition">Trabajos
+        realizados</a>
+      <a routerLink="/disponibles" class="block !text-black text-lg !mb-2 hover:text-primary transition">Diseños
+        disponibles</a>
+      <div class="flex hidden sm:flex md:hidden justify-center lg:justify-start gap-5 mt-5">
+        @for(social of footerData.social; track $index){
+        <a [href]="social.url" target="_blank" [attr.aria-label]="social.name" class="hover:opacity-80 transition">
+          <img [src]="social.icon" [alt]="social.name" class="w-10 h-10">
+        </a>
+        }
+      </div>
+    </div>
+
+    <!-- COLUMNA 4: Contacto + Botón -->
+    <div class="space-y-2 text-center lg:text-left">
+      <h3 class="!font-bold text-2xl !mb-4">{{ footerData.contact.title }}</h3>
+
+      <a class="!text-black text-lg block underline !mb-2 hover:opacity-80 transition"
+        [href]="footerData.contact.addressUrl" target="_blank" rel="noopener noreferrer">
+        {{ footerData.contact.address }}
+      </a>
+
+      <a class="!text-black text-lg block underline !mb-2 hover:opacity-80 transition"
+        [href]="'mailto:' + footerData.contact.email">
+        {{ footerData.contact.email }}
+      </a>
+
+      <a class="!text-black text-lg block underline !mb-2 hover:opacity-80 transition" [href]="'tel:' + sanitizedPhone">
+        {{ footerData.contact.phone }}
+      </a>
+
+      <app-button [label]="footerData.buttonLabel" [link]="footerData.buttonLink"></app-button>
+    </div>
+
+    <div class="flex sm:hidden justify-center lg:justify-start gap-5">
+      @for(social of footerData.social; track $index){
+      <a [href]="social.url" target="_blank" [attr.aria-label]="social.name" class="hover:opacity-80 transition">
+        <img [src]="social.icon" [alt]="social.name" class="w-10 h-10">
+      </a>
+      }
+    </div>
+
+  </div>
+</footer>

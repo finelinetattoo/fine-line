@@ -8,7 +8,7 @@ import { Component, Input } from '@angular/core';
   styleUrl: './logo.component.scss',
 })
 export class LogoComponent {
-  @Input() size: 'small' | 'medium' | 'large' = 'medium';
+  @Input() size: 'small' | 'medium' | 'large' | 'extralarge' = 'medium';
   @Input({ required: false }) imgClass = '';
 
   readonly urlIconWeb = 'favicon.ico';
