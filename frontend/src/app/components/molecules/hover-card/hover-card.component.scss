@@ -6,6 +6,9 @@
   border-radius: 8px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
+  &.micropigmentation-card {
+    max-width: 600px;
+  }
 
   img {
     width: 100%;

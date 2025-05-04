@@ -49,7 +49,7 @@ export class HomeComponent {
       imageOverlay: 'assets/images/tatuaje-boceto.webp',
       ctaLink: '/portafolio',
       ctaLabel: 'Trabajos realizados',
-      decoration: 'assets/images/image-title-tattoo.png',
+      decoration: 'assets/icons/tatuaje.png',
     },
     {
       title: 'Kit post-tatuaje',
@@ -57,7 +57,18 @@ export class HomeComponent {
       imageOverlay: 'assets/images/cremas-instrucciones.webp',
       ctaLink: '/recomendaciones',
       ctaLabel: 'Ver recomendaciones',
-      decoration: 'assets/images/title-post-tattoo.png',
+      decoration: 'assets/icons/band-aid.png',
+    },
+  ];
+
+  soonSectionCardData = [
+    {
+      title: 'Micropigmentación',
+      imageMain: 'assets/images/micropigmentacion.png',
+      imageOverlay: 'assets/images/ilustracion-micropigmentacion.webp',
+      ctaLink: '',
+      ctaLabel: '',
+      decoration: 'assets/icons/lapiz-de-cejas.png',
     },
   ];
 }
