@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { LogoComponent } from '../../components/atoms/logo/logo.component';
 import { MainNavigationComponent } from '../../components/molecules/main-navigation/main-navigation.component';
 import { MobileMenuComponent } from '../../components/molecules/mobile-menu/mobile-menu.component';
+import { FooterComponent } from '../footer/footer.component';
 
 @Component({
   selector: 'app-main-layout',
@@ -11,6 +12,7 @@ import { MobileMenuComponent } from '../../components/molecules/mobile-menu/mobi
     LogoComponent,
     MainNavigationComponent,
     MobileMenuComponent,
+    FooterComponent,
   ],
   templateUrl: './main-layout.component.html',
   styleUrl: './main-layout.component.scss',
