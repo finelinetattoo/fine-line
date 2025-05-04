@@ -12,6 +12,13 @@ export const routes: Routes = [
         loadComponent: () =>
           import('./pages/home/home.component').then((m) => m.HomeComponent),
       },
+      {
+        path: 'estudio',
+        loadComponent: () =>
+          import('./pages/studio/studio.component').then(
+            (m) => m.StudioComponent
+          ),
+      },
     ],
   },
   {
