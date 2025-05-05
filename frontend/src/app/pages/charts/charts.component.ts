@@ -1,5 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { ChartsDisplayComponent } from '../../components/molecules/charts-display/charts-display.component';
+import { ChartsDisplayComponent } from '../../shared/components/molecules/charts-display/charts-display.component';
 import { Chart, ChartData, ChartOptions } from 'chart.js';
 import { TattooService } from '../../services/api/tattoo.service';
 import { Tattoo } from '../../interfaces/tattoo';
@@ -8,7 +8,7 @@ import { Dataset } from '../../interfaces/dataset';
 import { BodyPart, BodyPartLabels } from '../../enums/body-part.enum';
 import { capitalize } from '../../utils/capitalize.util';
 import { TattooStyle, TattooStyleLabels } from '../../enums/tattoo-style.enum';
-import { LoaderComponent } from '../../components/atoms/loader/loader.component';
+import { LoaderComponent } from '../../shared/components/atoms/loader/loader.component';
 
 @Component({
   selector: 'app-charts',

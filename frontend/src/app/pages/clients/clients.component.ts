@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ClientListComponent } from '../../components/organisms/client-list/client-list.component';
+import { ClientListComponent } from '../../shared/components/organisms/client-list/client-list.component';
 
 @Component({
   selector: 'app-clients',

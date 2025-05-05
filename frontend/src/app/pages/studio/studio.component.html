@@ -1,0 +1,28 @@
+<app-parallax-section [backgroundClass]="parallaxSectionData.parallaxBgClass" [title]="parallaxSectionData.title"
+  [description]="parallaxSectionData.description">
+</app-parallax-section>
+<app-info-block [title]="whatWeDoSection.title" [paragraphs]="whatWeDoSection.paragraphs"
+  [imageSrc]="whatWeDoSection.imageSrc" [imageAlt]="whatWeDoSection.imageAlt"
+  [imagePosition]="whatWeDoSection.imagePosition" [backgroundClass]="whatWeDoSection.backgroundClass"
+  [imageStyle]="whatWeDoSection.imageStyle"></app-info-block>
+<section class="bg-granite text-center py-20 px-6">
+  <h2 class="text-4xl md:text-5xl font-semibold !mb-10">Tatuajes microrealistas</h2>
+  <div class="max-w-4xl mx-auto">
+    <app-carousel-images [images]="microrealismImages"></app-carousel-images>
+  </div>
+</section>
+<section class="bg-smoke text-center py-20 px-6">
+  <h2 class="text-4xl md:text-5xl font-semibold !mb-10">Tatuajes geométricos</h2>
+  <div class="max-w-4xl mx-auto">
+    <app-carousel-images [images]="geometricsImages"></app-carousel-images>
+  </div>
+</section>
+<app-info-block [title]="micropigmentationSection.title" [paragraphs]="micropigmentationSection.paragraphs"
+  [imageSrc]="micropigmentationSection.imageSrc" [imageAlt]="micropigmentationSection.imageAlt"
+  [imagePosition]="micropigmentationSection.imagePosition" [backgroundClass]="micropigmentationSection.backgroundClass"
+  [imageStyle]="micropigmentationSection.imageStyle"></app-info-block>
+<app-parallax-section [backgroundClass]="wantGetTattoo.parallaxBgClass" [title]="wantGetTattoo.title"
+  [description]="wantGetTattoo.description" [buttonLabel]="wantGetTattoo.buttonLabel"
+  [buttonLink]="wantGetTattoo.buttonLink">
+</app-parallax-section>
+<app-social-follow [backgroundClass]="socialSectionData.backgroundClass"></app-social-follow>

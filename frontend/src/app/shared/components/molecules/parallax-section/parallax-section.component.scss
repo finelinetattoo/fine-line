@@ -1,0 +1,21 @@
+section {
+  p,
+  h2,
+  a {
+    color: black;
+  }
+}
+.bg-about {
+  background-image: url("/assets/images/about-us/about-fineline-bg-mobile.webp");
+}
+.bg-get-tattoo {
+  background-image: url("/assets/images/tattoos/get-tattoo-bg-mobile.webp");
+}
+@media (min-width: 768px) {
+  .bg-about {
+    background-image: url("/assets/images/about-us/about-fineline-bg.webp");
+  }
+  .bg-get-tattoo {
+    background-image: url("/assets/images/tattoos/get-tattoo-bg.webp");
+  }
+}

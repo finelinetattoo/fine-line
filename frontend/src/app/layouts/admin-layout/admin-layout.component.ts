@@ -3,7 +3,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
-import { LogoComponent } from '../../components/atoms/logo/logo.component';
+import { LogoComponent } from '../../shared/components/atoms/logo/logo.component';
 import { AuthService } from '../../services/auth.service';
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 @Component({

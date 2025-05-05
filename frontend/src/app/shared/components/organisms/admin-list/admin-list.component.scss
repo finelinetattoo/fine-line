@@ -1,0 +1,14 @@
+@use "../../../../../styles/abstracts/colors" as *;
+* {
+  font-family: Avenir, Helvetica Neue, Arial, Helvetica, sans-serif;
+}
+
+.button-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.actions-cell {
+  text-align: center;
+}
