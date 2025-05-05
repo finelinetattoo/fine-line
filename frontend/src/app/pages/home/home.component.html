@@ -1,25 +1,27 @@
-<app-hero-carousel [images]="heroCarouselData.images" [title]="heroCarouselData.title"
-  [subtitle]="heroCarouselData.subtitle" [paragraph1]="heroCarouselData.paragraph1"
-  [paragraph2]="heroCarouselData.paragraph2" [buttonLabel]="heroCarouselData.buttonLabel"
-  [buttonLink]="heroCarouselData.buttonLink">
+<app-hero-carousel [images]="homeData.heroCarousel.images" [title]="homeData.heroCarousel.title"
+  [subtitle]="homeData.heroCarousel.subtitle" [paragraph1]="homeData.heroCarousel.paragraph1"
+  [paragraph2]="homeData.heroCarousel.paragraph2" [buttonLabel]="homeData.heroCarousel.buttonLabel"
+  [buttonLink]="homeData.heroCarousel.buttonLink">
 </app-hero-carousel>
-<app-parallax-section [backgroundClass]="parallaxSectionData.parallaxBgClass" [title]="parallaxSectionData.title"
-  [description]="parallaxSectionData.description" [buttonLabel]="parallaxSectionData.buttonLabel"
-  [buttonLink]="parallaxSectionData.buttonLink">
+<app-parallax-section [backgroundClass]="homeData.parallaxSection.parallaxBgClass"
+  [title]="homeData.parallaxSection.title" [description]="homeData.parallaxSection.description"
+  [buttonLabel]="homeData.parallaxSection.buttonLabel" [buttonLink]="homeData.parallaxSection.buttonLink">
 </app-parallax-section>
-<app-info-block [title]="teamSection.title" [paragraphs]="teamSection.paragraphs"
-  [buttonLabel]="teamSection.buttonLabel" [buttonLink]="teamSection.buttonLink" [imageSrc]="teamSection.imageSrc"
-  [imageAlt]="teamSection.imageAlt" [imagePosition]="teamSection.imagePosition"
-  [backgroundClass]="teamSection.backgroundClass" [imageStyle]="teamSection.imageStyle">
+<app-info-block [title]="homeData.teamSection.title" [paragraphs]="homeData.teamSection.paragraphs"
+  [buttonLabel]="homeData.teamSection.buttonLabel" [buttonLink]="homeData.teamSection.buttonLink"
+  [imageSrc]="homeData.teamSection.imageSrc" [imageAlt]="homeData.teamSection.imageAlt"
+  [imagePosition]="homeData.teamSection.imagePosition" [backgroundClass]="homeData.teamSection.backgroundClass"
+  [imageStyle]="homeData.teamSection.imageStyle">
 </app-info-block>
-<app-info-block [title]="spaceSection.title" [paragraphs]="spaceSection.paragraphs"
-  [buttonLabel]="spaceSection.buttonLabel" [buttonLink]="spaceSection.buttonLink" [imageSrc]="spaceSection.imageSrc"
-  [imageAlt]="spaceSection.imageAlt" [imagePosition]="spaceSection.imagePosition"
-  [backgroundClass]="spaceSection.backgroundClass" [imageStyle]="spaceSection.imageStyle"></app-info-block>
+<app-info-block [title]="homeData.spaceSection.title" [paragraphs]="homeData.spaceSection.paragraphs"
+  [buttonLabel]="homeData.spaceSection.buttonLabel" [buttonLink]="homeData.spaceSection.buttonLink"
+  [imageSrc]="homeData.spaceSection.imageSrc" [imageAlt]="homeData.spaceSection.imageAlt"
+  [imagePosition]="homeData.spaceSection.imagePosition" [backgroundClass]="homeData.spaceSection.backgroundClass"
+  [imageStyle]="homeData.spaceSection.imageStyle"></app-info-block>
 <section class="py-20 bg-smoke text-center overflow-x-hidden px-10 md:px-0">
   <h2 class="text-5xl mb-12">Qué hacemos</h2>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-15 md:gap-30 max-w-6xl mx-auto">
-    @for(card of hoverCardsData; track $index){
+    @for(card of homeData.hoverCards; track $index){
     <div class="flex flex-col items-center">
       <img [src]="card.decoration" alt="Decoración título">
       <h3 class="card-title !mb-10">
@@ -37,7 +39,7 @@
 <section class="pb-20 bg-smoke text-center overflow-x-hidden px-10 md:px-0">
   <h2 class="text-5xl mb-12">Próximamente</h2>
   <div class=" max-w-6xl mx-auto">
-    @for(card of soonSectionCardData; track $index){
+    @for(card of homeData.soonSectionCards; track $index){
     <div class="flex flex-col items-center">
       <img [src]="card.decoration" alt="Decoración título">
       <h3 class="card-title !mb-10">
@@ -54,7 +56,7 @@
   <h2 class="text-5xl font-semibold !mb-12 text-balance">Lo que dicen nuestros clientes</h2>
 
   <div class="max-w-3xl mx-auto rounded-xl bg-white/30 backdrop-blur-sm shadow-lg px-4 py-10">
-    <app-carousel-rating [items]="testimonials"></app-carousel-rating>
+    <app-carousel-rating [items]="homeData.testimonials"></app-carousel-rating>
   </div>
 </section>
-<app-social-follow [backgroundClass]="socialSectionData.backgroundClass"></app-social-follow>
+<app-social-follow [backgroundClass]="homeData.socialSection.backgroundClass"></app-social-follow>
