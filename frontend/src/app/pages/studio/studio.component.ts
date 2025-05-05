@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { ParallaxSectionComponent } from '../../components/molecules/parallax-section/parallax-section.component';
-import { InfoBlockComponent } from '../../components/molecules/info-block/info-block.component';
-import { CarouselImagesComponent } from '../../components/molecules/carousel-images/carousel-images.component';
+import { ParallaxSectionComponent } from '../../shared/components/molecules/parallax-section/parallax-section.component';
+import { InfoBlockComponent } from '../../shared/components/molecules/info-block/info-block.component';
+import { CarouselImagesComponent } from '../../shared/components/molecules/carousel-images/carousel-images.component';
+import { SocialFollowComponent } from '../../shared/components/molecules/social-follow/social-follow.component';
 
 @Component({
   selector: 'app-studio',
@@ -9,13 +10,14 @@ import { CarouselImagesComponent } from '../../components/molecules/carousel-ima
     ParallaxSectionComponent,
     InfoBlockComponent,
     CarouselImagesComponent,
+    SocialFollowComponent,
   ],
   templateUrl: './studio.component.html',
   styleUrl: './studio.component.scss',
 })
 export class StudioComponent {
   parallaxSectionData = {
-    parallaxBgClass: 'bg-about-mobile md:bg-about-desktop',
+    parallaxBgClass: 'bg-about',
     title: 'Un estudio de confianza',
     description:
       'Un estudio diseñado para ofrecer calma, confianza y arte en cada detalle.',
@@ -38,4 +40,34 @@ export class StudioComponent {
     'assets/images/tattoos/tattoo-face.webp',
     'assets/images/tattoos/tattoo-hands.webp',
   ];
+
+  geometricsImages = [
+    'assets/images/tattoos/tattoo-plant.webp',
+    'assets/images/tattoos/tattoo-sculture.webp',
+    'assets/images/tattoos/tattoo-arm.webp',
+  ];
+
+  micropigmentationSection = {
+    title: 'Micropigmentación',
+    paragraphs: [
+      'Muy pronto ofreceremos un servicio de micropigmentación profesional, pensado para realzar tu belleza natural con precisión, sutileza y los más altos estándares de higiene.',
+    ] as string[],
+    imageSrc: 'assets/images/micropigmentation/micropigmentation-studio.webp',
+    imageAlt: 'Interior del estudio Fine Line',
+    imagePosition: 'down',
+    backgroundClass: 'bg-beige',
+    imageStyle: 'square',
+  } as const;
+
+  wantGetTattoo = {
+    parallaxBgClass: 'bg-get-tattoo',
+    title: 'Quieres hacerte un tatuaje?',
+    description:
+      'Te acompañamos en cada paso para que tu tatuaje sea una experiencia única.',
+    buttonLabel: 'Reserva tu cita',
+    buttonLink: 'reservar-cita',
+  };
+  socialSectionData = {
+    backgroundClass: 'bg-granite',
+  };
 }

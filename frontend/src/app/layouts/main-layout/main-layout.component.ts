@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { LogoComponent } from '../../components/atoms/logo/logo.component';
-import { MainNavigationComponent } from '../../components/molecules/main-navigation/main-navigation.component';
-import { MobileMenuComponent } from '../../components/molecules/mobile-menu/mobile-menu.component';
+import { LogoComponent } from '../../shared/components/atoms/logo/logo.component';
+import { MainNavigationComponent } from '../../shared/components/molecules/main-navigation/main-navigation.component';
+import { MobileMenuComponent } from '../../shared/components/molecules/mobile-menu/mobile-menu.component';
 import { FooterComponent } from '../footer/footer.component';
 
 @Component({

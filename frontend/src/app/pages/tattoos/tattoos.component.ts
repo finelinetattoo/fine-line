@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TattooListComponent } from '../../components/organisms/tattoo-list/tattoo-list.component';
+import { TattooListComponent } from '../../shared/components/organisms/tattoo-list/tattoo-list.component';
 
 @Component({
   selector: 'app-tattoos',

@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { HeroCarouselComponent } from '../../components/molecules/hero-carousel/hero-carousel.component';
+import { HeroCarouselComponent } from '../../shared/components/molecules/hero-carousel/hero-carousel.component';
 import { CommonModule } from '@angular/common';
-import { ParallaxSectionComponent } from '../../components/molecules/parallax-section/parallax-section.component';
-import { HoverCardComponent } from '../../components/molecules/hover-card/hover-card.component';
-import { ButtonComponent } from '../../components/atoms/button/button.component';
-import { InfoBlockComponent } from '../../components/molecules/info-block/info-block.component';
-import { CarouselRatingComponent } from '../../components/molecules/carousel-rating/carousel-rating.component';
-import { SocialFollowComponent } from '../../components/molecules/social-follow/social-follow.component';
+import { ParallaxSectionComponent } from '../../shared/components/molecules/parallax-section/parallax-section.component';
+import { HoverCardComponent } from '../../shared/components/molecules/hover-card/hover-card.component';
+import { ButtonComponent } from '../../shared/components/atoms/button/button.component';
+import { InfoBlockComponent } from '../../shared/components/molecules/info-block/info-block.component';
+import { CarouselRatingComponent } from '../../shared/components/molecules/carousel-rating/carousel-rating.component';
+import { SocialFollowComponent } from '../../shared/components/molecules/social-follow/social-follow.component';
 
 @Component({
   selector: 'app-home',
@@ -25,7 +25,7 @@ import { SocialFollowComponent } from '../../components/molecules/social-follow/
 })
 export class HomeComponent {
   parallaxSectionData = {
-    parallaxBgClass: 'bg-about-mobile md:bg-about-desktop',
+    parallaxBgClass: 'bg-about',
     title: '¿Qué es Fine Line?',
     description:
       'Fine Line es un estudio donde el arte minimalista cobra vida. Nuestro espacio refleja equilibrio, calma y una estética cuidada, ofreciendo tatuajes de precisión con un enfoque moderno y profesional.',
