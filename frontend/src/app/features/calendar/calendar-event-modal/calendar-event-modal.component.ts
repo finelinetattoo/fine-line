@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { NZ_MODAL_DATA } from 'ng-zorro-antd/modal';
-import { capitalize } from '../../../../../utils/capitalize.util';
+import { capitalize } from '../../../shared/utils/capitalize.util';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 
 @Component({

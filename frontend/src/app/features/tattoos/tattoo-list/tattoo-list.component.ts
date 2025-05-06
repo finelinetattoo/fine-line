@@ -1,19 +1,20 @@
 import { Component, inject } from '@angular/core';
-import { NotificationService } from '../../../../services/notification/notification.service';
+import { NotificationService } from '../../../shared/services/notification/notification.service';
 import { NzModalModule, NzModalService } from 'ng-zorro-antd/modal';
-import { TattooService } from '../../../../services/api/tattoo.service';
-import { Tattoo } from '../../../../interfaces/tattoo';
-import { AdminListComponent } from '../admin-list/admin-list.component';
+
 import { TattooFormModalComponent } from '../tattoo-form-modal/tattoo-form-modal.component';
-import { Client } from '../../../../interfaces/client';
-import { Artist } from '../../../../interfaces/artist';
+import { Client } from '../../../core/interfaces/client';
+import { Artist } from '../../../core/interfaces/artist';
+import { Tattoo } from '../../../core/interfaces/tattoo';
 import { firstValueFrom } from 'rxjs';
-import { ArtistService } from '../../../../services/api/artist.service';
-import { ClientService } from '../../../../services/api/client.service';
+import { TattooService } from '../../tattoos/tattoos-service/tattoo.service';
+import { ArtistService } from '../../artists/artist-services/artist.service';
+import { ClientService } from '../../clients/clients-service/client.service';
+import { DashboardListComponent } from '../../dashboard/dashboard-list/dashboard-list.component';
 
 @Component({
   selector: 'app-tattoo-list',
-  imports: [AdminListComponent, NzModalModule],
+  imports: [NzModalModule, DashboardListComponent],
   templateUrl: './tattoo-list.component.html',
   styleUrl: './tattoo-list.component.scss',
 })

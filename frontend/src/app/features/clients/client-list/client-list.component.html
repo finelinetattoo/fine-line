@@ -1,8 +1,8 @@
-<app-admin-list [loading]="loading" [data]="filteredClients" [columns]="[
+<app-dashboard-list [loading]="loading" [data]="filteredClients" [columns]="[
     { label: 'Nombre', key: 'name' },
     { label: 'Edad', key: 'age' },
     { label: 'Fecha alta', key: 'createdAt', pipe: 'date' }
   ]" [createButtonText]="'Añadir cliente'" [onCreate]="createClient.bind(this)" [onEdit]="editClient.bind(this)"
   [onDelete]="deleteClient.bind(this)" [enableSearch]="true" [searchPlaceholder]="'Buscar por nombre'"
   [onSearch]="searchClient.bind(this)" [onReset]="resetFilters.bind(this)" [sortKey]="sortKey"
-  [sortDirection]="sortDirection" [onSort]="sortClients.bind(this)"></app-admin-list>
+  [sortDirection]="sortDirection" [onSort]="sortClients.bind(this)"></app-dashboard-list>

@@ -1,4 +1,4 @@
-<app-admin-list [loading]="loading" [data]="filteredTattoos" [columns]="[
+<app-dashboard-list [loading]="loading" [data]="filteredTattoos" [columns]="[
     { label: 'Cliente', key: 'clientName' },
     { label: 'Artista', key: 'artistName' },
     { label: 'Precio', key: 'price' },
@@ -11,4 +11,4 @@
   [onDelete]="deleteTattoo.bind(this)" [enableSearch]="true" [searchPlaceholder]="'Buscar'"
   [onSearch]="searchTattoo.bind(this)" [onReset]="resetFilters.bind(this)" [sortKey]="sortKey"
   [sortDirection]="sortDirection" [onSort]="sortTattoos.bind(this)">
-</app-admin-list>
+</app-dashboard-list>

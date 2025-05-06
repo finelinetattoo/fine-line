@@ -1,7 +1,8 @@
 import { Routes } from '@angular/router';
-import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
+import { AdminLayoutComponent } from './core/layouts/admin-layout/admin-layout.component';
+import { MainLayoutComponent } from './core/layouts/main-layout/main-layout.component';
 import { authGuard } from './core/guards/auth.guard';
+
 export const routes: Routes = [
   {
     path: '',
@@ -10,13 +11,15 @@ export const routes: Routes = [
       {
         path: '',
         loadComponent: () =>
-          import('./pages/home/home.component').then((m) => m.HomeComponent),
+          import('./features/home/home-page/home-page.component').then(
+            (m) => m.HomePageComponent
+          ),
       },
       {
         path: 'estudio',
         loadComponent: () =>
-          import('./pages/studio/studio.component').then(
-            (m) => m.StudioComponent
+          import('./features/studio/studio-page/studio-page.component').then(
+            (m) => m.StudioPageComponent
           ),
       },
     ],
@@ -24,7 +27,7 @@ export const routes: Routes = [
   {
     path: 'admin/login',
     loadComponent: () =>
-      import('./pages/auth/login/login.component').then(
+      import('./core/auth/login/login-page/login.component').then(
         (m) => m.LoginComponent
       ),
   },
@@ -39,7 +42,7 @@ export const routes: Routes = [
       {
         path: 'login',
         loadComponent: () =>
-          import('./pages/auth/login/login.component').then(
+          import('./core/auth/login/login-page/login.component').then(
             (m) => m.LoginComponent
           ),
       },
@@ -58,35 +61,35 @@ export const routes: Routes = [
             loadComponent: () =>
               import(
                 './features/calendar/calendar-page/calendar.component'
-              ).then((m) => m.CalendarComponent),
+              ).then((m) => m.CalendarPageComponent),
           },
           {
             path: 'clients',
             loadComponent: () =>
-              import('./pages/clients/clients.component').then(
-                (m) => m.ClientsComponent
-              ),
+              import(
+                './features/clients/clients-page/clients-page.component'
+              ).then((m) => m.ClientsPageComponent),
           },
           {
             path: 'artists',
             loadComponent: () =>
-              import('./pages/artists/artists.component').then(
-                (m) => m.ArtistsComponent
-              ),
+              import(
+                './features/artists/artists-page/artists-page.component'
+              ).then((m) => m.ArtistsPageComponent),
           },
           {
             path: 'tattoos',
             loadComponent: () =>
-              import('./pages/tattoos/tattoos.component').then(
-                (m) => m.TattoosComponent
-              ),
+              import(
+                './features/tattoos/tattoos-page/tattoos-page.component'
+              ).then((m) => m.TattoosPageComponent),
           },
           {
             path: 'graficos',
             loadComponent: () =>
-              import('./pages/charts/charts.component').then(
-                (m) => m.ChartsComponent
-              ),
+              import(
+                './features/charts/charts-page/charts-page.component'
+              ).then((m) => m.ChartsPageComponent),
           },
         ],
       },

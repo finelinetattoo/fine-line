@@ -1,17 +1,17 @@
 import { Component, inject } from '@angular/core';
-import { CalendarDisplayComponent } from '../../shared/components/molecules/calendar-display/calendar-display.component';
-import { TattooService } from '../../../services/api/tattoo.service';
+import { CalendarDisplayComponent } from '../calendar-display/calendar-display.component';
+import { TattooService } from '../../tattoos/tattoos-service/tattoo.service';
 import { firstValueFrom } from 'rxjs';
 import { Tattoo } from '../../../core/interfaces/tattoo';
-import { LoaderComponent } from '../../shared/components/atoms/loader/loader.component';
+import { LoaderComponent } from '../../../shared/components/loader/loader.component';
 
 @Component({
-  selector: 'app-calendar',
+  selector: 'app-calendar-page',
   imports: [CalendarDisplayComponent, LoaderComponent],
   templateUrl: './calendar.component.html',
   styleUrl: './calendar.component.scss',
 })
-export class CalendarComponent {
+export class CalendarPageComponent {
   private tattooService = inject(TattooService);
   tattooEvents: any[] = [];
   readonly styleColorMap: Record<string, string> = {

@@ -1,14 +1,14 @@
 import { Component, inject } from '@angular/core';
-import { AdminListComponent } from '../admin-list/admin-list.component';
 import { NzModalModule, NzModalService } from 'ng-zorro-antd/modal';
-import { ArtistService } from '../../../../services/api/artist.service';
-import { NotificationService } from '../../../../services/notification/notification.service';
-import { Artist } from '../../../../interfaces/artist';
+import { ArtistService } from '../artist-services/artist.service';
+import { NotificationService } from '../../../shared/services/notification/notification.service';
+import { Artist } from '../../../core/interfaces/artist';
 import { ArtistFormModalComponent } from '../artists-form-modal/artist-form-modal.component';
+import { DashboardListComponent } from '../../dashboard/dashboard-list/dashboard-list.component';
 
 @Component({
   selector: 'app-artist-list',
-  imports: [AdminListComponent, NzModalModule],
+  imports: [DashboardListComponent, NzModalModule],
   templateUrl: './artist-list.component.html',
   styleUrl: './artist-list.component.scss',
 })

@@ -9,8 +9,8 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzModalRef } from 'ng-zorro-antd/modal';
-import { ArtistService } from '../../../../services/api/artist.service';
-import { NotificationService } from '../../../../services/notification/notification.service';
+import { ArtistService } from '../artist-services/artist.service';
+import { NotificationService } from '../../../shared/services/notification/notification.service';
 
 @Component({
   selector: 'app-artist-form-modal',

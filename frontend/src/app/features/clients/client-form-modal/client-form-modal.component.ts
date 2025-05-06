@@ -9,8 +9,8 @@ import { NzModalRef } from 'ng-zorro-antd/modal';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzButtonModule } from 'ng-zorro-antd/button';
-import { ClientService } from '../../../../services/api/client.service';
-import { NotificationService } from '../../../../services/notification/notification.service';
+import { ClientService } from '../clients-service/client.service';
+import { NotificationService } from '../../../shared/services/notification/notification.service';
 
 @Component({
   selector: 'app-client-form-modal',

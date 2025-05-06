@@ -3,12 +3,12 @@ import { CommonModule } from '@angular/common';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzIconModule } from 'ng-zorro-antd/icon';
-import { LoaderComponent } from '../../atoms/loader/loader.component';
-import { SearchBarComponent } from '../../atoms/search-bar/search-bar.component';
-import { SortableHeaderComponent } from '../../atoms/sortable-header/sortable-header.component';
+import { LoaderComponent } from '../../../shared/components/loader/loader.component';
+import { SearchBarComponent } from '../../../shared/components/search-bar/search-bar.component';
+import { SortableHeaderComponent } from '../../../shared/components/sortable-header/sortable-header.component';
 
 @Component({
-  selector: 'app-admin-list',
+  selector: 'app-dashboard-list',
   imports: [
     CommonModule,
     NzTableModule,
@@ -18,10 +18,10 @@ import { SortableHeaderComponent } from '../../atoms/sortable-header/sortable-he
     SearchBarComponent,
     SortableHeaderComponent,
   ],
-  templateUrl: './admin-list.component.html',
-  styleUrl: './admin-list.component.scss',
+  templateUrl: './dashboard-list.component.html',
+  styleUrl: './dashboard-list.component.scss',
 })
-export class AdminListComponent {
+export class DashboardListComponent {
   @Input() loading: boolean = false;
   @Input() data: any[] = [];
   @Input() columns: { label: string; key: string; pipe?: string }[] = [];

@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { ClientListComponent } from '../../shared/components/organisms/client-list/client-list.component';
+import { ClientListComponent } from '../client-list/client-list.component';
 
 @Component({
-  selector: 'app-clients',
+  selector: 'app-clients-page',
   imports: [ClientListComponent],
-  templateUrl: './clients.component.html',
-  styleUrl: './clients.component.scss',
+  templateUrl: './clients-page.component.html',
+  styleUrl: './clients-page.component.scss',
 })
-export class ClientsComponent {}
+export class ClientsPageComponent {}

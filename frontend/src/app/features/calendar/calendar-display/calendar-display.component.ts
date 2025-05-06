@@ -9,18 +9,17 @@ import { FullCalendarModule } from '@fullcalendar/angular';
 import { CalendarOptions } from '@fullcalendar/core/index.js';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import { NzModalModule, NzModalService } from 'ng-zorro-antd/modal';
-import { CalendarEventModalComponent } from './calendar-event-modal/calendar-event-modal.component';
-import { BodyPart, BodyPartLabels } from '../../../../enums/body-part.enum';
+import { CalendarEventModalComponent } from '../calendar-event-modal/calendar-event-modal.component';
+import { BodyPart, BodyPartLabels } from '../../../core/enums/body-part.enum';
 import {
   TattooSize,
   TattooSizeLabels,
-} from '../../../../enums/tattoo-size.enum';
+} from '../../../core/enums/tattoo-size.enum';
 import {
   TattooStyle,
   TattooStyleLabels,
-} from '../../../../enums/tattoo-style.enum';
+} from '../../../core/enums/tattoo-style.enum';
 import esLocale from '@fullcalendar/core/locales/es';
-
 @Component({
   selector: 'app-calendar-display',
   imports: [FullCalendarModule, NzModalModule],

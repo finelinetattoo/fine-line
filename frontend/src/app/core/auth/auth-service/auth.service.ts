@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
-import { environment } from '../../../environments/environment';
-import { StorageService } from '../storage/storage.service';
+import { environment } from '../../../../environments/environment';
+import { StorageService } from '../../storage/storage.service';
 import { Router } from '@angular/router';
 
 @Injectable({

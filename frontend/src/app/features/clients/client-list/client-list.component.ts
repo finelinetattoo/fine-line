@@ -1,14 +1,14 @@
 import { Component, inject } from '@angular/core';
-import { ClientService } from '../../../../services/api/client.service';
-import { Client } from '../../../../interfaces/client';
+import { ClientService } from '../clients-service/client.service';
+import { Client } from '../../../core/interfaces/client';
 import { NzModalModule, NzModalService } from 'ng-zorro-antd/modal';
-import { NotificationService } from '../../../../services/notification/notification.service';
-import { AdminListComponent } from '../admin-list/admin-list.component';
+import { NotificationService } from '../../../shared/services/notification/notification.service';
+import { DashboardListComponent } from '../../dashboard/dashboard-list/dashboard-list.component';
 import { ClientFormModalComponent } from '../client-form-modal/client-form-modal.component';
 
 @Component({
   selector: 'app-client-list',
-  imports: [AdminListComponent, NzModalModule],
+  imports: [DashboardListComponent, NzModalModule],
   templateUrl: './client-list.component.html',
   styleUrl: './client-list.component.scss',
 })

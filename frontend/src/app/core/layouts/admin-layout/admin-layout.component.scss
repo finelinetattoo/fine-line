@@ -1,4 +1,9 @@
-@use "../../../styles/abstracts/colors" as *;
+$primary-color: #e7e2d6;
+$secondary-color: #cbc9c5;
+$accent-color: #c6bab1;
+$text-color: #373737;
+$text-secondary-color: #737373;
+$danger-color: #d9534f;
 
 :host {
   display: flex;

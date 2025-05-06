@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { LogoComponent } from '../../shared/components/atoms/logo/logo.component';
-import { ButtonComponent } from '../../shared/components/atoms/button/button.component';
+import { LogoComponent } from '../../../shared/components/logo/logo.component';
+import { ButtonComponent } from '../../../shared/components/button/button.component';
 
 @Component({
   selector: 'app-footer',

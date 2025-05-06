@@ -10,16 +10,16 @@ import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzSelectModule } from 'ng-zorro-antd/select';
-import { TattooService } from '../../../../services/api/tattoo.service';
-import { NotificationService } from '../../../../services/notification/notification.service';
-import { TattooSize } from '../../../../enums/tattoo-size.enum';
-import { BodyPart } from '../../../../enums/body-part.enum';
-import { Client } from '../../../../interfaces/client';
-import { Artist } from '../../../../interfaces/artist';
+import { TattooService } from '../../tattoos/tattoos-service/tattoo.service';
+import { NotificationService } from '../../../shared/services/notification/notification.service';
+import { TattooSize } from '../../../core/enums/tattoo-size.enum';
+import { BodyPart } from '../../../core/enums/body-part.enum';
+import { Client } from '../../../core/interfaces/client';
+import { Artist } from '../../../core/interfaces/artist';
 import {
   TattooStyle,
   TattooStyleLabels,
-} from '../../../../enums/tattoo-style.enum';
+} from '../../../core/enums/tattoo-style.enum';
 
 @Component({
   selector: 'app-tattoo-form-modal',

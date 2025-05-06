@@ -1,22 +1,24 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { ChartsDisplayComponent } from '../../shared/components/molecules/charts-display/charts-display.component';
+import { ChartsDisplayComponent } from '../charts-display/charts-display.component';
 import { Chart, ChartData, ChartOptions } from 'chart.js';
-import { TattooService } from '../../services/api/tattoo.service';
-import { Tattoo } from '../../interfaces/tattoo';
+import { TattooService } from '../../tattoos/tattoos-service/tattoo.service';
+import { Tattoo } from '../../../core/interfaces/tattoo';
 import { firstValueFrom } from 'rxjs';
-import { Dataset } from '../../interfaces/dataset';
-import { BodyPart, BodyPartLabels } from '../../enums/body-part.enum';
-import { capitalize } from '../../utils/capitalize.util';
-import { TattooStyle, TattooStyleLabels } from '../../enums/tattoo-style.enum';
-import { LoaderComponent } from '../../shared/components/atoms/loader/loader.component';
-
+import { Dataset } from '../../../core/interfaces/dataset';
+import { BodyPart, BodyPartLabels } from '../../../core/enums/body-part.enum';
+import { capitalize } from '../../../shared/utils/capitalize.util';
+import {
+  TattooStyle,
+  TattooStyleLabels,
+} from '../../../core/enums/tattoo-style.enum';
+import { LoaderComponent } from '../../../shared/components/loader/loader.component';
 @Component({
-  selector: 'app-charts',
+  selector: 'app-charts-page',
   imports: [ChartsDisplayComponent, LoaderComponent],
-  templateUrl: './charts.component.html',
-  styleUrl: './charts.component.scss',
+  templateUrl: './charts-page.component.html',
+  styleUrl: './charts-page.component.scss',
 })
-export class ChartsComponent implements OnInit {
+export class ChartsPageComponent implements OnInit {
   private tattooService = inject(TattooService);
   loading = true;
 

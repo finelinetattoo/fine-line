@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { ClientsComponent } from '../client/clients-page/clients-page.component';
+import { ClientsPageComponent } from '../../clients/clients-page/clients-page.component';
 
 @Component({
-  selector: 'app-dashboard',
-  imports: [ClientsComponent],
-  templateUrl: './dashboard.component.html',
-  styleUrl: './dashboard.component.scss',
+  selector: 'app-dashboard-page',
+  imports: [ClientsPageComponent],
+  templateUrl: './dashboard-page.component.html',
+  styleUrl: './dashboard-page.component.scss',
 })
-export class DashboardComponent {}
+export class DashboardPageComponent {}

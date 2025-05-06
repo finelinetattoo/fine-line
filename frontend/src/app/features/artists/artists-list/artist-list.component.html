@@ -1,8 +1,8 @@
-<app-admin-list [loading]="loading" [data]="filteredArtists" [columns]="[
+<app-dashboard-list [loading]="loading" [data]="filteredArtists" [columns]="[
     { label: 'Nombre', key: 'name' },
     { label: 'Biografía', key: 'bio' }
   ]" [createButtonText]="'Añadir artista'" [onCreate]="createArtist.bind(this)" [onEdit]="editArtist.bind(this)"
   [onDelete]="deleteArtist.bind(this)" [enableSearch]="true" [searchPlaceholder]="'Buscar artista'"
   [onSearch]="searchArtist.bind(this)" [onReset]="resetFilters.bind(this)" [sortKey]="sortKey"
   [sortDirection]="sortDirection" [onSort]="sortArtists.bind(this)">
-</app-admin-list>
+</app-dashboard-list>
