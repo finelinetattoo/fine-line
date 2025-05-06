@@ -4,7 +4,7 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { LogoComponent } from '../../shared/components/atoms/logo/logo.component';
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from '../../services/auth/auth.service';
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 @Component({
   selector: 'app-admin-layout',

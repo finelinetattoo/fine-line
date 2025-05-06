@@ -6,6 +6,12 @@
   <app-search-bar [placeholder]="searchPlaceholder" (search)="onSearch($event)" (reset)="onReset()"></app-search-bar>
   }
 </div>
+<div class="button-container">
+  <button nz-button nzType="primary" (click)="onCreate()">
+    <nz-icon nzType="plus"></nz-icon>
+    {{ createButtonText }}
+  </button>
+</div>
 <nz-table [nzData]="data" [nzBordered]="true" [nzSize]="'middle'" [nzScroll]="{ x: 'auto' }">
   <thead>
     <tr>
@@ -43,10 +49,4 @@
   </tbody>
 </nz-table>
 
-<div class="button-container">
-  <button nz-button nzType="primary" (click)="onCreate()">
-    <nz-icon nzType="plus"></nz-icon>
-    {{ createButtonText }}
-  </button>
-</div>
 }
