@@ -3,7 +3,7 @@ import { ParallaxSectionComponent } from '../../shared/components/molecules/para
 import { InfoBlockComponent } from '../../shared/components/molecules/info-block/info-block.component';
 import { CarouselImagesComponent } from '../../shared/components/molecules/carousel-images/carousel-images.component';
 import { SocialFollowComponent } from '../../shared/components/molecules/social-follow/social-follow.component';
-import { studioPageData } from '../../config/studio-page.config';
+import { studioPageData } from './studio-page.config';
 
 @Component({
   selector: 'app-studio',

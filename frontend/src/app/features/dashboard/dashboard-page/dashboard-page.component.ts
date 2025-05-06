@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ClientsComponent } from '../clients/clients.component';
+import { ClientsComponent } from '../client/clients-page/clients-page.component';
 
 @Component({
   selector: 'app-dashboard',

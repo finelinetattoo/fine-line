@@ -7,7 +7,7 @@ import { ButtonComponent } from '../../shared/components/atoms/button/button.com
 import { InfoBlockComponent } from '../../shared/components/molecules/info-block/info-block.component';
 import { CarouselRatingComponent } from '../../shared/components/molecules/carousel-rating/carousel-rating.component';
 import { SocialFollowComponent } from '../../shared/components/molecules/social-follow/social-follow.component';
-import { homePageData } from '../../config/home-page.config';
+import { homePageData } from './home-page.config';
 
 @Component({
   selector: 'app-home',

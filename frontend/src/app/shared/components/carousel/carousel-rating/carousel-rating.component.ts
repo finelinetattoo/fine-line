@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
-import { Testimonial } from '../../../../interfaces/testimonial';
+import { Testimonial } from '../../../../core/interfaces/testimonial';
 
 @Component({
   selector: 'app-carousel-rating',

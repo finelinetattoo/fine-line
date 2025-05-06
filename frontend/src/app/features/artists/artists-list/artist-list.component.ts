@@ -4,7 +4,7 @@ import { NzModalModule, NzModalService } from 'ng-zorro-antd/modal';
 import { ArtistService } from '../../../../services/api/artist.service';
 import { NotificationService } from '../../../../services/notification/notification.service';
 import { Artist } from '../../../../interfaces/artist';
-import { ArtistFormModalComponent } from '../artist-form-modal/artist-form-modal.component';
+import { ArtistFormModalComponent } from '../artists-form-modal/artist-form-modal.component';
 
 @Component({
   selector: 'app-artist-list',

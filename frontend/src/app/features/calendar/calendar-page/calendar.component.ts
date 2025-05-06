@@ -1,8 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { CalendarDisplayComponent } from '../../shared/components/molecules/calendar-display/calendar-display.component';
-import { TattooService } from '../../services/api/tattoo.service';
+import { TattooService } from '../../../services/api/tattoo.service';
 import { firstValueFrom } from 'rxjs';
-import { Tattoo } from '../../interfaces/tattoo';
+import { Tattoo } from '../../../core/interfaces/tattoo';
 import { LoaderComponent } from '../../shared/components/atoms/loader/loader.component';
 
 @Component({
