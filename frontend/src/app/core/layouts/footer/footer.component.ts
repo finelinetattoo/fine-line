@@ -43,7 +43,7 @@ export class FooterComponent {
       },
     ],
     buttonLabel: 'Contáctanos',
-    buttonLink: '/contacta',
+    buttonLink: '/contacto',
   };
 
   get sanitizedPhone(): string {

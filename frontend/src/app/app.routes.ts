@@ -22,6 +22,13 @@ export const routes: Routes = [
             (m) => m.StudioPageComponent
           ),
       },
+      {
+        path: 'contacto',
+        loadComponent: () =>
+          import('./features/contact/contact-page/contact-page.component').then(
+            (m) => m.ContactPageComponent
+          ),
+      },
     ],
   },
   {
