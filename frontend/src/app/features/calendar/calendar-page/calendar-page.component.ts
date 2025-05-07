@@ -8,8 +8,8 @@ import { LoaderComponent } from '../../../shared/components/loader/loader.compon
 @Component({
   selector: 'app-calendar-page',
   imports: [CalendarDisplayComponent, LoaderComponent],
-  templateUrl: './calendar.component.html',
-  styleUrl: './calendar.component.scss',
+  templateUrl: './calendar-page.component.html',
+  styleUrl: './calendar-page.component.scss',
 })
 export class CalendarPageComponent {
   private tattooService = inject(TattooService);

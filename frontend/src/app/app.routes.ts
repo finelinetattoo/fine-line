@@ -60,7 +60,7 @@ export const routes: Routes = [
             path: 'calendario',
             loadComponent: () =>
               import(
-                './features/calendar/calendar-page/calendar.component'
+                './features/calendar/calendar-page/calendar-page.component'
               ).then((m) => m.CalendarPageComponent),
           },
           {

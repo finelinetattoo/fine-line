@@ -60,8 +60,8 @@ p {
 
   &:focus,
   &:active {
-    background: var(--color-text);
-    border-color: var(--color-text);
+    background: var(--color-accent);
+    border-color: var(--color-accent);
   }
 }
 
@@ -69,19 +69,24 @@ p {
 // Paginación
 // ===========================
 
-.ant-pagination-item-active {
-  border-color: var(--color-text);
-
-  a {
-    color: var(--color-text);
-  }
-
-  &:hover {
-    border-color: var(--color-accent);
+.ant- {
+  &pagination-item-active {
+    border-color: var(--color-text);
 
     a {
-      color: var(--color-accent);
+      color: var(--color-text);
     }
+
+    &:hover {
+      border-color: var(--color-accent);
+
+      a {
+        color: var(--color-accent);
+      }
+    }
+  }
+  &table-pagination-right {
+    display: none;
   }
 }
 
@@ -130,6 +135,11 @@ app-calendar-display {
   }
   &button {
     cursor: pointer;
+  }
+  &event-title {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
   }
 }
 .ant-modal {

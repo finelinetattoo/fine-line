@@ -9,10 +9,10 @@ import { ClientFormModalComponent } from '../client-form-modal/client-form-modal
 @Component({
   selector: 'app-client-list',
   imports: [DashboardListComponent, NzModalModule],
-  templateUrl: './client-list.component.html',
-  styleUrl: './client-list.component.scss',
+  templateUrl: './clients-list.component.html',
+  styleUrl: './clients-list.component.scss',
 })
-export class ClientListComponent {
+export class ClientsListComponent {
   private clientService = inject(ClientService);
   private notificationService = inject(NotificationService);
   private modal = inject(NzModalService);

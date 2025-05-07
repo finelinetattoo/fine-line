@@ -12,41 +12,42 @@
     {{ createButtonText }}
   </button>
 </div>
-<nz-table [nzData]="data" [nzBordered]="true" [nzSize]="'middle'" [nzScroll]="{ x: 'auto' }">
-  <thead>
-    <tr>
-      @for (col of columns; track col.key) {
-      <th nzWidth="60px">
-        <app-sortable-header [label]="col.label" [columnKey]="col.key" [activeSortKey]="sortKey"
-          [sortDirection]="sortDirection" (sort)="onSort?.(col.key)"></app-sortable-header>
-      </th>
-      }
-      <th nzWidth="60px">Acciones</th>
-    </tr>
-  </thead>
-  <tbody>
-    @for (item of data; track item.id) {
-    <tr>
-      @for (col of columns; track col.key) {
-      <td>
-        @if (col.pipe === 'date') {
-        {{ item[col.key] | date: 'dd/MM/yyyy, HH:mm' }}
-        } @else {
-        {{ item[col.key] }}
+<div class="table-container">
+  <nz-table [nzData]="data" [nzBordered]="true" [nzSize]="'middle'" [nzScroll]="{ x: 'auto' }">
+    <thead>
+      <tr>
+        @for (col of columns; track col.key) {
+        <th nzWidth="60px">
+          <app-sortable-header [label]="col.label" [columnKey]="col.key" [activeSortKey]="sortKey"
+            [sortDirection]="sortDirection" (sort)="onSort?.(col.key)"></app-sortable-header>
+        </th>
         }
-      </td>
+        <th nzWidth="60px">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (item of data; track item.id) {
+      <tr>
+        @for (col of columns; track col.key) {
+        <td>
+          @if (col.pipe === 'date') {
+          {{ item[col.key] | date: 'dd/MM/yyyy, HH:mm' }}
+          } @else {
+          {{ item[col.key] }}
+          }
+        </td>
+        }
+        <td class="actions-cell">
+          <button nz-button nzType="text" (click)="onEdit(item)">
+            <nz-icon nzType="edit"></nz-icon>
+          </button>
+          <button nz-button nzType="text" nzDanger (click)="onDelete(item.id)">
+            <nz-icon nzType="delete"></nz-icon>
+          </button>
+        </td>
+      </tr>
       }
-      <td class="actions-cell">
-        <button nz-button nzType="text" (click)="onEdit(item)">
-          <nz-icon nzType="edit"></nz-icon>
-        </button>
-        <button nz-button nzType="text" nzDanger (click)="onDelete(item.id)">
-          <nz-icon nzType="delete"></nz-icon>
-        </button>
-      </td>
-    </tr>
-    }
-  </tbody>
-</nz-table>
-
+    </tbody>
+  </nz-table>
+</div>
 }
