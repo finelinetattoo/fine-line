@@ -1,6 +1,12 @@
 * {
   font-family: Avenir, Helvetica Neue, Arial, Helvetica, sans-serif;
 }
+.table-container {
+  max-height: 400px;
+  overflow-y: auto;
+  border: 1px solid #eee;
+  border-radius: 8px;
+}
 
 .button-container {
   margin-bottom: 20px;
