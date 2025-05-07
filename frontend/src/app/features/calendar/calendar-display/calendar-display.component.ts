@@ -34,6 +34,7 @@ export class CalendarDisplayComponent implements OnChanges {
     plugins: [dayGridPlugin],
     initialView: 'dayGridMonth',
     events: [],
+    dayMaxEventRows: true,
     locale: esLocale,
     headerToolbar: {
       left: 'prev,next today',
