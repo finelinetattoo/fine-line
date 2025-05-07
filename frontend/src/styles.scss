@@ -69,19 +69,24 @@ p {
 // Paginación
 // ===========================
 
-.ant-pagination-item-active {
-  border-color: var(--color-text);
-
-  a {
-    color: var(--color-text);
-  }
-
-  &:hover {
-    border-color: var(--color-accent);
+.ant- {
+  &pagination-item-active {
+    border-color: var(--color-text);
 
     a {
-      color: var(--color-accent);
+      color: var(--color-text);
     }
+
+    &:hover {
+      border-color: var(--color-accent);
+
+      a {
+        color: var(--color-accent);
+      }
+    }
+  }
+  &table-pagination-right {
+    display: none;
   }
 }
 

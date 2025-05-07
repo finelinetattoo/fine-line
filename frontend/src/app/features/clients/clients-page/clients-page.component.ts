@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { ClientListComponent } from '../client-list/client-list.component';
+import { ClientsListComponent } from '../clients-list/clients-list.component';
 
 @Component({
   selector: 'app-clients-page',
-  imports: [ClientListComponent],
+  imports: [ClientsListComponent],
   templateUrl: './clients-page.component.html',
   styleUrl: './clients-page.component.scss',
 })
