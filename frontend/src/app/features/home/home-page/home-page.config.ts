@@ -29,15 +29,15 @@ export const homePageData = {
     {
       title: 'Tatuajes',
       imageMain: 'assets/images/tattoos/tatuaje-brazo-calavera.jpg',
-      imageOverlay: 'assets/images/tattoos/tatuaje-boceto.webp',
+      imageOverlay: 'assets/images/tattoos/tatuaje-dibujo.webp',
       ctaLink: '/portafolio',
       ctaLabel: 'Trabajos realizados',
       decoration: 'assets/icons/tatuaje.png',
     },
     {
       title: 'Kit post-tatuaje',
-      imageMain: 'assets/images/kit-tattoo/kit-post-tatuaje.jpg',
-      imageOverlay: 'assets/images/kit-tattoo/cremas-instrucciones.webp',
+      imageMain: 'assets/images/kit-tattoo/kit-post-tatuaje.webp',
+      imageOverlay: 'assets/images/kit-tattoo/kit-post-tatuaje-overlay.webp',
       ctaLink: '/recomendaciones',
       ctaLabel: 'Ver recomendaciones',
       decoration: 'assets/icons/band-aid.png',
@@ -49,7 +49,7 @@ export const homePageData = {
       title: 'Micropigmentación',
       imageMain: 'assets/images/micropigmentation/micropigmentacion.png',
       imageOverlay:
-        'assets/images/micropigmentation/ilustracion-micropigmentacion.webp',
+        'assets/images/micropigmentation/micropigmentacion-labios.webp',
       ctaLink: '',
       ctaLabel: '',
       decoration: 'assets/icons/lapiz-de-cejas.png',

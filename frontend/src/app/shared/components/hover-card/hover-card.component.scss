@@ -6,6 +6,7 @@
   border-radius: 8px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
+
   &.micropigmentation-card {
     max-width: 600px;
   }
@@ -24,10 +25,8 @@
       position: absolute;
       width: 200px;
       bottom: 0;
-      left: 0;
-      right: 0;
-      margin: auto;
-      transform: translateY(25%);
+      left: 50%;
+      transform: translate(-50%, 25%);
       transition: 0.3s ease;
       opacity: 0;
     }
@@ -44,11 +43,11 @@
     width: 100%;
     height: 100%;
     background-image: linear-gradient(
-        to bottom,
-        transparent 10%,
-        rgba(0, 0, 0, 0.5) 50%
-      ),
-      rgba(0, 0, 0) 95%;
+      to bottom,
+      transparent 10%,
+      rgba(0, 0, 0, 0.5) 50%,
+      rgba(0, 0, 0) 95%
+    );
     opacity: 0;
     transition: all 0.3s ease;
   }
@@ -62,7 +61,7 @@
 
     img:last-child {
       opacity: 1;
-      transform: translateY(10%);
+      transform: translate(-50%, 10%);
     }
   }
 }
