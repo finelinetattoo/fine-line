@@ -5,6 +5,9 @@ $text-color: #373737;
 $text-secondary-color: #737373;
 $danger-color: #d9534f;
 
+* {
+  font-family: Avenir, Helvetica Neue, Arial, Helvetica, sans-serif;
+}
 :host {
   display: flex;
   text-rendering: optimizeLegibility;
