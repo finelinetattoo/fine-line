@@ -18,11 +18,11 @@
   [imageSrc]="homeData.spaceSection.imageSrc" [imageAlt]="homeData.spaceSection.imageAlt"
   [imagePosition]="homeData.spaceSection.imagePosition" [backgroundClass]="homeData.spaceSection.backgroundClass"
   [imageStyle]="homeData.spaceSection.imageStyle"></app-info-block>
-<section class="py-20 bg-smoke text-center overflow-x-hidden px-10 md:px-0">
-  <h2 class="text-5xl mb-12">Qué hacemos</h2>
+<section class="py-20 bg-smoke overflow-x-hidden md:px-0">
+  <h2 class="text-5xl mb-12 text-center">Qué hacemos</h2>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-15 md:gap-30 max-w-6xl mx-auto">
     @for(card of homeData.hoverCards; track $index){
-    <div class="flex flex-col items-center">
+    <div class="flex flex-col items-center px-10 xl:px-0">
       <img [src]="card.decoration" alt="Decoración título">
       <h3 class="card-title !mb-10">
         {{ card.title }}
@@ -36,8 +36,8 @@
     }
   </div>
 </section>
-<section class="pb-20 bg-smoke text-center overflow-x-hidden px-10 md:px-0">
-  <h2 class="text-5xl mb-12">Próximamente</h2>
+<section class="pb-20 bg-smoke overflow-x-hidden px-10 md:px-0">
+  <h2 class="text-5xl mb-12 text-center">Próximamente</h2>
   <div class=" max-w-6xl mx-auto">
     @for(card of homeData.soonSectionCards; track $index){
     <div class="flex flex-col items-center">
