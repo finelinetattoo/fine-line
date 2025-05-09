@@ -92,11 +92,18 @@ export const routes: Routes = [
               ).then((m) => m.TattoosPageComponent),
           },
           {
-            path: 'graficos',
+            path: 'estadisticas',
             loadComponent: () =>
               import(
                 './features/charts/charts-page/charts-page.component'
               ).then((m) => m.ChartsPageComponent),
+          },
+          {
+            path: 'mensajes-contacto',
+            loadComponent: () =>
+              import(
+                './features/messages-contact/messages-contact-page/messages-contact-page.component'
+              ).then((m) => m.MessagesContactPageComponent),
           },
         ],
       },
