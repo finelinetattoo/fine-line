@@ -1,6 +1,6 @@
-<div class="schedule-section">
-  <div class="grid grid-cols-2 text-center text-xl gap-x-8">
-    <h2 class="col-span-2 text-4xl !mb-4 !font-bold">Horario</h2>
+<div class="schedule-section max-w-xs md:max-w-xs mx-auto">
+  <div class="grid grid-cols-2 text-xl gap-x-4">
+    <h2 class="col-span-2 text-center text-4xl !mb-4 !font-bold">Horario</h2>
 
     @for (entry of openingHours; track entry.day) {
     <div class="day text-start text-2xl">{{ entry.day }}</div>

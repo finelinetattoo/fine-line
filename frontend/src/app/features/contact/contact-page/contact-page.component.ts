@@ -8,6 +8,7 @@ import { IconsSectionComponent } from '../../../shared/components/icons-section/
 import { ParallaxSectionComponent } from '../../../shared/components/parallax-section/parallax-section.component';
 import { SocialFollowComponent } from '../../../shared/components/social-follow/social-follow.component';
 import { ScheduleSectionComponent } from '../../../shared/components/schedule-section/schedule-section.component';
+import { MapSectionComponent } from '../../../shared/components/map-section/map-section.component';
 
 @Component({
   selector: 'app-contact-page',
@@ -18,6 +19,7 @@ import { ScheduleSectionComponent } from '../../../shared/components/schedule-se
     ParallaxSectionComponent,
     SocialFollowComponent,
     ScheduleSectionComponent,
+    MapSectionComponent,
   ],
   templateUrl: './contact-page.component.html',
   styleUrl: './contact-page.component.scss',
