@@ -15,6 +15,11 @@
     </div>
   </div>
 </div>
+<div class="bg-granite py-20 px-6">
+  <div class="max-w-3xl mx-auto md:grid md:grid-cols-2 md:gap-12">
+    <app-schedule-section [openingHours]="contactData.openingHours"></app-schedule-section>
+  </div>
+</div>
 <app-parallax-section [backgroundClass]="contactData.wantGetTattoo.parallaxBgClass"
   [title]="contactData.wantGetTattoo.title" [description]="contactData.wantGetTattoo.description"
   [buttonLabel]="contactData.wantGetTattoo.buttonLabel" [buttonLink]="contactData.wantGetTattoo.buttonLink">

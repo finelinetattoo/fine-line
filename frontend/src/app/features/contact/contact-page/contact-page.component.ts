@@ -7,6 +7,7 @@ import { NotificationService } from '../../../shared/services/notification/notif
 import { IconsSectionComponent } from '../../../shared/components/icons-section/icons-section.component';
 import { ParallaxSectionComponent } from '../../../shared/components/parallax-section/parallax-section.component';
 import { SocialFollowComponent } from '../../../shared/components/social-follow/social-follow.component';
+import { ScheduleSectionComponent } from '../../../shared/components/schedule-section/schedule-section.component';
 
 @Component({
   selector: 'app-contact-page',
@@ -16,6 +17,7 @@ import { SocialFollowComponent } from '../../../shared/components/social-follow/
     IconsSectionComponent,
     ParallaxSectionComponent,
     SocialFollowComponent,
+    ScheduleSectionComponent,
   ],
   templateUrl: './contact-page.component.html',
   styleUrl: './contact-page.component.scss',

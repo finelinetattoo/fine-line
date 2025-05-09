@@ -41,4 +41,13 @@ export const ContactPageData = {
       textLink: 'mailto:line-tattoo@linetattoo.com',
     },
   ],
+  openingHours: [
+    { day: 'lunes', hours: ['10:00 - 13:00', '16:30 - 20:00'] },
+    { day: 'martes', hours: ['10:00 - 13:00', '16:30 - 20:00'] },
+    { day: 'miércoles', hours: ['10:00 - 13:00', '16:30 - 20:00'] },
+    { day: 'jueves', hours: ['10:00 - 13:00', '16:30 - 20:00'] },
+    { day: 'viernes', hours: ['10:00 - 13:00', '16:30 - 20:00'] },
+    { day: 'sábado', hours: ['Cerrado'] },
+    { day: 'domingo', hours: ['Cerrado'] },
+  ],
 };
