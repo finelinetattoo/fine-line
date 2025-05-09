@@ -4,10 +4,10 @@
     <label>{{ field.label }}</label>
     @switch (field.type) {
     @case ('text') {
-    <input type="text" [formControlName]="field.name" />
+    <input type="text" [formControlName]="field.name">
     }
     @case ('email') {
-    <input type="email" [formControlName]="field.name" />
+    <input type="email" [formControlName]="field.name">
     }
     @case ('textarea') {
     <textarea [formControlName]="field.name"></textarea>

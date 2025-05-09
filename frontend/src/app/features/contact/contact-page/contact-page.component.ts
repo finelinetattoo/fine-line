@@ -4,10 +4,19 @@ import { ContactPageData } from './contact-page.config';
 import { FormBuilderComponent } from '../../../shared/components/form-builder/form-builder.component';
 import { Router } from '@angular/router';
 import { NotificationService } from '../../../shared/services/notification/notification.service';
+import { IconsSectionComponent } from '../../../shared/components/icons-section/icons-section.component';
+import { ParallaxSectionComponent } from '../../../shared/components/parallax-section/parallax-section.component';
+import { SocialFollowComponent } from '../../../shared/components/social-follow/social-follow.component';
 
 @Component({
   selector: 'app-contact-page',
-  imports: [VideoBannerComponent, FormBuilderComponent],
+  imports: [
+    VideoBannerComponent,
+    FormBuilderComponent,
+    IconsSectionComponent,
+    ParallaxSectionComponent,
+    SocialFollowComponent,
+  ],
   templateUrl: './contact-page.component.html',
   styleUrl: './contact-page.component.scss',
 })

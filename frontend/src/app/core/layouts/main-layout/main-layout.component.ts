@@ -3,7 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { LogoComponent } from '../../../shared/components/logo/logo.component';
 import { MainNavigationComponent } from '../main-navigation/main-navigation.component';
 import { MobileMenuComponent } from '../mobile-menu/mobile-menu.component';
-import { FooterComponent } from '../footer/footer.component';
+import { MainFooterComponent } from '../main-footer/main-footer.component';
 
 @Component({
   selector: 'app-main-layout',
@@ -12,7 +12,7 @@ import { FooterComponent } from '../footer/footer.component';
     LogoComponent,
     MainNavigationComponent,
     MobileMenuComponent,
-    FooterComponent,
+    MainFooterComponent,
   ],
   templateUrl: './main-layout.component.html',
   styleUrl: './main-layout.component.scss',

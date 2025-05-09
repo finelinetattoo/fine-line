@@ -1,9 +1,22 @@
 <app-video-banner [src]="contactData.videoSection.src" [type]="contactData.videoSection.type"></app-video-banner>
 <div class="bg-beige py-20 px-6">
-  <div class="max-w-md mx-auto bg-white p-6 rounded-lg shadow">
-    <h1 class="text-center text-4xl font-semibold !mb-6">Mándanos tu mensaje</h1>
-
-    <app-form-builder [fields]="contactFields" (formSubmit)="handleSubmit($event)">
-    </app-form-builder>
+  <div class="max-w-5xl mx-auto md:grid md:grid-cols-2 md:gap-12">
+    <div class="bg-white p-6 rounded-lg shadow mb-10 md:mb-0">
+      <h1 class="text-center text-4xl font-semibold mb-6">Mándanos tu mensaje</h1>
+      <app-form-builder [fields]="contactFields" (formSubmit)="handleSubmit($event)">
+      </app-form-builder>
+    </div>
+    <div class="flex flex-col justify-center gap-3">
+      @for (section of contactData.iconsSection; track $index) {
+      <app-icons-section [icon]="section.iconLink" [title]="section.title" [subtitle]="section.subtitle"
+        [textLink]="section.textLink">
+      </app-icons-section>
+      }
+    </div>
   </div>
 </div>
+<app-parallax-section [backgroundClass]="contactData.wantGetTattoo.parallaxBgClass"
+  [title]="contactData.wantGetTattoo.title" [description]="contactData.wantGetTattoo.description"
+  [buttonLabel]="contactData.wantGetTattoo.buttonLabel" [buttonLink]="contactData.wantGetTattoo.buttonLink">
+</app-parallax-section>
+<app-social-follow [backgroundClass]="contactData.socialSection.backgroundClass"></app-social-follow>
