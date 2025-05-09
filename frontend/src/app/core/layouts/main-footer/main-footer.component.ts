@@ -5,12 +5,12 @@ import { LogoComponent } from '../../../shared/components/logo/logo.component';
 import { ButtonComponent } from '../../../shared/components/button/button.component';
 
 @Component({
-  selector: 'app-footer',
+  selector: 'app-main-footer',
   imports: [CommonModule, RouterModule, LogoComponent, ButtonComponent],
-  templateUrl: './footer.component.html',
-  styleUrl: './footer.component.scss',
+  templateUrl: './main-footer.component.html',
+  styleUrl: './main-footer.component.scss',
 })
-export class FooterComponent {
+export class MainFooterComponent {
   footerData = {
     contact: {
       title: 'Contacto',
@@ -43,7 +43,7 @@ export class FooterComponent {
       },
     ],
     buttonLabel: 'Contáctanos',
-    buttonLink: '/contacta',
+    buttonLink: '/contacto',
   };
 
   get sanitizedPhone(): string {

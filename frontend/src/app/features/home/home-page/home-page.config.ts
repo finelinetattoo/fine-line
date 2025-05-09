@@ -1,5 +1,3 @@
-// src/app/config/home-page.config.ts
-
 export const homePageData = {
   parallaxSection: {
     parallaxBgClass: 'bg-about',
