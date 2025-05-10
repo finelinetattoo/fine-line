@@ -8,6 +8,7 @@ import { TattooModule } from './tattoo/tattoo.module';
 import { AuthModule } from './auth/auth.module';
 import { ConfigModule } from '@nestjs/config';
 import { AdminController } from './admin/admin.controller';
+import { ContactMessageModule } from './contact-message/module/contact-message.module';
 
 @Module({
   imports: [
@@ -26,6 +27,7 @@ import { AdminController } from './admin/admin.controller';
     ArtistModule,
     TattooModule,
     AuthModule,
+    ContactMessageModule,
   ],
   controllers: [AppController, AdminController],
   providers: [AppService],

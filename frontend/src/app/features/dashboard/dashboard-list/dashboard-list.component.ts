@@ -26,8 +26,8 @@ export class DashboardListComponent {
   @Input() data: any[] = [];
   @Input() columns: { label: string; key: string; pipe?: string }[] = [];
   @Input() createButtonText: string = 'Crear';
-  @Input() onCreate!: () => void;
-  @Input() onEdit!: (item: any) => void;
+  @Input() onCreate?: () => void;
+  @Input() onEdit?: (item: any) => void;
   @Input() onDelete!: (id: number) => void;
   @Input() enableSearch: boolean = false;
   @Input() searchPlaceholder: string = 'Buscar...';
@@ -35,5 +35,6 @@ export class DashboardListComponent {
   @Input() onReset?: () => void;
   @Input() sortKey: string | null = null;
   @Input() sortDirection: 'asc' | 'desc' | null = null;
-  @Input() onSort?: (key: string) => void;
+  @Input() onSort?: (key: any) => void;
+  @Input() customActions?: (item: any) => void;
 }

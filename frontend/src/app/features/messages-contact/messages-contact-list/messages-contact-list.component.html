@@ -1,0 +1,10 @@
+<app-dashboard-list [loading]="loading" [data]="filteredMessages" [columns]="[
+    { label: 'Nombre', key: 'name' },
+    { label: 'Email', key: 'email' },
+    { label: 'Mensaje', key: 'message' },
+    { label: 'Fecha', key: 'createdAt', pipe: 'date' },
+    { label: 'Leído', key: 'isRead' }
+  ]" [onDelete]="deleteMessage.bind(this)" [enableSearch]="true" [searchPlaceholder]="'Buscar'"
+  [onSearch]="searchMessage.bind(this)" [onReset]="resetFilters.bind(this)" [customActions]="toggleRead.bind(this)"
+  [sortKey]="sortKey" [sortDirection]="sortDirection" [onSort]="sortMessages.bind(this)">
+</app-dashboard-list>

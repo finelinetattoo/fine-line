@@ -6,12 +6,14 @@
   <app-search-bar [placeholder]="searchPlaceholder" (search)="onSearch($event)" (reset)="onReset()"></app-search-bar>
   }
 </div>
+@if (onCreate) {
 <div class="button-container">
   <button nz-button nzType="primary" (click)="onCreate()">
     <nz-icon nzType="plus"></nz-icon>
     {{ createButtonText }}
   </button>
 </div>
+}
 <div class="table-container">
   <nz-table [nzData]="data" [nzBordered]="true" [nzSize]="'middle'" [nzScroll]="{ x: 'auto' }">
     <thead>
@@ -29,21 +31,31 @@
       @for (item of data; track item.id) {
       <tr>
         @for (col of columns; track col.key) {
-        <td>
+        <td [ngClass]="col.key === 'isRead' ? 'text-center' : ''">
           @if (col.pipe === 'date') {
           {{ item[col.key] | date: 'dd/MM/yyyy, HH:mm' }}
+          }@else if (col.key === 'isRead') {
+          {{ item.isRead ? '✅' : '❌' }}
           } @else {
           {{ item[col.key] }}
           }
         </td>
         }
         <td class="actions-cell">
+          @if(onEdit){
           <button nz-button nzType="text" (click)="onEdit(item)">
             <nz-icon nzType="edit"></nz-icon>
           </button>
-          <button nz-button nzType="text" nzDanger (click)="onDelete(item.id)">
+          }
+          <button nz-button nzType="text" nzDanger (click)="onDelete(item.id)" [ngClass]="{ '!mr-2': customActions }">
             <nz-icon nzType="delete"></nz-icon>
           </button>
+          @if (customActions) {
+          <button nz-button nzType="text" (click)="customActions(item)"
+            class="!border !border-gray-300 !rounded !px-2 py-1 hover:bg-gray-100 transition">
+            {{ item.isRead ? '📬 No Leído' : '📪 Leído' }}
+          </button>
+          }
         </td>
       </tr>
       }
