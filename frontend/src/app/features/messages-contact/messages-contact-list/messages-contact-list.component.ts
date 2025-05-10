@@ -66,6 +66,19 @@ export class MessagesContactListComponent {
     });
   }
 
+  searchMessage(term: string): void {
+    const lower = term.toLowerCase();
+    this.filteredMessages = this.messages.filter(
+      (message) =>
+        message.name.toLowerCase().includes(lower) ||
+        message.email.toLowerCase().includes(lower)
+    );
+  }
+
+  resetFilters(): void {
+    this.filteredMessages = [...this.messages];
+  }
+
   sortMessages(key: keyof ContactMessage): void {
     if (this.sortKey === key) {
       this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
