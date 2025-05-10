@@ -1,0 +1,32 @@
+<form *ngIf="formGroup" [formGroup]="formGroup" (ngSubmit)="submitForm()" class="form-container">
+  @for(field of fields; track $index){
+  <div class="form-field">
+    <label>{{ field.label }}</label>
+    @switch (field.type) {
+    @case ('text') {
+    <input type="text" [formControlName]="field.name">
+    }
+    @case ('email') {
+    <input type="email" [formControlName]="field.name">
+    }
+    @case ('textarea') {
+    <textarea [formControlName]="field.name"></textarea>
+    }
+    }
+
+    @if(formGroup.get(field.name)?.invalid && formGroup.get(field.name)?.touched){
+    <div class="error">
+      @if (formGroup.get(field.name)?.errors?.['required']) {
+      <p>Este campo es obligatorio.</p>
+      }
+      @if (formGroup.get(field.name)?.errors?.['email']) {
+      <p>Introduce un email válido.</p>
+      }
+    </div>
+    }
+  </div>
+  }
+  <button type="submit" [class.opacity-50]="formGroup.invalid" [class.cursor-not-allowed]="formGroup.invalid"
+    [class.cursor-pointer]="formGroup.valid" class="button-submit transition">Enviar</button>
+
+</form>

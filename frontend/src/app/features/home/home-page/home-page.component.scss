@@ -1,0 +1,12 @@
+.card-title {
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #000;
+  line-height: 1.2;
+
+  span {
+    position: relative;
+    z-index: 2;
+  }
+}

@@ -1,0 +1,7 @@
+<div class="flex justify-end">
+  <div class="flex gap-2 items-center">
+    <input nz-input [value]="searchTerm()" (input)="updateSearchTerm($event)" [placeholder]="'🔍 ' + placeholder"
+      class="w-[220px] h-[36px]" />
+    <button nz-button nzType="default" (click)="onReset()">Limpiar</button>
+  </div>
+</div>

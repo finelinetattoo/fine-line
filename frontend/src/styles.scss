@@ -1,5 +1,24 @@
 @use "tailwindcss";
-@use "styles/abstracts/colors" as *;
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+
+@theme {
+  --color-beige: #e7e2d6;
+  --color-hola: red;
+  --color-beige-opacity: rgba(231, 226, 214, 0.3);
+  --color-granite: #c6bab1;
+  --color-black: #373737;
+  --color-smoke: #cbc9c5;
+  --color-primary: #e7e2d6;
+  --color-text-secondary: #cbc9c5;
+  --color-accent: #c6bab1;
+  --color-danger: #d9534f;
+}
+body {
+  font-family: "Playfair Display", serif;
+}
+p {
+  color: #373737;
+}
 
 // ========================================
 // DASHBOARD PAGE STYLES
@@ -17,7 +36,7 @@
 .ant-layout-sider {
   position: relative;
   min-width: 0;
-  background: $text-color;
+  background: var(--color-text);
 }
 
 // ===========================
@@ -25,7 +44,7 @@
 // ===========================
 
 .ant-menu-dark .ant-menu-inline.ant-menu-sub {
-  background: $text-secondary-color;
+  background: var(--color-text-secondary);
 }
 
 // ===========================
@@ -33,18 +52,18 @@
 // ===========================
 
 .ant-btn-primary {
-  background: $text-secondary-color;
-  border-color: $text-secondary-color;
+  background: var(--color-text-secondary);
+  border-color: var(--color-text-secondary);
 
   &:hover {
-    background: $accent-color;
-    border-color: $accent-color;
+    background: var(--color-accent);
+    border-color: var(--color-accent);
   }
 
   &:focus,
   &:active {
-    background: $text-color;
-    border-color: $text-color;
+    background: var(--color-accent);
+    border-color: var(--color-accent);
   }
 }
 
@@ -52,19 +71,24 @@
 // Paginación
 // ===========================
 
-.ant-pagination-item-active {
-  border-color: $text-color;
-
-  a {
-    color: $text-color;
-  }
-
-  &:hover {
-    border-color: $accent-color;
+.ant- {
+  &pagination-item-active {
+    border-color: var(--color-text);
 
     a {
-      color: $accent-color;
+      color: var(--color-text);
     }
+
+    &:hover {
+      border-color: var(--color-accent);
+
+      a {
+        color: var(--color-accent);
+      }
+    }
+  }
+  &table-pagination-right {
+    display: none;
   }
 }
 
@@ -100,12 +124,24 @@
 // ===========================
 // Calendar
 // ===========================
+app-calendar-display {
+  a,
+  a:hover {
+    color: black;
+  }
+}
+
 .fc- {
   &event-main {
     margin-left: 4px;
   }
   &button {
     cursor: pointer;
+  }
+  &event-title {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
   }
 }
 .ant-modal {

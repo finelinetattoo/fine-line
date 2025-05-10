@@ -1,0 +1,17 @@
+<header class="fixed z-50 top-0 left-0 w-full text-beige mix-blend-difference px-6 py-4 h-20 bg-beige-opacity">
+  <div class="container mx-auto flex justify-between items-center font-semibold">
+    <app-logo size="large"></app-logo>
+    <button class="text-xl font-bold md:hidden" aria-label="Abrir menú" (click)="toggleMenu()">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+      </svg>
+    </button>
+    <app-main-navigation class="hidden md:flex" [links]="links"></app-main-navigation>
+  </div>
+</header>
+
+<app-mobile-menu [isOpen]="isMenuOpen" [links]="links" (close)="closeMenu()"></app-mobile-menu>
+<main>
+  <router-outlet></router-outlet>
+</main>
+<app-main-footer></app-main-footer>

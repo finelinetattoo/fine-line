@@ -1,0 +1,17 @@
+<div class="icon-section">
+  <div class="icon">
+    <img [src]="icon" [alt]="icon" />
+  </div>
+  <div class="text">
+    <p class="title text-2xl">{{ title }}</p>
+    <p class="subtitle text-lg">
+      @if(textLink){
+      <a [href]="textLink" target="_blank" rel="noopener noreferrer" class="text-inherit underline">
+        {{ subtitle }}
+      </a>
+      } @else {
+      {{ subtitle }}
+      }
+    </p>
+  </div>
+</div>
