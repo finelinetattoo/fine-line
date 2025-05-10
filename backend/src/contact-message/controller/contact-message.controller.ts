@@ -7,7 +7,7 @@ import {
   Param,
   Delete,
 } from '@nestjs/common';
-import { ContactMessageService } from '../service/contact-message.service';
+import { ContactMessageService } from '../services/contact-message.service';
 import { CreateContactMessageDto } from '../create-contact-message/dto/create-contact-message.dto';
 import { UpdateContactMessageDto } from '../update-contact-message/dto/update-contact-message.dto';
 
