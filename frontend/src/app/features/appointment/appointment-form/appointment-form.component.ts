@@ -4,6 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppointmentRequestService } from '../appointment-service/appointment-request.service';
 import { NotificationService } from '../../../shared/services/notification/notification.service';
 import { Router } from '@angular/router';
+import { UploadCloudinaryService } from '../appointment-service/upload-cloudinary.service';
 
 @Component({
   selector: 'app-appointment-form',
@@ -32,6 +33,7 @@ export class AppointmentFormComponent implements OnInit {
   private appointmentService = inject(AppointmentRequestService);
   private notificationService = inject(NotificationService);
   private router = inject(Router);
+  private cloudinary = inject(UploadCloudinaryService);
 
   ngOnInit(): void {
     this.form = this.fb.group({
@@ -106,5 +108,20 @@ export class AppointmentFormComponent implements OnInit {
         );
       },
     });
+  }
+
+  async onFileSelected(event: Event, index: number): Promise<void> {
+    const input = event.target as HTMLInputElement;
+    const file = input.files?.[0];
+
+    if (!file) return;
+
+    try {
+      const url = await this.cloudinary.uploadImage(file);
+      this.form.patchValue({ [`image_${index}_url`]: url });
+      this.form.get(`image_${index}_url`)?.markAsTouched();
+    } catch {
+      this.notificationService.error('Error', 'No se pudo subir la imagen.');
+    }
   }
 }

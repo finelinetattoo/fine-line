@@ -134,8 +134,8 @@
   </div>
   @for (i of [1, 2, 3]; track i) {
   <div class="form-field">
-    <label>URL de imagen {{ i }} *</label>
-    <input type="text" [formControlName]="'image_' + i + '_url'">
+    <label>Imagen {{ i }} *</label>
+    <input type="file" accept="image/*" (change)="onFileSelected($event, i)" />
     @if (form.get('image_' + i + '_url')?.touched && form.get('image_' + i + '_url')?.invalid) {
     <div class="error">
       <p>Este campo es obligatorio.</p>
