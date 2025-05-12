@@ -24,7 +24,12 @@ import { SortableHeaderComponent } from '../../../shared/components/sortable-hea
 export class DashboardListComponent {
   @Input() loading: boolean = false;
   @Input() data: any[] = [];
-  @Input() columns: { label: string; key: string; pipe?: string }[] = [];
+  @Input() columns: {
+    label: string;
+    key: string;
+    pipe?: string;
+    type?: string;
+  }[] = [];
   @Input() createButtonText: string = 'Crear';
   @Input() onCreate?: () => void;
   @Input() onEdit?: (item: any) => void;
