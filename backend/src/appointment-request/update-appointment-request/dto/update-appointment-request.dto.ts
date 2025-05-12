@@ -1,6 +1,7 @@
-import { PartialType } from '@nestjs/mapped-types';
-import { CreateAppointmentRequestDto } from 'src/appointment-request/create-appointment-request/dto/create-appointment-request.dto';
+import { IsBoolean, IsOptional } from 'class-validator';
 
-export class UpdateAppointmentRequestDto extends PartialType(
-  CreateAppointmentRequestDto,
-) {}
+export class UpdateAppointmentRequestDto {
+  @IsOptional()
+  @IsBoolean()
+  isRead?: boolean;
+}
