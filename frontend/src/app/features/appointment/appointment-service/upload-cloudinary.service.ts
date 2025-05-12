@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
+import { environment } from '../../../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UploadCloudinaryService {
-  private cloudName = 'dwygcrj5r';
-  private uploadPreset = 'form_user_upload';
+  private cloudName = environment.cloudinary.cloudName;
+  private uploadPreset = environment.cloudinary.uploadPreset;
 
   uploadImage(file: File): Promise<string> {
     const url = `https://api.cloudinary.com/v1_1/${this.cloudName}/image/upload`;
