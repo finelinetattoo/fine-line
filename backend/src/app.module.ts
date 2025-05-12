@@ -10,6 +10,7 @@ import { ConfigModule } from '@nestjs/config';
 import { AdminController } from './admin/admin.controller';
 import { ContactMessageModule } from './contact-message/module/contact-message.module';
 import { AppointmentRequestModule } from './appointment-request/module/appointment-request.module';
+import { EmailService } from './shared/services/email/email.service';
 
 @Module({
   imports: [
@@ -32,6 +33,6 @@ import { AppointmentRequestModule } from './appointment-request/module/appointme
     AppointmentRequestModule,
   ],
   controllers: [AppController, AdminController],
-  providers: [AppService],
+  providers: [AppService, EmailService],
 })
 export class AppModule {}
