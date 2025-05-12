@@ -113,8 +113,26 @@ export class AppointmentFormComponent implements OnInit {
   async onFileSelected(event: Event, index: number): Promise<void> {
     const input = event.target as HTMLInputElement;
     const file = input.files?.[0];
-
     if (!file) return;
+
+    const maxSize = 300 * 1024;
+    const allowedTypes = ['image/jpeg', 'image/png', 'image/webp'];
+
+    if (!allowedTypes.includes(file.type)) {
+      this.notificationService.error(
+        'Formato inválido',
+        'Solo se permiten imágenes JPG, PNG o WEBP.'
+      );
+      return;
+    }
+
+    if (file.size > maxSize) {
+      this.notificationService.error(
+        'Imagen demasiado grande',
+        'El tamaño máximo es 300KB por imagen.'
+      );
+      return;
+    }
 
     try {
       const url = await this.cloudinary.uploadImage(file);
