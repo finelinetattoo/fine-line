@@ -132,10 +132,17 @@
     </div>
     }
   </div>
+  <div>
+    <p class="!mb-0">Sube 3 fotos para describir tu idea del tatuaje:
+    </p>
+    <p class="text-xs text-gray-500 !mb-0">Máximo 300KB por imagen</p>
+  </div>
   @for (i of [1, 2, 3]; track i) {
-  <div class="form-field">
-    <label>Imagen {{ i }} *</label>
-    <input type="file" accept="image/*" (change)="onFileSelected($event, i)" />
+  <div class="form-field -mt-3">
+    <label>Imagen idea {{ i }} *</label>
+    <input type="file" accept="image/*" (change)="onFileSelected($event, i)" class="block w-full text-sm text-gray-800 border border-gray-300 rounded-md !p-0
+             file:mr-4 file:py-2 file:px-4 file:rounded file:border-0
+             file:bg-gray-100 file:text-gray-700 hover:file:bg-gray-200 transition file:cursor-pointer cursor-pointer">
     @if (form.get('image_' + i + '_url')?.touched && form.get('image_' + i + '_url')?.invalid) {
     <div class="error">
       <p>Este campo es obligatorio.</p>
