@@ -105,6 +105,13 @@ export const routes: Routes = [
                 './features/messages-contact/messages-contact-page/messages-contact-page.component'
               ).then((m) => m.MessagesContactPageComponent),
           },
+          {
+            path: 'solicitudes-cita',
+            loadComponent: () =>
+              import(
+                './features/appointment-requests/appointment-requests-page/appointment-requests-page.component'
+              ).then((m) => m.AppointmentRequestsPageComponent),
+          },
         ],
       },
     ],

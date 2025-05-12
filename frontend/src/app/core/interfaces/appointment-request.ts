@@ -18,4 +18,5 @@ export interface AppointmentRequest {
   availability: 'morning' | 'afternoon' | 'weekend' | 'any';
   additional_comments?: string;
   createdAt: string;
+  isRead: boolean;
 }
