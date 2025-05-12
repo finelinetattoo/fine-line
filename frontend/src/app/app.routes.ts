@@ -29,6 +29,13 @@ export const routes: Routes = [
             (m) => m.ContactPageComponent
           ),
       },
+      {
+        path: 'reserva',
+        loadComponent: () =>
+          import(
+            './features/appointment/appointment-page/appointment-page.component'
+          ).then((m) => m.AppointmentPageComponent),
+      },
     ],
   },
   {

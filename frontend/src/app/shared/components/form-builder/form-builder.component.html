@@ -1,4 +1,5 @@
-<form *ngIf="formGroup" [formGroup]="formGroup" (ngSubmit)="submitForm()" class="form-container">
+@if(formGroup){
+<form [formGroup]="formGroup" (ngSubmit)="submitForm()" class="form-container">
   @for(field of fields; track $index){
   <div class="form-field">
     <label>{{ field.label }}</label>
@@ -30,3 +31,4 @@
     [class.cursor-pointer]="formGroup.valid" class="button-submit transition">Enviar</button>
 
 </form>
+}
