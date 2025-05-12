@@ -29,6 +29,13 @@ export const routes: Routes = [
             (m) => m.ContactPageComponent
           ),
       },
+      {
+        path: 'reserva',
+        loadComponent: () =>
+          import(
+            './features/appointment/appointment-page/appointment-page.component'
+          ).then((m) => m.AppointmentPageComponent),
+      },
     ],
   },
   {
@@ -104,6 +111,13 @@ export const routes: Routes = [
               import(
                 './features/messages-contact/messages-contact-page/messages-contact-page.component'
               ).then((m) => m.MessagesContactPageComponent),
+          },
+          {
+            path: 'solicitudes-cita',
+            loadComponent: () =>
+              import(
+                './features/appointment-requests/appointment-requests-page/appointment-requests-page.component'
+              ).then((m) => m.AppointmentRequestsPageComponent),
           },
         ],
       },
