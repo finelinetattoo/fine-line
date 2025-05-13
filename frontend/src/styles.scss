@@ -17,7 +17,7 @@ body {
   font-family: "Playfair Display", serif;
 }
 p {
-  color: #373737;
+  color: var(--color-black);
 }
 
 // ========================================
@@ -36,7 +36,6 @@ p {
 .ant-layout-sider {
   position: relative;
   min-width: 0;
-  background: var(--color-text);
 }
 
 // ===========================
@@ -45,6 +44,9 @@ p {
 
 .ant-menu-dark .ant-menu-inline.ant-menu-sub {
   background: var(--color-text-secondary);
+}
+.ant-menu-dark .ant-menu-item > span > a {
+  color: var(--color-black) !important;
 }
 
 // ===========================

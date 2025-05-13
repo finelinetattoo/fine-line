@@ -2,7 +2,8 @@
   class="fixed inset-0 z-50 bg-beige text-black flex flex-col items-center justify-start transition-transform duration-500 ease-in-out"
   [class.translate-y-0]="isOpen" [class.-translate-y-full]="!isOpen">
   <button (click)="closeMenu()" class="absolute top-5 right-6 text-3xl font-bold" aria-label="Cerrar menú">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6 mt-3">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+      class="w-6 h-6 mt-3 cursor-pointer">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
     </svg>
   </button>
