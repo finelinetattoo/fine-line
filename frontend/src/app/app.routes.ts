@@ -43,6 +43,13 @@ export const routes: Routes = [
             './features/portfolio/portfolio-page/portfolio-page.component'
           ).then((m) => m.PortfolioPageComponent),
       },
+      {
+        path: 'disenos',
+        loadComponent: () =>
+          import(
+            './features/available-designs/available-designs-page/available-designs-page.component'
+          ).then((m) => m.AvailableDesignsPageComponent),
+      },
     ],
   },
   {
