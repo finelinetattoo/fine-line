@@ -24,11 +24,11 @@ export class MainLayoutComponent {
     { label: 'Home', path: '/' },
     { label: 'Estudio', path: '/estudio' },
     { label: 'Contacta', path: '/contacto' },
-    { label: 'Reserva tu cita', path: '/reserva' },
+    { label: 'Reserva tu cita', path: '/reserva-cita' },
     {
       label: 'Portafolio',
       children: [
-        { label: 'Trabajos realizados', path: '/trabajos' },
+        { label: 'Trabajos realizados', path: '/trabajos-realizados' },
         { label: 'Diseños disponibles', path: '/disenos' },
       ],
     },
