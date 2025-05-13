@@ -50,6 +50,13 @@ export const routes: Routes = [
             './features/available-designs/available-designs-page/available-designs-page.component'
           ).then((m) => m.AvailableDesignsPageComponent),
       },
+      {
+        path: 'recomendaciones',
+        loadComponent: () =>
+          import(
+            './features/recommendations/recommendations-page/recommendations-page.component'
+          ).then((m) => m.RecommendationsPageComponent),
+      },
     ],
   },
   {

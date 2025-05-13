@@ -1,6 +1,10 @@
 @use "tailwindcss";
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
 
+// ========================================
+// VARIABLES CUSTOM PROPERTIES
+// ========================================
+
 @theme {
   --color-beige: #e7e2d6;
   --color-hola: red;
@@ -13,21 +17,24 @@
   --color-accent: #c6bab1;
   --color-danger: #d9534f;
 }
+
+// ========================================
+// GLOBAL STYLES
+// ========================================
+
 body {
   font-family: "Playfair Display", serif;
 }
+
 p {
   color: var(--color-black);
 }
 
 // ========================================
-// DASHBOARD PAGE STYLES
+// DASHBOARD STYLES
 // ========================================
 
-// ===========================
 // Layout & Sidebar
-// ===========================
-
 .sidebar-logo img {
   display: inline-block;
   vertical-align: middle;
@@ -38,30 +45,27 @@ p {
   min-width: 0;
 }
 
-// ===========================
 // Menu
-// ===========================
+.ant-menu-dark {
+  .ant-menu-inline.ant-menu-sub {
+    background: var(--color-text-secondary);
+  }
 
-.ant-menu-dark .ant-menu-inline.ant-menu-sub {
-  background: var(--color-text-secondary);
+  .ant-menu-item > span > a {
+    color: var(--color-black) !important;
+  }
+
+  .ant-menu-sub {
+    background: var(--color-text-secondary);
+  }
 }
-.ant-menu-dark .ant-menu-item > span > a {
-  color: var(--color-black) !important;
-}
 
-// ===========================
-// Botones
-// ===========================
-
+// Buttons
 .ant-btn-primary {
   background: var(--color-text-secondary);
   border-color: var(--color-text-secondary);
 
-  &:hover {
-    background: var(--color-accent);
-    border-color: var(--color-accent);
-  }
-
+  &:hover,
   &:focus,
   &:active {
     background: var(--color-accent);
@@ -69,16 +73,13 @@ p {
   }
 }
 
-// ===========================
-// Paginación
-// ===========================
-
-.ant- {
-  &pagination-item-active {
-    border-color: var(--color-text);
+// Pagination
+.ant-pagination {
+  &-item-active {
+    border-color: var(--color-black);
 
     a {
-      color: var(--color-text);
+      color: var(--color-black);
     }
 
     &:hover {
@@ -89,15 +90,13 @@ p {
       }
     }
   }
-  &table-pagination-right {
+
+  &-table-pagination-right {
     display: none;
   }
 }
 
-// ===========================
-// Formulario Modal
-// ===========================
-
+// Modal form
 .modal-form-footer {
   margin-top: 24px;
   display: flex;
@@ -105,10 +104,7 @@ p {
   gap: 8px;
 }
 
-// ===========================
-// Mensajes de error
-// ===========================
-
+// Error messages
 .error-message {
   color: red;
   font-size: 14px;
@@ -123,9 +119,7 @@ p {
   }
 }
 
-// ===========================
 // Calendar
-// ===========================
 app-calendar-display {
   a,
   a:hover {
@@ -133,26 +127,30 @@ app-calendar-display {
   }
 }
 
-.fc- {
-  &event-main {
-    margin-left: 4px;
-  }
-  &button {
-    cursor: pointer;
-  }
-  &event-title {
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-  }
+.fc-event-main {
+  margin-left: 4px;
 }
+
+.fc-button {
+  cursor: pointer;
+}
+
+.fc-event-title {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+// Modal
 .ant-modal {
   font-family: Avenir, Helvetica Neue, Arial, Helvetica, sans-serif;
+
   &-title {
     font-size: 1.25rem;
     text-align: center;
   }
 }
+
 .container-modal p {
   margin-bottom: 0;
 }

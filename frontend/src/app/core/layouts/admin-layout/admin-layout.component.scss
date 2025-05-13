@@ -171,6 +171,10 @@ nz-content {
     }
   }
 }
+
+.custom-menu-item.ant-menu-item.ant-menu-item-selected {
+  background-color: #c6bab1;
+}
 @media (min-width: 768px) {
   .logout-container {
     padding-left: 48px;
