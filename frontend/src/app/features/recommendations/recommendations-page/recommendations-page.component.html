@@ -1,0 +1,29 @@
+<section class="px-6 pt-10 bg-beige">
+  <app-info-block [title]="recommendationsData.instructionsSection.title"
+    [paragraphs]="recommendationsData.instructionsSection.paragraphs"
+    [imageSrc]="recommendationsData.instructionsSection.imageSrc"
+    [imageAlt]="recommendationsData.instructionsSection.imageAlt"
+    [imagePosition]="recommendationsData.instructionsSection.imagePosition"
+    [backgroundClass]="recommendationsData.instructionsSection.backgroundClass"
+    [imageStyle]="recommendationsData.instructionsSection.imageStyle"></app-info-block>
+</section>
+<section class="px-6 bg-granite">
+  <h2 class="text-4xl md:text-5xl font-semibold text-center text-balance pt-20">
+    {{recommendationsData.aftercareSection.heading}}</h2>
+  <p class="text-lg leading-relaxed text-gray-700 text-balance text-center !mb-0">
+    {{recommendationsData.aftercareSection.mainParagraph}}</p>
+  <p class="text-lg leading-relaxed text-gray-700 text-balance text-center !-mb-20">
+    {{recommendationsData.aftercareSection.secondaryParagraph}}</p>
+  <app-info-block [paragraphs]="recommendationsData.aftercareSection.paragraphs"
+    [imageSrc]="recommendationsData.aftercareSection.imageSrc"
+    [imageAlt]="recommendationsData.aftercareSection.imageAlt"
+    [imagePosition]="recommendationsData.aftercareSection.imagePosition"
+    [backgroundClass]="recommendationsData.aftercareSection.backgroundClass"
+    [imageStyle]="recommendationsData.aftercareSection.imageStyle"></app-info-block>
+</section>
+<app-parallax-section [backgroundClass]="recommendationsData.wantGetTattoo.parallaxBgClass"
+  [title]="recommendationsData.wantGetTattoo.title" [description]="recommendationsData.wantGetTattoo.description"
+  [buttonLabel]="recommendationsData.wantGetTattoo.buttonLabel"
+  [buttonLink]="recommendationsData.wantGetTattoo.buttonLink">
+</app-parallax-section>
+<app-social-follow [backgroundClass]="recommendationsData.socialSection.backgroundClass"></app-social-follow>

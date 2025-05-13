@@ -1,0 +1,13 @@
+<section class="px-6 pt-30 pb-20 bg-beige">
+  <div class="text-center flex-1 order-1 md:order-none max-w-4xl mx-auto">
+    <h1 class="text-4xl md:text-5xl font-semibold text-balance !mb-15">{{ availabeDesignsData.heroSection.title }}</h1>
+  </div>
+  <div class="max-w-4xl mx-auto px-6">
+    <app-card-grid [items]="availabeDesignsData.myGridItems"></app-card-grid>
+  </div>
+</section>
+<app-parallax-section [backgroundClass]="availabeDesignsData.wantGetTattoo.parallaxBgClass"
+  [title]="availabeDesignsData.wantGetTattoo.title" [description]="availabeDesignsData.wantGetTattoo.description"
+  [buttonLabel]="availabeDesignsData.wantGetTattoo.buttonLabel"
+  [buttonLink]="availabeDesignsData.wantGetTattoo.buttonLink">
+</app-parallax-section>

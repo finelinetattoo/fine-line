@@ -24,7 +24,7 @@ export class MainFooterComponent {
       title: 'Fine Line',
       links: [
         { label: 'Nuestro Estudio', path: '/estudio' },
-        { label: 'Reserva tu cita', path: '/reserva' },
+        { label: 'Reserva tu cita', path: '/reserva-cita' },
         { label: 'Trabajos realizados', path: '/portafolio' },
         { label: 'Diseños disponibles', path: '/disponibles' },
         { label: 'Recomendaciones', path: '/recomendaciones' },

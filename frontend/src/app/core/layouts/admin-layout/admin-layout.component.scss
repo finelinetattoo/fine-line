@@ -106,7 +106,7 @@ nz-content {
   font-size: 14px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: left;
   gap: 8px;
   width: 100%;
   padding: 25px 0;
@@ -124,7 +124,7 @@ nz-content {
   transition: all 0.3s, padding 0s;
 
   .trigger:hover {
-    color: #1890ff;
+    color: white;
   }
 }
 
@@ -135,7 +135,6 @@ nz-content {
 .logout-container {
   display: flex;
   justify-content: center;
-  padding: 1rem;
 
   button[nz-button] {
     display: flex;
@@ -170,5 +169,15 @@ nz-content {
         font-size: 16px;
       }
     }
+  }
+}
+
+.custom-menu-item.ant-menu-item.ant-menu-item-selected {
+  background-color: #c6bab1;
+}
+@media (min-width: 768px) {
+  .logout-container {
+    padding-left: 48px;
+    justify-content: left;
   }
 }

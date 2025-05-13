@@ -1,0 +1,21 @@
+<app-dashboard-list [loading]="loading" [data]="filteredAppointments" [columns]="[
+    { label: 'Nombre', key: 'name' },
+    { label: 'Apellidos', key: 'surname' },
+    { label: 'Email', key: 'email' },
+    { label: 'Teléfono', key: 'phone' },
+    { label: 'Adulto', key: 'is_adult' },
+    { label: 'Primera vez', key: 'is_first_time' },
+    { label: 'Disponibilidad', key: 'availability' },
+    { label: 'Descripción tattoo', key: 'tattoo_description' },
+    { label: 'Parte del cuerpo', key: 'body_part' },
+    { label: 'Tamaño alto', key: 'size_height_cm' },
+    { label: 'Tamaño ancho', key: 'size_width_cm' },
+    { label: 'Imagen 1', key: 'image_1_url', type: 'image' },
+    { label: 'Imagen 2', key: 'image_2_url', type: 'image' },
+    { label: 'Imagen 3', key: 'image_3_url', type: 'image' },
+    { label: 'Fecha', key: 'createdAt', pipe: 'date' },
+    { label: 'Leído', key: 'isRead' }
+  ]" [enableSearch]="true" [searchPlaceholder]="'Buscar por nombre, apellidos o email'"
+  [onSearch]="searchAppointment.bind(this)" [onReset]="resetFilters.bind(this)" [customActions]="toggleRead.bind(this)"
+  [onDelete]="deleteAppointment.bind(this)" [sortKey]="sortKey" [sortDirection]="sortDirection"
+  [onSort]="sortAppointments.bind(this)"></app-dashboard-list>

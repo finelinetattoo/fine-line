@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AboutUsComponent } from './parallax-section.component';
+import { ParallaxSectionComponent } from './parallax-section.component';
 
-describe('AboutUsComponent', () => {
-  let component: AboutUsComponent;
-  let fixture: ComponentFixture<AboutUsComponent>;
+describe('ParallaxSectionComponent', () => {
+  let component: ParallaxSectionComponent;
+  let fixture: ComponentFixture<ParallaxSectionComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AboutUsComponent],
+      imports: [ParallaxSectionComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(AboutUsComponent);
+    fixture = TestBed.createComponent(ParallaxSectionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

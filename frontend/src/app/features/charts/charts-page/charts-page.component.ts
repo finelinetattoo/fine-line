@@ -12,6 +12,11 @@ import {
   TattooStyleLabels,
 } from '../../../core/enums/tattoo-style.enum';
 import { LoaderComponent } from '../../../shared/components/loader/loader.component';
+import {
+  chartsMonthLabels,
+  chartsCorporateColors,
+  chartsPageData,
+} from './charts-page.config';
 @Component({
   selector: 'app-charts-page',
   imports: [ChartsDisplayComponent, LoaderComponent],
@@ -21,36 +26,10 @@ import { LoaderComponent } from '../../../shared/components/loader/loader.compon
 export class ChartsPageComponent implements OnInit {
   private tattooService = inject(TattooService);
   loading = true;
+  chartsPageData = chartsPageData;
 
-  readonly labels = [
-    'Enero',
-    'Febrero',
-    'Marzo',
-    'Abril',
-    'May',
-    'Junio',
-    'Julio',
-    'Agosto',
-    'Septiembre',
-    'Octubre',
-    'Noviembre',
-    'Diciembre',
-  ];
-
-  readonly corporateColors = [
-    '#373737',
-    '#737373',
-    '#FF6B6B',
-    '#4ECDC4',
-    '#FFD93D',
-    '#1A535C',
-    '#FF9F1C',
-    '#2EC4B6',
-    '#5C4D7D',
-    '#A1C181',
-    '#E63946',
-    '#6A4C93',
-  ];
+  readonly labels = chartsMonthLabels;
+  readonly corporateColors = chartsCorporateColors;
 
   barChartData = {
     labels: [] as string[],

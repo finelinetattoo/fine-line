@@ -29,6 +29,34 @@ export const routes: Routes = [
             (m) => m.ContactPageComponent
           ),
       },
+      {
+        path: 'reserva-cita',
+        loadComponent: () =>
+          import(
+            './features/appointment/appointment-page/appointment-page.component'
+          ).then((m) => m.AppointmentPageComponent),
+      },
+      {
+        path: 'trabajos-realizados',
+        loadComponent: () =>
+          import(
+            './features/portfolio/portfolio-page/portfolio-page.component'
+          ).then((m) => m.PortfolioPageComponent),
+      },
+      {
+        path: 'disenos',
+        loadComponent: () =>
+          import(
+            './features/available-designs/available-designs-page/available-designs-page.component'
+          ).then((m) => m.AvailableDesignsPageComponent),
+      },
+      {
+        path: 'recomendaciones',
+        loadComponent: () =>
+          import(
+            './features/recommendations/recommendations-page/recommendations-page.component'
+          ).then((m) => m.RecommendationsPageComponent),
+      },
     ],
   },
   {
@@ -105,9 +133,28 @@ export const routes: Routes = [
                 './features/messages-contact/messages-contact-page/messages-contact-page.component'
               ).then((m) => m.MessagesContactPageComponent),
           },
+          {
+            path: 'solicitudes-cita',
+            loadComponent: () =>
+              import(
+                './features/appointment-requests/appointment-requests-page/appointment-requests-page.component'
+              ).then((m) => m.AppointmentRequestsPageComponent),
+          },
         ],
       },
     ],
   },
-  { path: '**', redirectTo: '' },
+  {
+    path: '**',
+    component: MainLayoutComponent,
+    children: [
+      {
+        path: '',
+        loadComponent: () =>
+          import(
+            './features/not-found/not-found-page/not-found-page.component'
+          ).then((m) => m.NotFoundPageComponent),
+      },
+    ],
+  },
 ];

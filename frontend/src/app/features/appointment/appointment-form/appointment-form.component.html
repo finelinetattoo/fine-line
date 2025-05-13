@@ -1,0 +1,178 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-container">
+  <div class="form-field">
+    <label>Nombre *</label>
+    <input type="text" formControlName="name">
+    @if (form.get('name')?.touched && form.get('name')?.invalid) {
+    <div class="error">
+      @if (form.get('name')?.errors?.['required']) {
+      <p>Este campo es obligatorio.</p>
+      }
+      @if (form.get('name')?.errors?.['maxlength']) {
+      <p>Máximo 100 caracteres.</p>
+      }
+    </div>
+    }
+  </div>
+  <div class="form-field">
+    <label>Apellidos *</label>
+    <input type="text" formControlName="surname">
+    @if (form.get('surname')?.touched && form.get('surname')?.invalid) {
+    <div class="error">
+      @if (form.get('surname')?.errors?.['required']) {
+      <p>Este campo es obligatorio.</p>
+      }
+      @if (form.get('surname')?.errors?.['maxlength']) {
+      <p>Máximo 100 caracteres.</p>
+      }
+    </div>
+    }
+  </div>
+  <div class="form-field">
+    <label>Email *</label>
+    <input type="email" formControlName="email">
+    @if (form.get('email')?.touched && form.get('email')?.invalid) {
+    <div class="error">
+      @if (form.get('email')?.errors?.['required']) {
+      <p>Este campo es obligatorio.</p>
+      }
+      @if (form.get('email')?.errors?.['email']) {
+      <p>Introduce un email válido.</p>
+      }
+      @if (form.get('email')?.errors?.['maxlength']) {
+      <p>Máximo 100 caracteres.</p>
+      }
+    </div>
+    }
+  </div>
+  <div class="form-field">
+    <label>Teléfono *</label>
+    <input type="text" formControlName="phone">
+    @if (form.get('phone')?.touched && form.get('phone')?.invalid) {
+    <div class="error">
+      @if (form.get('phone')?.errors?.['required']) {
+      <p>Este campo es obligatorio.</p>
+      }
+      @if (form.get('phone')?.errors?.['maxlength']) {
+      <p>Máximo 20 caracteres.</p>
+      }
+      @if (form.get('phone')?.errors?.['pattern']) {
+      <p>Introduce un teléfono válido (solo números, espacios o símbolos + - ()).</p>
+      }
+    </div>
+    }
+  </div>
+  <div class="form-field">
+    <label>¿Eres mayor de edad? *</label>
+    <label><input type="radio" [value]="true" formControlName="is_adult"> Sí</label>
+    <label><input type="radio" [value]="false" formControlName="is_adult"> No</label>
+    @if (form.get('is_adult')?.touched && form.get('is_adult')?.invalid) {
+    <div class="error">
+      <p>Este campo es obligatorio.</p>
+    </div>
+    }
+  </div>
+  <div class="form-field">
+    <label>¿Es la primera vez que visitas Fine Line? *</label>
+    <label><input type="radio" [value]="true" formControlName="is_first_time"> Sí</label>
+    <label><input type="radio" [value]="false" formControlName="is_first_time"> No</label>
+    @if (form.get('is_first_time')?.touched && form.get('is_first_time')?.invalid) {
+    <div class="error">
+      <p>Este campo es obligatorio.</p>
+    </div>
+    }
+  </div>
+  <div class="form-field">
+    <label>Indica si tienes alguna patología o enfermedad:</label>
+    @for(condition of medicalOptions; track $index) {
+    <div>
+      <label>
+        <input type="checkbox" [value]="condition" (change)="onCheckboxChange(condition, $event)" />
+        {{ condition }}
+      </label>
+    </div>
+    }
+  </div>
+  <div class="form-field">
+    <label class="text-balance">¿Te gustaría que mencionáramos tu Instagram? En caso afirmativo, indícanos tu usuario en
+      Instagram para poder
+      mencionarte:</label>
+    <input type="text" formControlName="instagram_handle">
+  </div>
+  <div class="form-field">
+    <label>Describe brevemente el tatuaje *</label>
+    <textarea formControlName="tattoo_description"></textarea>
+    @if (form.get('tattoo_description')?.touched && form.get('tattoo_description')?.invalid) {
+    <div class="error">
+      <p>Este campo es obligatorio.</p>
+    </div>
+    }
+  </div>
+  <div class="form-field">
+    <label>Parte del cuerpo *</label>
+    <textarea formControlName="body_part"></textarea>
+    @if (form.get('body_part')?.touched && form.get('body_part')?.invalid) {
+    <div class="error">
+      <p>Este campo es obligatorio.</p>
+    </div>
+    }
+  </div>
+  <div class="form-field">
+    <label>Tamaño aproximado (cm) *</label>
+    <div class="flex flex-col md:flex-row gap-2">
+      <input type="number" formControlName="size_height_cm" placeholder="Alto" class="md:w-1/2">
+      <input type="number" formControlName="size_width_cm" placeholder="Ancho" class="md:w-1/2">
+    </div>
+    @if (form.get('size_height_cm')?.touched && form.get('size_height_cm')?.invalid) {
+    <div class="error">
+      <p>Introduce el alto.</p>
+    </div>
+    }
+    @if (form.get('size_width_cm')?.touched && form.get('size_width_cm')?.invalid) {
+    <div class="error">
+      <p>Introduce el ancho.</p>
+    </div>
+    }
+  </div>
+  <div>
+    <p class="!mb-0">Sube 3 fotos para describir tu idea del tatuaje:
+    </p>
+    <p class="text-xs text-gray-500 !mb-0">Máximo 300KB por imagen</p>
+  </div>
+  @for (i of [1, 2, 3]; track i) {
+  <div class="form-field -mt-3">
+    <label>Imagen idea {{ i }} *</label>
+    <input type="file" accept="image/jpeg, image/png, image/webp" (change)="onFileSelected($event, i)" class="block w-full text-sm text-gray-800 border border-gray-300 rounded-md !p-0
+             file:mr-4 file:py-2 file:px-4 file:rounded file:border-0
+             file:bg-gray-100 file:text-gray-700 hover:file:bg-gray-200 transition file:cursor-pointer cursor-pointer">
+    @if (form.get('image_' + i + '_url')?.touched && form.get('image_' + i + '_url')?.invalid) {
+    <div class="error">
+      <p>Este campo es obligatorio.</p>
+    </div>
+    }
+  </div>
+  }
+  <div class="form-field">
+    <label>Horario y días preferentes para la cita *</label>
+    @for(option of availabilityOptions; track $index) {
+    <div>
+      <label>
+        <input type="radio" [value]="option.value" formControlName="availability">
+        {{ option.label }}
+      </label>
+    </div>
+    }
+    @if (form.get('availability')?.touched && form.get('availability')?.invalid) {
+    <div class="error">
+      <p>Este campo es obligatorio.</p>
+    </div>
+    }
+  </div>
+  <div class="form-field">
+    <label>¿Quieres dejar algún comentario?</label>
+    <textarea formControlName="additional_comments"></textarea>
+  </div>
+  <button type="submit" [class.opacity-50]="form.invalid" [class.cursor-not-allowed]="form.invalid"
+    [class.cursor-pointer]="form.valid" class="button-submit transition">
+    Enviar
+  </button>
+</form>

@@ -36,6 +36,8 @@
           {{ item[col.key] | date: 'dd/MM/yyyy, HH:mm' }}
           }@else if (col.key === 'isRead') {
           {{ item.isRead ? '✅' : '❌' }}
+          } @else if (col.type === 'image') {
+          <img [src]="item[col.key]" alt="Imagen" class="w-auto">
           } @else {
           {{ item[col.key] }}
           }
