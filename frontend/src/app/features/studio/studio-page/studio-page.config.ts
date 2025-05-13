@@ -49,7 +49,7 @@ export const studioPageData = {
     description:
       'Te acompañamos en cada paso para que tu tatuaje sea una experiencia única.',
     buttonLabel: 'Reserva tu cita',
-    buttonLink: '/reservar-cita',
+    buttonLink: '/reserva-cita',
   },
 
   socialSection: {

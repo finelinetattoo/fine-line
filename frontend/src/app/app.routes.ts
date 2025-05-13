@@ -30,11 +30,18 @@ export const routes: Routes = [
           ),
       },
       {
-        path: 'reserva',
+        path: 'reserva-cita',
         loadComponent: () =>
           import(
             './features/appointment/appointment-page/appointment-page.component'
           ).then((m) => m.AppointmentPageComponent),
+      },
+      {
+        path: 'trabajos-realizados',
+        loadComponent: () =>
+          import(
+            './features/portfolio/portfolio-page/portfolio-page.component'
+          ).then((m) => m.PortfolioPageComponent),
       },
     ],
   },

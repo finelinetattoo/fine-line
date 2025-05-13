@@ -5,7 +5,7 @@ export const homePageData = {
     description:
       'Fine Line es un estudio donde el arte minimalista cobra vida. Nuestro espacio refleja equilibrio, calma y una estética cuidada, ofreciendo tatuajes de precisión con un enfoque moderno y profesional.',
     buttonLabel: 'Reserva tu cita',
-    buttonLink: '/reserva',
+    buttonLink: '/reserva-cita',
   },
 
   heroCarousel: {
