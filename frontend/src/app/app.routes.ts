@@ -123,5 +123,17 @@ export const routes: Routes = [
       },
     ],
   },
-  { path: '**', redirectTo: '' },
+  {
+    path: '**',
+    component: MainLayoutComponent,
+    children: [
+      {
+        path: '',
+        loadComponent: () =>
+          import(
+            './features/not-found/not-found-page/not-found-page.component'
+          ).then((m) => m.NotFoundPageComponent),
+      },
+    ],
+  },
 ];
