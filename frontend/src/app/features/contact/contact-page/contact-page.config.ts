@@ -1,8 +1,8 @@
 export const ContactPageData = {
   contactFields: [
-    { label: 'Nombre y apellidos', type: 'text', name: 'name' },
-    { label: 'Email', type: 'email', name: 'email' },
-    { label: 'Mensaje', type: 'textarea', name: 'message' },
+    { label: 'Nombre y apellidos *', type: 'text', name: 'name' },
+    { label: 'Email *', type: 'email', name: 'email' },
+    { label: 'Mensaje *', type: 'textarea', name: 'message' },
   ] as const,
   videoSection: {
     src: 'assets/videos/contact-video.mp4',
