@@ -2,8 +2,8 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { AppointmentRequest } from '../entity/appointment-request.entity';
-import { CreateAppointmentRequestDto } from '../create-appointment-request/dto/create-appointment-request.dto';
-import { UpdateAppointmentRequestDto } from '../update-appointment-request/dto/update-appointment-request.dto';
+import { CreateAppointmentRequestDto } from '../dto/create-appointment-request.dto';
+import { UpdateAppointmentRequestDto } from '../dto/update-appointment-request.dto';
 import { EmailService } from 'src/shared/services/email/email.service';
 import { format } from 'date-fns';
 
@@ -24,7 +24,6 @@ export class AppointmentRequestService {
         ? saved.createdAt
         : new Date(saved.createdAt);
 
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
     const formattedDate: string = format(createdAtDate, 'dd/MM/yyyy HH:mm');
 
     const htmlContent = `

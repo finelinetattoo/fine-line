@@ -37,9 +37,9 @@
   </div>
 </section>
 <section class="pb-20 bg-smoke overflow-x-hidden px-10 md:px-0">
-  <h2 class="text-5xl mb-12 text-center">Próximamente</h2>
+  <h2 class="text-5xl mb-12 text-center">{{homeData.soonSectionCards.mainTitle}}</h2>
   <div class=" max-w-6xl mx-auto">
-    @for(card of homeData.soonSectionCards; track $index){
+    @for(card of homeData.soonSectionCards.cards; track $index){
     <div class="flex flex-col items-center">
       <img [src]="card.decoration" alt="Decoración título">
       <h3 class="card-title !mb-10">

@@ -7,7 +7,7 @@ import {
   IsString,
   MaxLength,
 } from 'class-validator';
-import { Availability } from '../../enums/availability.enum';
+import { Availability } from '../enums/availability.enum';
 
 export class CreateAppointmentRequestDto {
   @IsNotEmpty()
