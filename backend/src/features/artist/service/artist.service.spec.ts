@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { ArtistService } from './artist.service';
+import { ArtistService } from './service/artist.service';
 import { getRepositoryToken } from '@nestjs/typeorm';
-import { Artist } from './artist.entity';
+import { Artist } from './entity/artist.entity';
 import { Repository } from 'typeorm';
 import { NotFoundException, BadRequestException } from '@nestjs/common';
 

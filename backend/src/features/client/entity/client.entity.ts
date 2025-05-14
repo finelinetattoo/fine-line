@@ -5,7 +5,7 @@ import {
   CreateDateColumn,
   OneToMany,
 } from 'typeorm';
-import { Tattoo } from '../tattoo/tattoo.entity';
+import { Tattoo } from '../../tattoo/entity/tattoo.entity';
 
 @Entity('clients')
 export class Client {

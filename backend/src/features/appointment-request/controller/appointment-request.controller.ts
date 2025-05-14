@@ -7,7 +7,7 @@ import {
   Patch,
   Delete,
 } from '@nestjs/common';
-import { AppointmentRequestService } from '../services/appointment-request.service';
+import { AppointmentRequestService } from '../service/appointment-request.service';
 import { UpdateAppointmentRequestDto } from '../update-appointment-request/dto/update-appointment-request.dto';
 import { CreateAppointmentRequestDto } from '../create-appointment-request/dto/create-appointment-request.dto';
 

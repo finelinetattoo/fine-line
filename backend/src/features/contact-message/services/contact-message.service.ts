@@ -2,8 +2,8 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { ContactMessage } from '../entity/contact-message.entity';
-import { CreateContactMessageDto } from '../create-contact-message/dto/create-contact-message.dto';
-import { UpdateContactMessageDto } from '../update-contact-message/dto/update-contact-message.dto';
+import { CreateContactMessageDto } from '../dto/create-contact-message.dto';
+import { UpdateContactMessageDto } from '../dto/update-contact-message.dto';
 import { EmailService } from 'src/shared/services/email/email.service';
 
 @Injectable()

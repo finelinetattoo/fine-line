@@ -5,11 +5,11 @@ import {
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Tattoo } from './tattoo.entity';
-import { CreateTattooDto } from './dto/create-tattoo.dto';
-import { UpdateTattooDto } from './dto/update-tattoo.dto';
-import { Client } from '../client/client.entity';
-import { Artist } from '../artist/artist.entity';
+import { Tattoo } from '../entity/tattoo.entity';
+import { CreateTattooDto } from '../dto/create-tattoo.dto';
+import { UpdateTattooDto } from '../dto/update-tattoo.dto';
+import { Client } from '../../client/entity/client.entity';
+import { Artist } from '../../artist/entity/artist.entity';
 
 @Injectable()
 export class TattooService {

@@ -8,8 +8,8 @@ import {
   Delete,
 } from '@nestjs/common';
 import { ContactMessageService } from '../services/contact-message.service';
-import { CreateContactMessageDto } from '../create-contact-message/dto/create-contact-message.dto';
-import { UpdateContactMessageDto } from '../update-contact-message/dto/update-contact-message.dto';
+import { CreateContactMessageDto } from '../dto/create-contact-message.dto';
+import { UpdateContactMessageDto } from '../dto/update-contact-message.dto';
 
 @Controller('contact-messages')
 export class ContactMessageController {

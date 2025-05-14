@@ -1,5 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
-import { Tattoo } from '../tattoo/tattoo.entity';
+import { Tattoo } from '../../tattoo/entity/tattoo.entity';
 
 @Entity('artists')
 export class Artist {
