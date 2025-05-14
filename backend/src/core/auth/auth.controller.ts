@@ -1,6 +1,6 @@
 import { Controller, Post, Body } from '@nestjs/common';
 import { AuthService } from './auth.service';
-import { User } from '../user/user.entity';
+import { User } from '../../features/user/user.entity';
 
 type SafeUser = Omit<User, 'password'>;
 

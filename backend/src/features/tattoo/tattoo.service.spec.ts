@@ -2,8 +2,8 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { TattooService } from './tattoo.service';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { Tattoo } from './tattoo.entity';
-import { Client } from '../client/client.entity';
-import { Artist } from '../artist/artist.entity';
+import { Client } from '../features/client/client.entity';
+import { Artist } from '../features/artist/artist.entity';
 import { Repository } from 'typeorm';
 import { NotFoundException } from '@nestjs/common';
 

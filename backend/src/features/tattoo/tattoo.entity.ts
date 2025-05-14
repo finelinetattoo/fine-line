@@ -5,8 +5,8 @@ import {
   ManyToOne,
   JoinColumn,
 } from 'typeorm';
-import { Client } from '../client/client.entity';
-import { Artist } from '../artist/artist.entity';
+import { Client } from '../../features/client/client.entity';
+import { Artist } from '../../features/artist/artist.entity';
 import { TattooSize } from './enums/tattoo-size.enum';
 import { BodyPart } from './enums/body-part.enum';
 import { TattooStyle } from './enums/tattoo-style.enum';

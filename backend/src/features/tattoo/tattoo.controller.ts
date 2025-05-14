@@ -12,7 +12,7 @@ import { CreateTattooDto } from './dto/create-tattoo.dto';
 import { UpdateTattooDto } from './dto/update-tattoo.dto';
 import { Tattoo } from './tattoo.entity';
 import { UseGuards } from '@nestjs/common';
-import { JwtAuthGuard } from '../auth/jwt-auth.guard';
+import { JwtAuthGuard } from '../../core/auth/jwt-auth.guard';
 
 @UseGuards(JwtAuthGuard)
 @Controller('tattoos')
