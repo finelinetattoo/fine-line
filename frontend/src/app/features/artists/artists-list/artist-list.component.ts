@@ -31,14 +31,12 @@ export class ArtistListComponent {
     this.loading = true;
     this.artistService.getAll().subscribe({
       next: (res) => {
-        setTimeout(() => {
-          this.artists = res;
-          this.filteredArtists = [...res];
-          this.sortKey = 'name';
-          this.sortDirection = 'asc';
-          this.applySorting();
-          this.loading = false;
-        }, 1500);
+        this.artists = res;
+        this.filteredArtists = [...res];
+        this.sortKey = 'name';
+        this.sortDirection = 'asc';
+        this.applySorting();
+        this.loading = false;
       },
       error: (err) => {
         console.error('Error fetching artists:', err);

@@ -32,7 +32,7 @@ import { CommonModule } from '@angular/common';
 })
 export class AdminLayoutComponent {
   isCollapsed = false;
-  urlIconWeb = 'logo-fine-line.webp';
+  urlIconWeb = 'favicon.ico';
   private authService = inject(AuthService);
   private modal = inject(NzModalService);
   private router = inject(Router);

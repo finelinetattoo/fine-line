@@ -1,7 +1,7 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-container">
   <div class="form-field">
     <label>Nombre *</label>
-    <input type="text" name="fname" formControlName="name">
+    <input type="text" formControlName="name">
     @if (form.get('name')?.touched && form.get('name')?.invalid) {
     <div class="error">
       @if (form.get('name')?.errors?.['required']) {
@@ -15,7 +15,7 @@
   </div>
   <div class="form-field">
     <label>Apellidos *</label>
-    <input type="text" name="lname" formControlName="surname">
+    <input type="text" formControlName="surname">
     @if (form.get('surname')?.touched && form.get('surname')?.invalid) {
     <div class="error">
       @if (form.get('surname')?.errors?.['required']) {
@@ -46,7 +46,7 @@
   </div>
   <div class="form-field">
     <label>Teléfono *</label>
-    <input type="tel" name="phone" formControlName="phone">
+    <input type="text" formControlName="phone">
     @if (form.get('phone')?.touched && form.get('phone')?.invalid) {
     <div class="error">
       @if (form.get('phone')?.errors?.['required']) {
