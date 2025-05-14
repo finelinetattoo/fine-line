@@ -34,15 +34,10 @@
         <td [ngClass]="col.key === 'isRead' ? 'text-center' : ''">
           @if (col.pipe === 'date') {
           {{ item[col.key] | date: 'dd/MM/yyyy, HH:mm' }}
-          } @else if (col.key === 'isRead' && customActions) {
-          <span class="cursor-pointer hover:opacity-80 transition" (click)="customActions(item)"
-            [title]="item.isRead ? 'Marcar como no leído' : 'Marcar como leído'">
-            {{ item.isRead ? '✅' : '❌' }}
-          </span>
-          } @else if (col.key === 'isRead') {
+          }@else if (col.key === 'isRead') {
           {{ item.isRead ? '✅' : '❌' }}
           } @else if (col.type === 'image') {
-          <img [src]="item[col.key]" alt="Imagen" class="w-auto" />
+          <img [src]="item[col.key]" alt="Imagen" class="w-auto">
           } @else {
           {{ item[col.key] }}
           }
@@ -57,12 +52,12 @@
           <button nz-button nzType="text" nzDanger (click)="onDelete(item.id)" [ngClass]="{ '!mr-2': customActions }">
             <nz-icon nzType="delete"></nz-icon>
           </button>
-          <!-- @if (customActions) {
+          @if (customActions) {
           <button nz-button nzType="text" (click)="customActions(item)"
             class="!border !border-gray-300 !rounded !px-2 py-1 hover:bg-gray-100 transition">
             {{ item.isRead ? '📬 No Leído' : '📪 Leído' }}
           </button>
-          } -->
+          }
         </td>
       </tr>
       }

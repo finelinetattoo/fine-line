@@ -19,22 +19,17 @@ export const studioPageData = {
     imageStyle: 'square',
   } as const,
 
-  microrealismSection: {
-    mainTitle: 'Tatuajes microrealistas',
-    microrealismImages: [
-      'assets/images/tattoos/tattoo-bird.webp',
-      'assets/images/tattoos/tattoo-face.webp',
-      'assets/images/tattoos/tattoo-hands.webp',
-    ],
-  },
-  geometricsSection: {
-    mainTitle: 'Tatuajes geométricos',
-    geometricsImages: [
-      'assets/images/tattoos/tattoo-plant.webp',
-      'assets/images/tattoos/tattoo-sculture.webp',
-      'assets/images/tattoos/tattoo-arm.webp',
-    ],
-  },
+  microrealismImages: [
+    'assets/images/tattoos/tattoo-bird.webp',
+    'assets/images/tattoos/tattoo-face.webp',
+    'assets/images/tattoos/tattoo-hands.webp',
+  ],
+
+  geometricsImages: [
+    'assets/images/tattoos/tattoo-plant.webp',
+    'assets/images/tattoos/tattoo-sculture.webp',
+    'assets/images/tattoos/tattoo-arm.webp',
+  ],
 
   micropigmentationSection: {
     title: 'Micropigmentación',

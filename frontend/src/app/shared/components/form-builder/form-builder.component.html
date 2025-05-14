@@ -5,7 +5,7 @@
     <label>{{ field.label }}</label>
     @switch (field.type) {
     @case ('text') {
-    <input type="text" name="fname" [formControlName]="field.name">
+    <input type="text" [formControlName]="field.name">
     }
     @case ('email') {
     <input type="email" [formControlName]="field.name">
