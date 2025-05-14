@@ -8,8 +8,8 @@ import {
   Delete,
 } from '@nestjs/common';
 import { AppointmentRequestService } from '../service/appointment-request.service';
-import { UpdateAppointmentRequestDto } from '../update-appointment-request/dto/update-appointment-request.dto';
-import { CreateAppointmentRequestDto } from '../create-appointment-request/dto/create-appointment-request.dto';
+import { UpdateAppointmentRequestDto } from '../dto/update-appointment-request.dto';
+import { CreateAppointmentRequestDto } from '../dto/create-appointment-request.dto';
 
 @Controller('appointment-requests')
 export class AppointmentRequestController {
