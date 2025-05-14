@@ -11,5 +11,5 @@ export class LogoComponent {
   @Input() size: 'small' | 'medium' | 'large' | 'extralarge' = 'medium';
   @Input({ required: false }) imgClass = '';
 
-  readonly urlIconWeb = 'favicon.ico';
+  readonly urlIconWeb = 'assets/images/logo/logo-fine-line.webp';
 }

@@ -42,17 +42,20 @@ export const homePageData = {
     },
   ],
 
-  soonSectionCards: [
-    {
-      title: 'Micropigmentación',
-      imageMain: 'assets/images/micropigmentation/micropigmentacion.png',
-      imageOverlay:
-        'assets/images/micropigmentation/micropigmentacion-labios.webp',
-      ctaLink: '',
-      ctaLabel: '',
-      decoration: 'assets/icons/lapiz-de-cejas.png',
-    },
-  ],
+  soonSectionCards: {
+    mainTitle: 'Próximamente',
+    cards: [
+      {
+        title: 'Micropigmentación',
+        imageMain: 'assets/images/micropigmentation/micropigmentacion.png',
+        imageOverlay:
+          'assets/images/micropigmentation/micropigmentacion-labios.webp',
+        ctaLink: '',
+        ctaLabel: '',
+        decoration: 'assets/icons/lapiz-de-cejas.png',
+      },
+    ],
+  },
 
   teamSection: {
     title: 'Nuestro equipo',
