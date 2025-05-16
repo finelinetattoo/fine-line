@@ -2,14 +2,14 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { ClientModule } from './client/client.module';
-import { ArtistModule } from './artist/artist.module';
-import { TattooModule } from './tattoo/tattoo.module';
-import { AuthModule } from './auth/auth.module';
+import { ClientModule } from './features/client/module/client.module';
+import { ArtistModule } from './features/artist/module/artist.module';
+import { TattooModule } from './features/tattoo/module/tattoo.module';
+import { AuthModule } from './core/auth/module/auth.module';
 import { ConfigModule } from '@nestjs/config';
-import { AdminController } from './admin/admin.controller';
-import { ContactMessageModule } from './contact-message/module/contact-message.module';
-import { AppointmentRequestModule } from './appointment-request/module/appointment-request.module';
+import { AdminController } from './core/admin/controller/admin.controller';
+import { ContactMessageModule } from './features/contact-message/module/contact-message.module';
+import { AppointmentRequestModule } from './features/appointment-request/module/appointment-request.module';
 import { EmailService } from './shared/services/email/email.service';
 
 @Module({
