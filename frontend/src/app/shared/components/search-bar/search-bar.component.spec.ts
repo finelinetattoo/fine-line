@@ -8,9 +8,8 @@ describe('SearchBarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SearchBarComponent]
-    })
-    .compileComponents();
+      imports: [SearchBarComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(SearchBarComponent);
     component = fixture.componentInstance;
@@ -19,5 +18,13 @@ describe('SearchBarComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should render the correct placeholder in the input', () => {
+    component.placeholder = 'Buscar clientes';
+    fixture.detectChanges();
+    const inputElement: HTMLInputElement =
+      fixture.nativeElement.querySelector('input');
+    expect(inputElement.placeholder).toContain('🔍 Buscar clientes');
   });
 });

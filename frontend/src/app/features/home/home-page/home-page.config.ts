@@ -23,36 +23,42 @@ export const homePageData = {
     buttonLink: '/contacto',
   },
 
-  hoverCards: [
-    {
-      title: 'Tatuajes',
-      imageMain: 'assets/images/tattoos/tatuaje-brazo-calavera.jpg',
-      imageOverlay: 'assets/images/tattoos/tatuaje-dibujo.webp',
-      ctaLink: '/portafolio',
-      ctaLabel: 'Trabajos realizados',
-      decoration: 'assets/icons/tatuaje.png',
-    },
-    {
-      title: 'Kit post-tatuaje',
-      imageMain: 'assets/images/kit-tattoo/kit-post-tatuaje.webp',
-      imageOverlay: 'assets/images/kit-tattoo/kit-post-tatuaje-overlay.webp',
-      ctaLink: '/recomendaciones',
-      ctaLabel: 'Ver recomendaciones',
-      decoration: 'assets/icons/band-aid.png',
-    },
-  ],
+  hoverCards: {
+    mainTitle: 'Qué hacemos',
+    cards: [
+      {
+        title: 'Tatuajes',
+        imageMain: 'assets/images/tattoos/tatuaje-brazo-calavera.jpg',
+        imageOverlay: 'assets/images/tattoos/tatuaje-dibujo.webp',
+        ctaLink: '/portafolio',
+        ctaLabel: 'Trabajos realizados',
+        decoration: 'assets/icons/tatuaje.png',
+      },
+      {
+        title: 'Kit post-tatuaje',
+        imageMain: 'assets/images/kit-tattoo/kit-post-tatuaje.webp',
+        imageOverlay: 'assets/images/kit-tattoo/kit-post-tatuaje-overlay.webp',
+        ctaLink: '/recomendaciones',
+        ctaLabel: 'Ver recomendaciones',
+        decoration: 'assets/icons/band-aid.png',
+      },
+    ],
+  },
 
-  soonSectionCards: [
-    {
-      title: 'Micropigmentación',
-      imageMain: 'assets/images/micropigmentation/micropigmentacion.png',
-      imageOverlay:
-        'assets/images/micropigmentation/micropigmentacion-labios.webp',
-      ctaLink: '',
-      ctaLabel: '',
-      decoration: 'assets/icons/lapiz-de-cejas.png',
-    },
-  ],
+  soonSectionCards: {
+    mainTitle: 'Próximamente',
+    cards: [
+      {
+        title: 'Micropigmentación',
+        imageMain: 'assets/images/micropigmentation/micropigmentacion.png',
+        imageOverlay:
+          'assets/images/micropigmentation/micropigmentacion-labios.webp',
+        ctaLink: '',
+        ctaLabel: '',
+        decoration: 'assets/icons/lapiz-de-cejas.png',
+      },
+    ],
+  },
 
   teamSection: {
     title: 'Nuestro equipo',
@@ -84,32 +90,35 @@ export const homePageData = {
     imageStyle: 'square',
   } as const,
 
-  testimonials: [
-    {
-      quote:
-        'Un trato impecable y el diseño quedó espectacular. 100% recomendable.',
-      name: 'Claudia M.',
-      rating: 5,
-    },
-    {
-      quote:
-        'Me sentí muy cómoda durante toda la sesión. Profesional y limpio.',
-      name: 'Alejandro G.',
-      rating: 4.5,
-    },
-    {
-      quote:
-        'La precisión y detalle del trabajo superaron mis expectativas. Sin duda volveré.',
-      name: 'Sofía L.',
-      rating: 5,
-    },
-    {
-      quote:
-        'El ambiente transmite mucha calma y profesionalismo. Excelente experiencia desde el primer momento.',
-      name: 'Martín P.',
-      rating: 4,
-    },
-  ],
+  testimonials: {
+    mainTitle: 'Lo que dicen nuestros clientes',
+    quotes: [
+      {
+        quote:
+          'Un trato impecable y el diseño quedó espectacular. 100% recomendable.',
+        name: 'Claudia M.',
+        rating: 5,
+      },
+      {
+        quote:
+          'Me sentí muy cómoda durante toda la sesión. Profesional y limpio.',
+        name: 'Alejandro G.',
+        rating: 4.5,
+      },
+      {
+        quote:
+          'La precisión y detalle del trabajo superaron mis expectativas. Sin duda volveré.',
+        name: 'Sofía L.',
+        rating: 5,
+      },
+      {
+        quote:
+          'El ambiente transmite mucha calma y profesionalismo. Excelente experiencia desde el primer momento.',
+        name: 'Martín P.',
+        rating: 4,
+      },
+    ],
+  },
 
   socialSection: {
     backgroundClass: 'bg-granite',
