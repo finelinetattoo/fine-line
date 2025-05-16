@@ -6,7 +6,7 @@ import { TattooFormModalComponent } from '../tattoo-form-modal/tattoo-form-modal
 import { Client } from '../../../core/interfaces/client';
 import { Artist } from '../../../core/interfaces/artist';
 import { Tattoo } from '../../../core/interfaces/tattoo';
-import { firstValueFrom } from 'rxjs';
+import { firstValueFrom, forkJoin } from 'rxjs';
 import { TattooService } from '../../tattoos/tattoos-service/tattoo.service';
 import { ArtistService } from '../../artists/artist-services/artist.service';
 import { ClientService } from '../../clients/clients-service/client.service';
@@ -37,34 +37,36 @@ export class TattooListComponent {
     this.loadData();
   }
 
-  async loadData(): Promise<void> {
+  loadData(): void {
     this.loading = true;
-    try {
-      const tattoos = await firstValueFrom(this.tattooService.getAll());
-      const artists = await firstValueFrom(this.artistsService.getAll());
-      const clients = await firstValueFrom(this.clientService.getAll());
-
-      this.artists = artists;
-      this.clients = clients;
-      this.tattoos = tattoos.map((tattoo: any) => ({
-        ...tattoo,
-        clientName: tattoo.client?.name || 'Desconocido',
-        artistName: tattoo.artist?.name || 'Desconocido',
-      }));
-      this.filteredTattoos = [...this.tattoos];
-      this.sortKey = 'date';
-      this.sortDirection = 'desc';
-      this.applySorting();
-      this.loading = false;
-    } catch (error) {
-      this.notificationService.error(
-        'Error',
-        'No se pudieron cargar los tatuajes.'
-      );
-      console.error('Error loading data:', error);
-    } finally {
-      this.loading = false;
-    }
+    forkJoin({
+      tattoos: this.tattooService.getAll(),
+      artists: this.artistsService.getAll(),
+      clients: this.clientService.getAll(),
+    }).subscribe({
+      next: ({ tattoos, artists, clients }) => {
+        this.artists = artists;
+        this.clients = clients;
+        this.tattoos = tattoos.map((tattoo: any) => ({
+          ...tattoo,
+          clientName: tattoo.client?.name || 'Desconocido',
+          artistName: tattoo.artist?.name || 'Desconocido',
+        }));
+        this.filteredTattoos = [...this.tattoos];
+        this.sortKey = 'date';
+        this.sortDirection = 'desc';
+        this.applySorting();
+        this.loading = false;
+      },
+      error: (err) => {
+        this.notificationService.error(
+          'Error',
+          'No se pudieron cargar los tatuajes.'
+        );
+        console.error('Error loading data:', err);
+        this.loading = false;
+      },
+    });
   }
 
   deleteTattoo(id: number): void {

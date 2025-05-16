@@ -7,15 +7,15 @@
   [backgroundClass]="studioData.whatWeDoSection.backgroundClass"
   [imageStyle]="studioData.whatWeDoSection.imageStyle"></app-info-block>
 <section class="bg-granite text-center py-20 px-6">
-  <h1 class="text-4xl md:text-5xl font-semibold !mb-10">Tatuajes microrealistas</h1>
+  <h1 class="text-4xl md:text-5xl font-semibold !mb-10">{{studioData.microrealismSection.mainTitle}}</h1>
   <div class="max-w-4xl mx-auto">
-    <app-carousel-images [images]="studioData.microrealismImages"></app-carousel-images>
+    <app-carousel-images [images]="studioData.microrealismSection.microrealismImages"></app-carousel-images>
   </div>
 </section>
 <section class="bg-smoke text-center py-20 px-6">
-  <h2 class="text-4xl md:text-5xl font-semibold !mb-10">Tatuajes geométricos</h2>
+  <h2 class="text-4xl md:text-5xl font-semibold !mb-10">{{studioData.geometricsSection.mainTitle}}</h2>
   <div class="max-w-4xl mx-auto">
-    <app-carousel-images [images]="studioData.geometricsImages"></app-carousel-images>
+    <app-carousel-images [images]="studioData.geometricsSection.geometricsImages"></app-carousel-images>
   </div>
 </section>
 <app-info-block [title]="studioData.micropigmentationSection.title"
