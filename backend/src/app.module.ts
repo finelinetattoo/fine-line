@@ -15,49 +15,34 @@ import { EmailService } from './shared/services/email/email.service';
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
-    (() => {
-      console.log('📦 DB_HOST:', process.env.DB_HOST);
-      console.log('📦 DB_PORT:', process.env.DB_PORT);
-      console.log('📦 DB_USER:', process.env.DB_USER);
-      console.log(
-        '📦 DB_PASSWORD:',
-        process.env.DB_PASSWORD ? '***' : 'NOT SET',
-      );
-      console.log('📦 DB_NAME:', process.env.DB_NAME);
-
-      return TypeOrmModule.forRoot({
-        type: 'mysql',
-        host:
-          process.env.DB_HOST ||
+    TypeOrmModule.forRoot({
+      type: 'mysql',
+      host:
+        process.env.DB_HOST ??
+        (() => {
+          throw new Error('DB_HOST is missing');
+        })(),
+      port: parseInt(
+        process.env.DB_PORT ??
           (() => {
-            throw new Error('DB_HOST is missing');
+            throw new Error('DB_PORT is missing');
           })(),
-        port: parseInt(
-          process.env.DB_PORT ||
-            (() => {
-              throw new Error('DB_PORT is missing');
-            })(),
-          10,
-        ),
-        username:
-          process.env.DB_USER ||
-          (() => {
-            throw new Error('DB_USER is missing');
-          })(),
-        password:
-          process.env.DB_PASSWORD ||
-          (() => {
-            throw new Error('DB_PASSWORD is missing');
-          })(),
-        database:
-          process.env.DB_NAME ||
-          (() => {
-            throw new Error('DB_NAME is missing');
-          })(),
-        entities: [__dirname + '/**/*.entity{.ts,.js}'],
-        synchronize: true,
-      });
-    })(),
+        10,
+      ),
+      username:
+        process.env.DB_USER ??
+        (() => {
+          throw new Error('DB_USER is missing');
+        })(),
+      password: process.env.DB_PASSWORD ?? '',
+      database:
+        process.env.DB_NAME ??
+        (() => {
+          throw new Error('DB_NAME is missing');
+        })(),
+      entities: [__dirname + '/**/*.entity{.ts,.js}'],
+      synchronize: process.env.NODE_ENV !== 'production',
+    }),
 
     ClientModule,
     ArtistModule,
