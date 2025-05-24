@@ -1,5 +1,12 @@
-import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+import {
+  Component,
+  inject,
+  Input,
+  OnDestroy,
+  OnInit,
+  PLATFORM_ID,
+} from '@angular/core';
 
 @Component({
   selector: 'app-carousel-images',
@@ -7,15 +14,23 @@ import { Component, Input, OnInit } from '@angular/core';
   templateUrl: './carousel-images.component.html',
   styleUrl: './carousel-images.component.scss',
 })
-export class CarouselImagesComponent implements OnInit {
+export class CarouselImagesComponent implements OnInit, OnDestroy {
   @Input() images: string[] = [];
   @Input() interval: number = 5000;
 
   currentIndex = 0;
   intervalId: any;
+  private platformId = inject(PLATFORM_ID);
+  private isBrowser = isPlatformBrowser(this.platformId);
 
   ngOnInit() {
-    this.startAutoplay();
+    if (this.isBrowser) this.startAutoplay();
+  }
+
+  ngOnDestroy() {
+    if (this.isBrowser) {
+      clearInterval(this.intervalId);
+    }
   }
 
   startAutoplay() {

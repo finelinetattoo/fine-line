@@ -1,5 +1,12 @@
-import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit, OnDestroy } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+import {
+  Component,
+  Input,
+  OnInit,
+  OnDestroy,
+  inject,
+  PLATFORM_ID,
+} from '@angular/core';
 import { Testimonial } from '../../../../core/interfaces/testimonial';
 
 @Component({
@@ -13,13 +20,15 @@ export class CarouselRatingComponent implements OnInit, OnDestroy {
 
   currentIndex = 0;
   intervalId: any;
+  private platformId = inject(PLATFORM_ID);
+  private isBrowser = isPlatformBrowser(this.platformId);
 
   ngOnInit() {
-    this.startAutoplay();
+    if (this.isBrowser) this.startAutoplay();
   }
 
   ngOnDestroy() {
-    clearInterval(this.intervalId);
+    if (this.isBrowser) clearInterval(this.intervalId);
   }
 
   startAutoplay() {
