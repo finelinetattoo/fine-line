@@ -16,7 +16,6 @@ export class ApiService<T> {
   constructor(http: HttpClient, endpoint: string) {
     this.http = http;
     this.API = `${this.baseUrl}${endpoint}`;
-    console.log('📡 ApiService instanciado:', this.API);
   }
 
   getAll() {
