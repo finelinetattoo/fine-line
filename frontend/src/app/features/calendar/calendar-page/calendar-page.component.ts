@@ -1,9 +1,10 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { CalendarDisplayComponent } from '../calendar-display/calendar-display.component';
 import { TattooService } from '../../tattoos/tattoos-service/tattoo.service';
 import { firstValueFrom } from 'rxjs';
 import { Tattoo } from '../../../core/interfaces/tattoo';
 import { LoaderComponent } from '../../../shared/components/loader/loader.component';
+import { SeoService } from '../../../core/seo/seo.service';
 
 @Component({
   selector: 'app-calendar-page',
@@ -11,8 +12,9 @@ import { LoaderComponent } from '../../../shared/components/loader/loader.compon
   templateUrl: './calendar-page.component.html',
   styleUrl: './calendar-page.component.scss',
 })
-export class CalendarPageComponent {
+export class CalendarPageComponent implements OnInit {
   private tattooService = inject(TattooService);
+  private seo = inject(SeoService);
   tattooEvents: any[] = [];
   readonly styleColorMap: Record<string, string> = {
     MINIMALIST: '#4ECDC4',
@@ -26,6 +28,13 @@ export class CalendarPageComponent {
   loading = true;
 
   async ngOnInit() {
+    this.seo.setAllSeoTags({
+      title: 'Calendario de citas | Admin',
+      description: 'Calendario interno para gestión de tatuajes y citas.',
+      url: 'https://www.finelinetattoostudio.com/admin/calendario',
+      indexFollow: false,
+    });
+
     this.loading = true;
     try {
       const tattoos = await firstValueFrom(this.tattooService.getAll());
