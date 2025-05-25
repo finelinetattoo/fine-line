@@ -86,7 +86,6 @@ export class AppointmentFormComponent implements OnInit {
       this.form.markAllAsTouched();
       return;
     }
-    console.log(this.form.value);
 
     const formData = {
       ...this.form.value,

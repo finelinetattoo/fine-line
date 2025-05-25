@@ -1,14 +1,17 @@
 import { environment } from '../../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { catchError, throwError } from 'rxjs';
-import { inject } from '@angular/core';
+import { inject, PLATFORM_ID } from '@angular/core';
 import { NotificationService } from '../notification/notification.service';
+import { isPlatformBrowser } from '@angular/common';
 
 export class ApiService<T> {
   protected readonly baseUrl = environment.endpoint;
   protected API = '';
   protected http: HttpClient;
   protected notificationService = inject(NotificationService);
+  private platformId = inject(PLATFORM_ID);
+  private isBrowser = isPlatformBrowser(this.platformId);
 
   constructor(http: HttpClient, endpoint: string) {
     this.http = http;
@@ -49,7 +52,7 @@ export class ApiService<T> {
     };
 
     this.notificationService.error('Error', customError.message);
-    if (error.status === 401) {
+    if (error.status === 401 && this.isBrowser) {
       localStorage.removeItem('token');
       window.location.href = '/admin/login';
     }
