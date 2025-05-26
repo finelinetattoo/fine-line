@@ -17,6 +17,7 @@ import {
   chartsCorporateColors,
   chartsPageData,
 } from './charts-page.config';
+import { SeoService } from '../../../core/seo/seo.service';
 @Component({
   selector: 'app-charts-page',
   imports: [ChartsDisplayComponent, LoaderComponent],
@@ -25,6 +26,7 @@ import {
 })
 export class ChartsPageComponent implements OnInit {
   private tattooService = inject(TattooService);
+  private seo = inject(SeoService);
   loading = true;
   chartsPageData = chartsPageData;
 
@@ -120,6 +122,13 @@ export class ChartsPageComponent implements OnInit {
   };
 
   async ngOnInit() {
+    this.seo.setAllSeoTags({
+      title: 'Estadísticas de tatuajes | Admin',
+      description: 'Dashboard interno de métricas del estudio de tatuajes.',
+      url: 'https://www.finelinetattoostudio.com/admin/estadisticas',
+      indexFollow: false,
+    });
+
     this.loading = true;
     const tattoos = await firstValueFrom(this.tattooService.getAll());
     if (tattoos) {
