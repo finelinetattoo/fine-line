@@ -31,14 +31,12 @@ export class ClientsListComponent {
     this.loading = true;
     this.clientService.getAll().subscribe({
       next: (res) => {
-        setTimeout(() => {
-          this.clients = res;
-          this.filteredClients = [...res];
-          this.sortKey = 'name';
-          this.sortDirection = 'asc';
-          this.applySorting();
-          this.loading = false;
-        }, 1500);
+        this.clients = res;
+        this.filteredClients = [...res];
+        this.sortKey = 'name';
+        this.sortDirection = 'asc';
+        this.applySorting();
+        this.loading = false;
       },
       error: (err) => {
         console.error('Error fetching clients:', err);

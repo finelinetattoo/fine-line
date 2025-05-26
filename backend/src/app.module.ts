@@ -17,14 +17,33 @@ import { EmailService } from './shared/services/email/email.service';
     ConfigModule.forRoot({ isGlobal: true }),
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: 'localhost',
-      port: 3306,
-      username: 'root',
-      password: '',
-      database: 'fine_line_tattoo',
+      host:
+        process.env.DB_HOST ??
+        (() => {
+          throw new Error('DB_HOST is missing');
+        })(),
+      port: parseInt(
+        process.env.DB_PORT ??
+          (() => {
+            throw new Error('DB_PORT is missing');
+          })(),
+        10,
+      ),
+      username:
+        process.env.DB_USER ??
+        (() => {
+          throw new Error('DB_USER is missing');
+        })(),
+      password: process.env.DB_PASSWORD ?? '',
+      database:
+        process.env.DB_NAME ??
+        (() => {
+          throw new Error('DB_NAME is missing');
+        })(),
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
-      synchronize: false,
+      synchronize: process.env.NODE_ENV !== 'production',
     }),
+
     ClientModule,
     ArtistModule,
     TattooModule,

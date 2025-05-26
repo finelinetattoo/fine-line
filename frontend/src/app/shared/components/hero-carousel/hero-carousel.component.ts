@@ -1,5 +1,12 @@
-import { CommonModule } from '@angular/common';
-import { Component, OnInit, OnDestroy, Input } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+import {
+  Component,
+  OnInit,
+  OnDestroy,
+  Input,
+  inject,
+  PLATFORM_ID,
+} from '@angular/core';
 import { ButtonComponent } from '../../../shared/components/button/button.component';
 
 @Component({
@@ -19,13 +26,15 @@ export class HeroCarouselComponent implements OnInit, OnDestroy {
 
   currentIndex = 0;
   intervalId: any;
+  private platformId = inject(PLATFORM_ID);
+  private isBrowser = isPlatformBrowser(this.platformId);
 
   ngOnInit() {
-    this.startAutoplay();
+    if (this.isBrowser) this.startAutoplay();
   }
 
   ngOnDestroy() {
-    clearInterval(this.intervalId);
+    if (this.isBrowser) clearInterval(this.intervalId);
   }
 
   startAutoplay() {

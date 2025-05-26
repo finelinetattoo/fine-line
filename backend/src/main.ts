@@ -6,8 +6,16 @@ import { CorsOptions } from '@nestjs/common/interfaces/external/cors-options.int
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
+  const allowedOrigins = [
+    'http://localhost:4200',
+    'http://localhost:4000',
+    'https://fine-line-tattoo.com',
+  ];
+  if (process.env.FRONTEND_URL) {
+    allowedOrigins.push(process.env.FRONTEND_URL);
+  }
   const corsOptions: CorsOptions = {
-    origin: 'http://localhost:4200',
+    origin: allowedOrigins,
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
@@ -27,7 +35,7 @@ async function bootstrap() {
 
   const port = process.env.PORT ?? 3000;
   await app.listen(port);
-  console.log(`🚀 Backend escuchando en http://localhost:${port}/api`);
+  console.log(`🚀 Backend http://localhost:${port}/api`);
 }
 
 bootstrap();
