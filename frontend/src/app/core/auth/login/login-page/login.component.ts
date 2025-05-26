@@ -2,6 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../auth-service/auth.service';
 import { LoginFormComponent } from '../login-form/login-form.component';
+import { SeoService } from '../../../seo/seo.service';
 
 @Component({
   selector: 'app-login',
@@ -12,9 +13,17 @@ import { LoginFormComponent } from '../login-form/login-form.component';
 export class LoginComponent implements OnInit {
   private authService = inject(AuthService);
   private router = inject(Router);
+  private seo = inject(SeoService);
   errorMessage = '';
 
   ngOnInit(): void {
+    this.seo.setAllSeoTags({
+      title: 'Login | Área Administrativa',
+      description: 'Inicio de sesión para administradores de Fine Line Tattoo.',
+      url: 'https://www.finelinetattoostudio.com/admin/login',
+      indexFollow: false,
+    });
+
     const token = this.authService.getToken();
     if (token) {
       this.router.navigate(['/admin/dashboard']);
