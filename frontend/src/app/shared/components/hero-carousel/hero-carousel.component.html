@@ -24,7 +24,8 @@
           'opacity-0 z-0': i !== currentIndex
         }">
         <div class="relative w-full h-full">
-          <img [src]="image" alt="carousel image" class="w-full h-full object-cover" />
+          <img [ngSrc]="image" width="537" height="600" sizes="(min-width: 768px) 50vw, 100vw" [priority]="i === 0"
+            alt="carousel image {{i+1}}" class="w-full h-full object-cover">
           <div class="absolute inset-0 pointer-events-none z-20">
             <div class="absolute top-0 left-0 h-full w-12 bg-gradient-to-r from-beige to-transparent"></div>
             <div class="absolute top-0 right-0 h-full w-12 bg-gradient-to-l from-beige to-transparent"></div>

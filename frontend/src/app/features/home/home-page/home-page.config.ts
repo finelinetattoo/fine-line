@@ -10,9 +10,9 @@ export const homePageData = {
 
   heroCarousel: {
     images: [
-      'assets/images/carousel/carousel1.jpeg',
-      'assets/images/carousel/carousel2.jpeg',
-      'assets/images/carousel/carousel3.jpeg',
+      'assets/images/carousel/carousel1.webp',
+      'assets/images/carousel/carousel2.webp',
+      'assets/images/carousel/carousel3.webp',
     ],
     title: 'FINE LINE Tattoo',
     subtitle: 'Un estudio diferente',
