@@ -1,8 +1,4 @@
-import {
-  CommonModule,
-  isPlatformBrowser,
-  NgOptimizedImage,
-} from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import {
   Component,
   OnInit,
@@ -17,7 +13,7 @@ import { ButtonComponent } from '../../../shared/components/button/button.compon
   selector: 'app-hero-carousel',
   templateUrl: './hero-carousel.component.html',
   styleUrl: './hero-carousel.component.scss',
-  imports: [CommonModule, ButtonComponent, NgOptimizedImage],
+  imports: [CommonModule, ButtonComponent],
 })
 export class HeroCarouselComponent implements OnInit, OnDestroy {
   @Input() images: string[] = [];

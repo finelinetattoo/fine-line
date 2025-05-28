@@ -9,11 +9,7 @@ export const homePageData = {
   },
 
   heroCarousel: {
-    images: [
-      'assets/images/carousel/carousel1.webp',
-      'assets/images/carousel/carousel2.webp',
-      'assets/images/carousel/carousel3.webp',
-    ],
+    images: ['tattoo-artist', 'fineline-salon', 'hall-fineline'],
     title: 'FINE LINE Tattoo',
     subtitle: 'Un estudio diferente',
     paragraph1:

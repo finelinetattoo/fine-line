@@ -8,8 +8,24 @@ import { Component, Input } from '@angular/core';
   styleUrl: './logo.component.scss',
 })
 export class LogoComponent {
-  @Input() size: 'small' | 'medium' | 'large' | 'extralarge' = 'medium';
+  private sizeValue: 'small' | 'medium' | 'large' | 'extralarge' = 'medium';
+
+  @Input()
+  set size(value: 'small' | 'medium' | 'large' | 'extralarge') {
+    this.sizeValue = value;
+    const map = {
+      small: 'logo-fine-line-small.webp',
+      medium: 'logo-fine-line-medium.webp',
+      large: 'logo-fine-line-large.webp',
+      extralarge: 'logo-fine-line-extralarge.webp',
+    };
+    this.urlIconWeb = `assets/images/logo/${map[value] ?? map.medium}`;
+  }
+  get size() {
+    return this.sizeValue;
+  }
+
   @Input({ required: false }) imgClass = '';
 
-  readonly urlIconWeb = 'assets/images/logo/logo-fine-line.webp';
+  public urlIconWeb = 'assets/images/logo/logo-fine-line-medium.webp';
 }
