@@ -34,10 +34,6 @@
               alt="carousel image {{ i + 1 }}" class="w-full h-full object-cover lg:object-contain fade-mask"
               [attr.loading]="i === 0 ? 'eager' : 'lazy'" [attr.fetchpriority]="i === 0 ? 'high' : 'auto'">
           </picture>
-
-          <!-- <img [ngSrc]="'assets/images/carousel/'+ image+ '.webp'" width="537" height="600"
-            sizes="(min-width: 768px) 50vw, 100vw" [priority]="i === 0" alt="carousel image {{i+1}}"
-            class="w-full h-full object-cover lg:object-contain fade-mask"> -->
         </div>
       </div>
       }

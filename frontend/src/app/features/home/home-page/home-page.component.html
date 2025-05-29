@@ -22,8 +22,8 @@
   <h2 class="text-5xl mb-12 text-center">{{homeData.hoverCards.mainTitle}}</h2>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-15 md:gap-30 max-w-6xl mx-auto">
     @for(card of homeData.hoverCards.cards; track $index){
-    <div class="flex flex-col items-center px-10 xl:px-0">
-      <img [src]="card.decoration" alt="Decoración título">
+    <div class="flex flex-col items-center px-6 xl:px-0">
+      <img [src]="card.decoration" [alt]="card.title" width="64" height="64">
       <h3 class="card-title !mb-10">
         {{ card.title }}
       </h3>
@@ -36,12 +36,12 @@
     }
   </div>
 </section>
-<section class="pb-20 bg-smoke overflow-x-hidden px-10 md:px-0">
+<section class="pb-20 bg-smoke overflow-x-hidden px-6 md:px-0">
   <h2 class="text-5xl mb-12 text-center">{{homeData.soonSectionCards.mainTitle}}</h2>
   <div class=" max-w-6xl mx-auto">
     @for(card of homeData.soonSectionCards.cards; track $index){
     <div class="flex flex-col items-center">
-      <img [src]="card.decoration" alt="Decoración título">
+      <img [src]="card.decoration" [alt]="card.title" width="64" height="64">
       <h3 class="card-title !mb-10">
         {{ card.title }}
       </h3>

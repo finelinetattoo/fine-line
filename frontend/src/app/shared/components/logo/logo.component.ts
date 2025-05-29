@@ -8,6 +8,8 @@ import { Component, Input } from '@angular/core';
   styleUrl: './logo.component.scss',
 })
 export class LogoComponent {
+  @Input() width: number = 64;
+  @Input() height: number = 64;
   private sizeValue: 'small' | 'medium' | 'large' | 'extralarge' = 'medium';
 
   @Input()
