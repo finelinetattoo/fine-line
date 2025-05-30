@@ -9,11 +9,7 @@ export const homePageData = {
   },
 
   heroCarousel: {
-    images: [
-      'assets/images/carousel/carousel1.jpeg',
-      'assets/images/carousel/carousel2.jpeg',
-      'assets/images/carousel/carousel3.jpeg',
-    ],
+    images: ['tattoo-artist', 'fineline-salon', 'hall-fineline'],
     title: 'FINE LINE Tattoo',
     subtitle: 'Un estudio diferente',
     paragraph1:
@@ -28,11 +24,11 @@ export const homePageData = {
     cards: [
       {
         title: 'Tatuajes',
-        imageMain: 'assets/images/tattoos/tatuaje-brazo-calavera.jpg',
+        imageMain: 'assets/images/tattoos/tatuaje-brazo-calavera.webp',
         imageOverlay: 'assets/images/tattoos/tatuaje-dibujo.webp',
         ctaLink: '/portafolio',
         ctaLabel: 'Trabajos realizados',
-        decoration: 'assets/icons/tatuaje.png',
+        decoration: 'assets/icons/tatuaje.webp',
       },
       {
         title: 'Kit post-tatuaje',
@@ -40,7 +36,7 @@ export const homePageData = {
         imageOverlay: 'assets/images/kit-tattoo/kit-post-tatuaje-overlay.webp',
         ctaLink: '/recomendaciones',
         ctaLabel: 'Ver recomendaciones',
-        decoration: 'assets/icons/band-aid.png',
+        decoration: 'assets/icons/band-aid.webp',
       },
     ],
   },
@@ -50,12 +46,12 @@ export const homePageData = {
     cards: [
       {
         title: 'Micropigmentación',
-        imageMain: 'assets/images/micropigmentation/micropigmentacion.png',
+        imageMain: 'assets/images/micropigmentation/micropigmentacion.webp',
         imageOverlay:
           'assets/images/micropigmentation/micropigmentacion-labios.webp',
         ctaLink: '',
         ctaLabel: '',
-        decoration: 'assets/icons/lapiz-de-cejas.png',
+        decoration: 'assets/icons/lapiz-de-cejas.webp',
       },
     ],
   },

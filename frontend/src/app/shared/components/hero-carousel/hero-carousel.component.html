@@ -3,7 +3,7 @@
     <div
       class="w-full md:w-1/2 flex flex-col justify-center px-6 xl:mr-20 z-10 text-black order-2 md:order-1 mt-6 md:mt-0">
 
-      <div class="text-center md:text-start backdrop-blur-sm bg-white/30 px-5 xl:px-10 py-10 rounded">
+      <div class="text-center md:text-start bg-white/30 px-5 xl:px-10 py-10 rounded">
         <h1 class="text-5xl text-balance">{{title}}</h1>
         <h2 class="text-4xl mb-4 text-balance">{{ subtitle }}</h2>
         <p class="!mb-1 max-w-lg text-xl text-balance">
@@ -24,13 +24,16 @@
           'opacity-0 z-0': i !== currentIndex
         }">
         <div class="relative w-full h-full">
-          <img [src]="image" alt="carousel image" class="w-full h-full object-cover" />
-          <div class="absolute inset-0 pointer-events-none z-20">
-            <div class="absolute top-0 left-0 h-full w-12 bg-gradient-to-r from-beige to-transparent"></div>
-            <div class="absolute top-0 right-0 h-full w-12 bg-gradient-to-l from-beige to-transparent"></div>
-            <div class="absolute top-0 left-0 w-full h-12 bg-gradient-to-b from-beige to-transparent"></div>
-            <div class="absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-beige to-transparent"></div>
-          </div>
+          <picture>
+            <source [attr.srcset]="'/assets/images/carousel/' + image + '-mobile.webp'" media="(max-width: 500px)">
+            <source [attr.srcset]="'/assets/images/carousel/' + image + '-tablet-small.webp'"
+              media="(max-width: 768px)">
+            <source [attr.srcset]="'/assets/images/carousel/' + image + '-tablet.webp'" media="(max-width: 1024px)">
+            <source [attr.srcset]="'/assets/images/carousel/' + image + '.webp'" media="(min-width: 1025px)">
+            <img [attr.src]="'/assets/images/carousel/' + image + '.webp'" width="537" height="600"
+              alt="carousel image {{ i + 1 }}" class="w-full h-full object-cover lg:object-contain fade-mask"
+              [attr.loading]="i === 0 ? 'eager' : 'lazy'" [attr.fetchpriority]="i === 0 ? 'high' : 'auto'">
+          </picture>
         </div>
       </div>
       }
