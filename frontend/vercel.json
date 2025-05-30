@@ -3,7 +3,7 @@
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "dist/fine-line-tattoo/server/server.mjs"
+      "dest": "dist/fine-line-tattoo/server/main.js"
     }
   ]
 }
