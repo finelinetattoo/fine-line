@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:fine-line-tattoo": "node dist/fine-line-tattoo/server/server.mjs"
+    "serve:ssr:fine-line-tattoo": "node dist/fine-line-tattoo/server/server.mjs",
+    "vercel-build": "ng build && ng run fine-line-tattoo:server"
   },
   "private": true,
   "dependencies": {
