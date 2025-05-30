@@ -34,12 +34,12 @@ export class MainFooterComponent {
       {
         name: 'Facebook',
         url: 'https://www.facebook.com/profile.php?id=100072263010956#',
-        icon: 'assets/icons/facebook-section.png',
+        icon: 'assets/icons/facebook-section.webp',
       },
       {
         name: 'Instagram',
         url: 'https://www.instagram.com/lizett.azar.tattoo/',
-        icon: 'assets/icons/instagram-section.png',
+        icon: 'assets/icons/instagram-section.webp',
       },
     ],
     buttonLabel: 'Contáctanos',

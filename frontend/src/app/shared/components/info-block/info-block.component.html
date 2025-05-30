@@ -7,8 +7,8 @@
       }">
 
     <ng-container>
-      <img [src]="imageSrc" [alt]="imageAlt" class="shadow-md object-cover" [ngClass]="{
-          'max-w-[300px] md:max-w-[350px] xl:max-w-[400px] order-2 md:order-none': imagePosition !== 'down',
+      <img [src]="imageSrc" [alt]="imageAlt" class="shadow-md object-cover" width="400" height="400" [ngClass]="{
+          'max-w-[400px] order-2 md:order-none': imagePosition !== 'down',
           'max-w-[400px] md:max-w-[450px] xl:max-w-[500px] order-2': imagePosition === 'down',
           'rounded-full': imageStyle === 'rounded',
           'rounded-xl': imageStyle === 'square'
