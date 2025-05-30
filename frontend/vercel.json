@@ -1,0 +1,15 @@
+{
+  "version": 3,
+  "builds": [
+    {
+      "src": "dist/fine-line-tattoo/server/server.mjs",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "dist/fine-line-tattoo/server/server.mjs"
+    }
+  ]
+}
