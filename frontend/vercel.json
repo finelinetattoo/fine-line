@@ -1,9 +1,9 @@
 {
   "version": 2,
-  "routes": [
+  "rewrites": [
     {
-      "src": "/(.*)",
-      "dest": "dist/fine-line-tattoo/server/main.js"
+      "source": "/(.*)",
+      "destination": "/dist/fine-line-tattoo/server/server.mjs"
     }
   ]
 }
