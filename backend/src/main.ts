@@ -9,7 +9,8 @@ async function bootstrap() {
   const allowedOrigins = [
     'http://localhost:4200',
     'http://localhost:4000',
-    'https://fine-line-tattoo.com',
+    'https://finelinetattoostudio.com',
+    'https://fine-line-sigma.vercel.app',
   ];
   if (process.env.FRONTEND_URL) {
     allowedOrigins.push(process.env.FRONTEND_URL);
