@@ -2,7 +2,7 @@
   "version": 2,
   "routes": [
     {
-      "src": "/(.*\\.(?:js|mjs|css|ico|png|jpg|jpeg|webp|svg|woff2?|ttf|map|json))$",
+      "src": "/(.*\\.(?:js|mjs|css|ico|png|jpg|jpeg|webp|svg|woff2?|ttf|map|json|html))$",
       "headers": {
         "Cache-Control": "public, max-age=31536000, immutable"
       },
