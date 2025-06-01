@@ -2,10 +2,6 @@
   "version": 2,
   "rewrites": [
     {
-      "source": "/(.*\\.(?:js|mjs|css|ico|png|jpg|jpeg|webp|svg|woff2?|ttf|map|json|html))",
-      "destination": "/dist/fine-line-tattoo/browser/$1"
-    },
-    {
       "source": "/(.*)",
       "destination": "/dist/fine-line-tattoo/server/server.mjs"
     }
