@@ -1,24 +1,21 @@
 {
   "version": 2,
-  "routes": [
+  "rewrites": [
     {
-      "src": "/(.*\\.(?:js|mjs|css|ico|png|jpg|jpeg|webp|svg|woff2?|ttf|map|json|html))$",
-      "headers": {
-        "Cache-Control": "public, max-age=31536000, immutable"
-      },
-      "dest": "/dist/fine-line-tattoo/browser/$1"
+      "source": "/(.*\\.(?:js|mjs|css|ico|png|jpg|jpeg|webp|svg|woff2?|ttf|map|json|html))",
+      "destination": "/dist/fine-line-tattoo/browser/$1"
     },
     {
-      "src": "/assets/(.*)",
-      "dest": "/dist/fine-line-tattoo/browser/assets/$1"
+      "source": "/assets/(.*)",
+      "destination": "/dist/fine-line-tattoo/browser/assets/$1"
     },
     {
-      "src": "/favicon.ico",
-      "dest": "/dist/fine-line-tattoo/browser/favicon.ico"
+      "source": "/favicon.ico",
+      "destination": "/dist/fine-line-tattoo/browser/favicon.ico"
     },
     {
-      "src": "/(.*)",
-      "dest": "/dist/fine-line-tattoo/server/server.mjs"
+      "source": "/(.*)",
+      "destination": "/dist/fine-line-tattoo/server/server.mjs"
     }
   ]
 }
