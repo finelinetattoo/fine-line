@@ -41,8 +41,6 @@ app.use(
  * Handle all other requests by rendering the Angular application.
  */
 app.use('/**', async (req, res, next) => {
-  console.log('➡️ SSR request:', req.url);
-
   try {
     const response = await angularApp.handle(req);
 
