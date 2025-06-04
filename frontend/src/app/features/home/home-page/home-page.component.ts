@@ -31,9 +31,9 @@ export class HomePageComponent implements OnInit {
 
   ngOnInit(): void {
     this.seo.setAllSeoTags({
-      title: 'Estudio de Tatuajes en Badajoz - Fine Line Tattoo',
+      title: 'Estudio de Tatuajes Profesional en Badajoz | Fine Line Tattoo',
       description:
-        'Conoce nuestro estudio profesional en Badajoz. Tatuajes minimalistas y personalizados y micropigmentación.',
+        'Estudio de tatuajes en Badajoz especializado en fineline, diseños minimalistas y micropigmentación. Tattoo profesional con detalle.',
       url: 'https://www.finelinetattoostudio.com',
       image:
         'https://www.finelinetattoostudio.com/assets/images/fine-line-social.jpg',
