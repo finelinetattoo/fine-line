@@ -24,8 +24,8 @@ export const ContactPageData = {
     {
       iconLink: 'assets/icons/address.webp',
       title: 'Dirección:',
-      subtitle: 'C. Vasco Núñez 2 Tramo',
-      textLink: 'https://g.co/kgs/9M3r72D',
+      subtitle: 'Calle montecorto 2 Badajoz, Los Santos de Maimona',
+      textLink: 'https://maps.app.goo.gl/XVkBcER8389CgkKj8',
     },
     {
       iconLink: 'assets/icons/phone.webp',
@@ -42,8 +42,8 @@ export const ContactPageData = {
     {
       iconLink: 'assets/icons/email.webp',
       title: 'Email:',
-      subtitle: 'line-tattoo@linetattoo.com',
-      textLink: 'mailto:line-tattoo@linetattoo.com',
+      subtitle: 'tattoostudiofineline@gmail.com',
+      textLink: 'mailto:tattoostudiofineline@gmail.com',
     },
   ],
   openingHours: [

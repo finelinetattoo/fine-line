@@ -14,11 +14,11 @@ export class MainFooterComponent {
   footerData = {
     contact: {
       title: 'Contacto',
-      address: 'Calle Ejemplo 123, Badajoz',
-      email: 'hola@finelinetattoo.es',
+      address: 'Calle montecorto 2 Badajoz, Los Santos de Maimona',
+      email: 'tattoostudiofineline@gmail.com',
       phone: '+34674055837',
       contactLink: '/contacto',
-      addressUrl: 'https://g.co/kgs/ELUrDYQ',
+      addressUrl: 'https://maps.app.goo.gl/XVkBcER8389CgkKj8',
     },
     nav: {
       title: 'Fine Line',
@@ -38,7 +38,7 @@ export class MainFooterComponent {
       },
       {
         name: 'Instagram',
-        url: 'https://www.instagram.com/lizett.azar.tattoo/',
+        url: 'https://www.instagram.com/fineline__studiotattoo/',
         icon: 'assets/icons/instagram-section.webp',
       },
     ],
