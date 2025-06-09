@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { LogoComponent } from '../../../shared/components/logo/logo.component';
 import { MainNavigationComponent } from '../main-navigation/main-navigation.component';
@@ -19,6 +19,8 @@ import { MainFooterComponent } from '../main-footer/main-footer.component';
 })
 export class MainLayoutComponent {
   isMenuOpen = false;
+  isHeaderVisible = true;
+  private lastScrollTop = 0;
 
   links = [
     { label: 'Home', path: '/' },
@@ -41,5 +43,17 @@ export class MainLayoutComponent {
 
   closeMenu() {
     this.isMenuOpen = false;
+  }
+
+  @HostListener('window:scroll', [])
+  onScroll(): void {
+    const currentScroll =
+      window.pageYOffset || document.documentElement.scrollTop;
+    if (currentScroll > this.lastScrollTop && currentScroll > 80) {
+      this.isHeaderVisible = false;
+    } else {
+      this.isHeaderVisible = true;
+    }
+    this.lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
   }
 }
