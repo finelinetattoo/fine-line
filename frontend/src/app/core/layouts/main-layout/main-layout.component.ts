@@ -50,9 +50,9 @@ export class MainLayoutComponent {
     const currentScroll =
       window.pageYOffset || document.documentElement.scrollTop;
     if (currentScroll > this.lastScrollTop && currentScroll > 80) {
-      this.isHeaderVisible = false; // scroll down → hide
+      this.isHeaderVisible = false;
     } else {
-      this.isHeaderVisible = true; // scroll up → show
+      this.isHeaderVisible = true;
     }
     this.lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
   }
