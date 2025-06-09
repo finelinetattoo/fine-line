@@ -7,14 +7,14 @@
       {{ link.label }}
     </a>
     } @else {
-    <a [routerLink]="link.path" class="text-lg hidden md:block hover:opacity-75 transition tracking-wider">
+    <a [routerLink]="link.path" class="text-lg !text-beige hidden md:block hover:opacity-75 transition ">
       {{ link.label }}
     </a>
     }
     } @else {
     <div class="relative hidden md:block" (clickOutside)="closeDropdown()" tabindex="0">
       <button (click)="toggleDropdown(link.label)"
-        class="!text-lg hover:opacity-75 transition inline-flex items-center gap-1 cursor-pointer tracking-wider">
+        class="!text-lg hover:opacity-75 transition inline-flex items-center gap-1 cursor-pointer !text-beige">
         {{ link.label }}
         <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
           <path fill-rule="evenodd"
@@ -25,10 +25,10 @@
 
       @if (dropdownOpen === link.label) {
       <div
-        class="absolute top-full mt-3 z-50 left-1/2 -translate-x-1/2 min-w-[200px] bg-white/5 transition duration-200">
+        class="absolute top-full mt-6 z-50 left-1/2 -translate-x-1/2 min-w-[200px] bg-white/5 transition duration-200">
         <ul class="min-w-[180px] !mb-0">
           @for(child of link.children; track child.path){
-          <li class="border-b border-beige first:border-t first:border-beige hover:opacity-75 transition">
+          <li class="border-b border-beige bg-black first:border-t first:border-beige hover:opacity-75 transition">
             <a [routerLink]="child.path" (click)="closeDropdown()" class="block px-4 py-3 text-md text-center">
               {{ child.label }}
             </a>

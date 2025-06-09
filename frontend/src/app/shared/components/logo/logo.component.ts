@@ -10,6 +10,7 @@ import { Component, Input } from '@angular/core';
 export class LogoComponent {
   @Input() width: number = 64;
   @Input() height: number = 64;
+  @Input() invert: boolean = false;
   private sizeValue: 'small' | 'medium' | 'large' | 'extralarge' = 'medium';
 
   @Input()
