@@ -1,8 +1,9 @@
 import { Component, Input } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { ClickOutsideDirective } from '../../../shared/directives/click-outside.directive';
 @Component({
   selector: 'app-main-navigation',
-  imports: [RouterModule],
+  imports: [RouterModule, ClickOutsideDirective],
   templateUrl: './main-navigation.component.html',
   styleUrl: './main-navigation.component.scss',
 })
