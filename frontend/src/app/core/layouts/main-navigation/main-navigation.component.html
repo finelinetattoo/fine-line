@@ -12,7 +12,7 @@
     </a>
     }
     } @else {
-    <div class="relative hidden md:block" (clickOutside)="closeDropdown()" tabindex="0">
+    <div class="relative hidden md:block" (clickOutside)="closeDropdown()">
       <button (click)="toggleDropdown(link.label)"
         class="!text-lg hover:opacity-75 transition inline-flex items-center gap-1 cursor-pointer !text-beige">
         {{ link.label }}
