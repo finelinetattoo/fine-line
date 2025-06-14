@@ -1,8 +1,9 @@
 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-  @for (item of items; track item.title) {
-  <div>
+  @for (item of items; track item.title; let i = $index) {
+  <button type="button" (click)="openLightbox(i)" (keydown.enter)="openLightbox(i)" (keydown.space)="openLightbox(i)"
+    class="cursor-pointer outline-none bg-transparent border-none p-0 text-left w-full">
     <div class="relative border border-black">
-      <img [src]="item.image" alt="Card image" class="w-full h-auto object-cover" />
+      <img [src]="item.image" alt="Card" class="w-full h-auto object-cover">
       @if (item.title) {
       <h3 class="absolute bottom-1 left-3 !text-white text-xl font-semibold">
         {{ item.title }}
@@ -12,6 +13,7 @@
     @if (item.subtitle) {
     <p class="text-lg !mt-1 ml-3">{{ item.subtitle }}</p>
     }
-  </div>
+  </button>
   }
 </div>
+<app-image-lightbox #lightbox [images]="imageUrls"></app-image-lightbox>
