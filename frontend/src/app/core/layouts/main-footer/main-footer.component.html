@@ -1,6 +1,6 @@
 <footer class="bg-beige text-white py-16 px-6">
   <div class="max-w-screen-xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
-    <div class="md:space-y-10 text-center lg:text-left">
+    <div class="md:space-y-5 text-center lg:text-left">
       <div class="flex justify-center lg:justify-start">
         <app-logo size="extralarge" [width]="100" [height]="60"></app-logo>
       </div>
@@ -14,20 +14,20 @@
       </div>
     </div>
     <div class="space-y-2 text-center lg:text-left">
-      <h3 class="!font-bold text-2xl !mb-4">Fine Line</h3>
-      <a routerLink="/estudio" class="block !text-black text-lg !mb-2 hover:text-primary transition">Nuestro Estudio</a>
-      <a routerLink="/reserva-cita" class="block !text-black text-lg !mb-2 hover:text-primary transition">Reserva tu
-        cita</a>
-      <a routerLink="/recomendaciones"
-        class="block !text-black text-lg !mb-2 hover:text-primary transition">Recomendaciones</a>
+      <h3 class="!font-bold text-2xl !mb-4">{{ footerData.nav.title }}</h3>
+      @for(link of footerData.nav.links; track link.label) {
+      <a [routerLink]="link.path" class="block !text-black text-lg !mb-2 hover:text-primary transition">
+        {{ link.label }}
+      </a>
+      }
     </div>
     <div class="space-y-2 text-center lg:text-left">
-      <h3 class="!font-bold text-2xl !mb-4">Portafolio</h3>
-      <a routerLink="/trabajos-realizados"
-        class="block !text-black text-lg !mb-2 hover:text-primary transition">Trabajos
-        realizados</a>
-      <a routerLink="/disenos" class="block !text-black text-lg !mb-2 hover:text-primary transition">Diseños
-        disponibles</a>
+      <h3 class="!font-bold text-2xl !mb-4">{{ footerData.portfolio.title }}</h3>
+      @for(link of footerData.portfolio.links; track link.label) {
+      <a [routerLink]="link.path" class="block !text-black text-lg !mb-2 hover:text-primary transition">
+        {{ link.label }}
+      </a>
+      }
       <div class="flex hidden sm:flex md:hidden justify-center lg:justify-start gap-5 mt-5">
         @for(social of footerData.social; track $index){
         <a [href]="social.url" target="_blank" [attr.aria-label]="social.name" class="hover:opacity-80 transition">
@@ -38,21 +38,28 @@
     </div>
     <div class="space-y-2 text-center lg:text-left">
       <h3 class="!font-bold text-2xl !mb-4">{{ footerData.contact.title }}</h3>
-
-      <a class="!text-black text-lg block underline !mb-2 hover:opacity-80 transition"
-        [href]="footerData.contact.addressUrl" target="_blank" rel="noopener noreferrer">
-        {{ footerData.contact.address }}
-      </a>
-
-      <a class="!text-black text-lg block underline !mb-2 hover:opacity-80 transition"
-        [href]="'mailto:' + footerData.contact.email">
-        {{ footerData.contact.email }}
-      </a>
-
-      <a class="!text-black text-lg block underline !mb-2 hover:opacity-80 transition" [href]="'tel:' + sanitizedPhone">
-        {{ footerData.contact.phone }}
-      </a>
-
+      <div class="flex items-center gap-2 justify-center lg:justify-start">
+        <img src="assets/icons/address.webp" alt="dirección" class="size-icons">
+        <a class="!text-black text-lg underline hover:opacity-80 transition lg:text-xs xl:text-base"
+          [href]="footerData.contact.addressUrl" target="_blank" rel="noopener noreferrer">
+          {{ footerData.contact.address }},<br>
+          {{ footerData.contact.city }}
+        </a>
+      </div>
+      <div class="flex items-center gap-2 justify-center lg:justify-start">
+        <img src="assets/icons/email.webp" alt="email" class="size-icons">
+        <a class="!text-black text-lg underline hover:opacity-80 transition lg:text-xs xl:text-base"
+          [href]="'mailto:' + footerData.contact.email" target="_blank">
+          {{ footerData.contact.email }}
+        </a>
+      </div>
+      <div class="flex items-center gap-2 pb-4 justify-center lg:justify-start">
+        <img src="assets/icons/whatsapp.webp" alt="whatsapp" class="size-icons">
+        <a class="!text-black text-lg underline hover:opacity-80 transition"
+          [href]="'https://wa.me/' + footerData.contact.phone" target="_blank">
+          {{ footerData.contact.phone }}
+        </a>
+      </div>
       <app-button [label]="footerData.buttonLabel" [link]="footerData.buttonLink"></app-button>
     </div>
 
