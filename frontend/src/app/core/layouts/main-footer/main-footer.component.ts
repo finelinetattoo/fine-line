@@ -14,7 +14,8 @@ export class MainFooterComponent {
   footerData = {
     contact: {
       title: 'Contacto',
-      address: 'Calle montecorto 2 Badajoz, Los Santos de Maimona',
+      address: 'Calle montecorto 2 Badajoz',
+      city: 'Los Santos de Maimona',
       email: 'tattoostudiofineline@gmail.com',
       phone: '+34674055837',
       contactLink: '/contacto',
@@ -24,10 +25,15 @@ export class MainFooterComponent {
       title: 'Fine Line',
       links: [
         { label: 'Nuestro Estudio', path: '/estudio' },
-        { label: 'Reserva tu cita', path: '/reserva-cita' },
+        { label: 'Contacto', path: '/contacto' },
+        { label: 'Recomendaciones', path: '/recomendaciones' },
+      ],
+    },
+    portfolio: {
+      title: 'Portafolio',
+      links: [
         { label: 'Trabajos realizados', path: '/portafolio' },
         { label: 'Diseños disponibles', path: '/disponibles' },
-        { label: 'Recomendaciones', path: '/recomendaciones' },
       ],
     },
     social: [
