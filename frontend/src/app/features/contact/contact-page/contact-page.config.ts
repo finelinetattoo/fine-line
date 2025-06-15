@@ -23,13 +23,13 @@ export const ContactPageData = {
   iconsSection: [
     {
       iconLink: 'assets/icons/address.webp',
-      title: 'Dirección:',
+      title: 'Dirección',
       subtitle: 'Calle montecorto 2 Badajoz, Los Santos de Maimona',
       textLink: 'https://maps.app.goo.gl/XVkBcER8389CgkKj8',
     },
     {
       iconLink: 'assets/icons/phone.webp',
-      title: 'Teléfono:',
+      title: 'Teléfono',
       subtitle: '+34 674 05 58 37',
       textLink: 'tel:+34674055837',
     },
@@ -41,7 +41,7 @@ export const ContactPageData = {
     },
     {
       iconLink: 'assets/icons/email.webp',
-      title: 'Email:',
+      title: 'Email',
       subtitle: 'tattoostudiofineline@gmail.com',
       textLink: 'mailto:tattoostudiofineline@gmail.com',
     },
