@@ -6,11 +6,11 @@ import { Meta, Title } from '@angular/platform-browser';
   providedIn: 'root',
 })
 export class SeoService {
-  private document = inject(DOCUMENT);
-  private platformId = inject(PLATFORM_ID);
-  private isBrowser = isPlatformBrowser(this.platformId);
-  private titleService = inject(Title);
-  private metaService = inject(Meta);
+  private readonly document = inject(DOCUMENT);
+  private readonly platformId = inject(PLATFORM_ID);
+  private readonly isBrowser = isPlatformBrowser(this.platformId);
+  private readonly titleService = inject(Title);
+  private readonly metaService = inject(Meta);
 
   setTitle(title: string): void {
     this.titleService.setTitle(title);

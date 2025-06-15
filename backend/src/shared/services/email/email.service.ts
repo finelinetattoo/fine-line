@@ -26,6 +26,9 @@ export class EmailService {
             Name: 'Fine Line Tattoo',
           },
           To: [{ Email: toEmail }],
+          ReplyTo: {
+            Email: toEmail,
+          },
           Subject: subject,
           HTMLPart: htmlContent,
         },

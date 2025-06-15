@@ -28,7 +28,7 @@ export class ContactMessageService {
   `;
 
     await this.emailService.sendAppointmentNotification(
-      'vrviktor@gmail.com',
+      'tattoostudiofineline@gmail.com',
       `Nuevo mensaje de contacto de ${saved.name}`,
       htmlContent,
     );
