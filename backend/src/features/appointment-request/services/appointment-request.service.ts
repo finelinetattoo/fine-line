@@ -50,7 +50,7 @@ export class AppointmentRequestService {
     `;
 
     await this.emailService.sendAppointmentNotification(
-      'vrviktor@gmail.com',
+      'tattoostudiofineline@gmail.com',
       `Nueva solicitud de cita de ${saved.name} ${saved.surname}`,
       htmlContent,
     );
